@@ -20,19 +20,19 @@
 		<meta name="theme-color" content="#000000" />
 		<link
 			rel="apple-touch-icon"
-			href="https://i.postimg.cc/jSvXWqdN/3223CA2E-77DF-4379-BFBC-649A512E3DFB.png"
+			href="https://i.postimg.cc/wM3sFd93/IMG-0613.jpg"
 		/>
 		<link
 			rel="icon"
-			type="image/png"
-			href="https://i.postimg.cc/jSvXWqdN/3223CA2E-77DF-4379-BFBC-649A512E3DFB.png"
+			type="image/jpeg"
+			href="https://i.postimg.cc/wM3sFd93/IMG-0613.jpg"
 		/>
 		<script>
 			// manifest 延迟注入，避免巨大 data URI 阻塞首屏解析
 			window.addEventListener('load', function () {
 				var l = document.createElement('link');
 				l.rel = 'manifest';
-				l.href = 'data:application/manifest+json,%7B%22name%22%3A%22Moon%E5%B0%8F%E6%89%8B%E6%9C%BA%22%2C%22short_name%22%3A%22Moon%E5%B0%8F%E6%89%8B%E6%9C%BA%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22fullscreen%22%2C%22background_color%22%3A%22%23000000%22%2C%22theme_color%22%3A%22%23000000%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22https%3A%2F%2Fi.postimg.cc%2FjSvXWqdN%2F3223CA2E-77DF-4379-BFBC-649A512E3DFB.png%22%2C%22sizes%22%3A%22192x192%20512x512%22%2C%22type%22%3A%22image%2Fpng%22%7D%5D%7D';
+				l.href = 'data:application/manifest+json,%7B%22name%22%3A%22Moon%E5%B0%8F%E6%89%8B%E6%9C%BA%22%2C%22short_name%22%3A%22Moon%E5%B0%8F%E6%89%8B%E6%9C%BA%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22fullscreen%22%2C%22background_color%22%3A%22%23000000%22%2C%22theme_color%22%3A%22%23000000%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22https%3A%2F%2Fi.postimg.cc%2FwM3sFd93%2FIMG-0613.jpg%22%2C%22sizes%22%3A%22192x192%20512x512%22%2C%22type%22%3A%22image%2Fjpeg%22%7D%5D%7D';
 				document.head.appendChild(l);
 			});
 		</script>
@@ -64,10 +64,14 @@
 			    box-sizing: border-box;
 			}
 
-			html {
+			html, body {
 			    width: 100%;
 			    height: 100%;
-			    height: 100dvh;
+			    position: fixed;
+			    top: 0;
+			    left: 0;
+			    right: 0;
+			    bottom: 0;
 			    overflow: hidden;
 			    background: #000000;
 			    padding: 0;
@@ -75,11 +79,6 @@
 			}
 
 			body {
-			    width: 100%;
-			    height: 100%;
-			    height: 100dvh;
-			    overflow: hidden;
-			    background: #000000;
 			    font-family: "Noto Sans SC", "Source Han Sans SC", "Chiron Hei HK VF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 			    -webkit-text-size-adjust: none;
 			    text-size-adjust: none;
@@ -87,15 +86,16 @@
 			    -webkit-user-select: none;
 			    user-select: none;
 			    -webkit-tap-highlight-color: transparent;
-			    padding: 0;
-			    margin: 0;
 			}
 
 			#app {
 			    width: 100% !important;
 			    height: 100% !important;
-			    height: 100dvh !important;
-			    position: relative;
+			    position: absolute !important;
+			    top: 0 !important;
+			    left: 0 !important;
+			    right: 0 !important;
+			    bottom: 0 !important;
 			    overflow: hidden;
 			    background-color: transparent;
 			}
@@ -127,8 +127,11 @@
 			#app {
 			    width: 100%;
 			    height: 100%;
-			    height: 100dvh;
-			    position: relative;
+			    position: absolute;
+			    top: 0;
+			    left: 0;
+			    right: 0;
+			    bottom: 0;
 			    overflow: hidden;
 			    background-color: transparent;
 			}
@@ -137,10 +140,11 @@
 			.view-container {
 			    width: 100%;
 			    height: 100%;
-			    height: 100dvh;
 			    position: absolute;
 			    top: 0;
 			    left: 0;
+			    right: 0;
+			    bottom: 0;
 			    display: flex;
 			    flex-direction: column;
 			    opacity: 0;
