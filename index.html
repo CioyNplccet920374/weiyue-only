@@ -165,14 +165,1041 @@
 			    display: none !important;
 			}
 
+			/* 纯白背景 */
+			.polka-dot-bg {
+			    position: absolute;
+			    top: 0; left: 0; width: 100%; height: 100%;
+			    background-color: #FFFFFF;
+			    z-index: 0;
+			}
+
+			/* 页面容器居中 */
+			.cam-page {
+			    display: flex !important;
+			    flex-direction: column;
+			    align-items: center;
+			    justify-content: center;
+			    padding: 20px !important;
+			    z-index: 1;
+			}
+
+			/* ===== 外观应用与小组件系统 ===== */
+			.widget-delete-btn {
+			    position: absolute;
+			    top: -8px;
+			    right: -8px;
+			    width: 24px;
+			    height: 24px;
+			    border-radius: 50%;
+			    background: rgba(0, 0, 0, 0.65);
+			    color: #fff;
+			    display: flex;
+			    align-items: center;
+			    justify-content: center;
+			    font-size: 13px;
+			    cursor: pointer;
+			    z-index: 50;
+			    backdrop-filter: blur(4px);
+			    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+			    opacity: 0;
+			    transition: opacity 0.2s, transform 0.2s;
+			}
+			.desktop-item-widget:hover .widget-delete-btn,
+			.desktop-item-widget:active .widget-delete-btn {
+			    opacity: 1;
+			}
+
+			/* ── 图1：复古黑胶音乐播放器 (Vinyl MP3 Card) ── */
+			.w-vinyl-card {
+			    position: relative;
+			    width: 100%;
+			    max-width: 340px;
+			    display: flex;
+			    align-items: center;
+			    justify-content: flex-start;
+			    padding: 10px 0;
+			    cursor: pointer;
+			}
+			.w-vinyl-notes {
+			    position: absolute;
+			    top: -12px;
+			    left: 8px;
+			    font-size: 18px;
+			    color: #111;
+			    letter-spacing: 4px;
+			    display: flex;
+			    align-items: center;
+			    gap: 4px;
+			}
+			.w-vinyl-player {
+			    width: 68%;
+			    background: #18191D;
+			    border-radius: 12px;
+			    padding: 12px 10px 14px;
+			    border: 3px solid #2B2C33;
+			    box-shadow: 0 16px 36px rgba(0,0,0,0.22);
+			    display: flex;
+			    flex-direction: column;
+			    position: relative;
+			    z-index: 3;
+			}
+			.w-vinyl-player-top {
+			    display: flex;
+			    justify-content: space-between;
+			    align-items: center;
+			    color: rgba(255,255,255,0.7);
+			    font-size: 10px;
+			    margin-bottom: 8px;
+			    padding: 0 4px;
+			}
+			.w-vinyl-cover-box {
+			    width: 100%;
+			    aspect-ratio: 1;
+			    background: #FFFFFF;
+			    border-radius: 6px;
+			    overflow: hidden;
+			    display: flex;
+			    align-items: center;
+			    justify-content: center;
+			    cursor: pointer;
+			    border: 1px solid rgba(255,255,255,0.15);
+			}
+			.w-vinyl-cover-box img {
+			    width: 100%;
+			    height: 100%;
+			    object-fit: cover;
+			}
+			.w-vinyl-prog-row {
+			    display: flex;
+			    justify-content: space-between;
+			    align-items: center;
+			    font-size: 9px;
+			    color: rgba(255,255,255,0.45);
+			    margin: 8px 0 3px;
+			    font-variant-numeric: tabular-nums;
+			}
+			.w-vinyl-track {
+			    width: 100%;
+			    height: 3px;
+			    background: rgba(255,255,255,0.15);
+			    border-radius: 2px;
+			    position: relative;
+			    margin-bottom: 8px;
+			}
+			.w-vinyl-fill {
+			    width: 32%;
+			    height: 100%;
+			    background: #FFFFFF;
+			    border-radius: 2px;
+			    position: relative;
+			}
+			.w-vinyl-fill::after {
+			    content: '';
+			    position: absolute;
+			    right: -3px;
+			    top: -2.5px;
+			    width: 8px;
+			    height: 8px;
+			    border-radius: 50%;
+			    background: #FFFFFF;
+			}
+			.w-vinyl-meta {
+			    text-align: center;
+			    display: flex;
+			    flex-direction: column;
+			    gap: 2px;
+			    margin-bottom: 8px;
+			}
+			.w-vinyl-title {
+			    font-size: 12px;
+			    font-weight: 700;
+			    color: #FFFFFF;
+			    white-space: nowrap;
+			    overflow: hidden;
+			    text-overflow: ellipsis;
+			}
+			.w-vinyl-sub {
+			    font-size: 9px;
+			    color: rgba(255,255,255,0.5);
+			    white-space: nowrap;
+			    overflow: hidden;
+			    text-overflow: ellipsis;
+			}
+			.w-vinyl-controls {
+			    display: flex;
+			    align-items: center;
+			    justify-content: space-around;
+			    color: #FFFFFF;
+			    padding: 0 4px;
+			}
+			.w-vinyl-controls iconify-icon {
+			    font-size: 16px;
+			    cursor: pointer;
+			}
+			.w-vinyl-play-btn {
+			    width: 26px;
+			    height: 26px;
+			    border-radius: 50%;
+			    border: 1.5px solid #FFFFFF;
+			    display: flex;
+			    align-items: center;
+			    justify-content: center;
+			    font-size: 14px;
+			}
+			.w-vinyl-disc {
+			    position: absolute;
+			    right: 6px;
+			    top: 50%;
+			    transform: translateY(-50%);
+			    width: 146px;
+			    height: 146px;
+			    border-radius: 50%;
+			    background: radial-gradient(circle, #2A2A2A 15%, #0B0B0B 40%, #1E1E1E 60%, #050505 85%, #000 100%);
+			    box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+			    border: 2px solid #1A1A1A;
+			    display: flex;
+			    align-items: center;
+			    justify-content: center;
+			    z-index: 1;
+			    cursor: pointer;
+			}
+			.w-vinyl-disc::before {
+			    content: '';
+			    position: absolute;
+			    width: 90%;
+			    height: 90%;
+			    border-radius: 50%;
+			    border: 1px dashed rgba(255,255,255,0.06);
+			}
+			.w-vinyl-center-sticker {
+			    width: 48px;
+			    height: 48px;
+			    border-radius: 50%;
+			    background: #FAFAFA;
+			    border: 2px solid #000;
+			    display: flex;
+			    flex-direction: column;
+			    align-items: center;
+			    justify-content: center;
+			    font-size: 6px;
+			    font-weight: 800;
+			    color: #222;
+			    text-align: center;
+			    line-height: 1.1;
+			    padding: 2px;
+			}
+			.w-vinyl-clef {
+			    position: absolute;
+			    right: 18px;
+			    bottom: 2px;
+			    font-size: 40px;
+			    color: #111;
+			    z-index: 4;
+			    pointer-events: none;
+			}
+
+			/* ── 图2：黑胶唱机 + 社交大卡片组合 (Gramophone & Social Card) ── */
+			.w-gramo-social-wrap {
+			    width: 100%;
+			    max-width: 350px;
+			    display: flex;
+			    flex-direction: column;
+			    gap: 14px;
+			    cursor: pointer;
+			}
+			.w-gramo-top-card {
+			    background: #FFFFFF;
+			    border-radius: 20px;
+			    padding: 14px 16px;
+			    display: flex;
+			    align-items: center;
+			    justify-content: space-between;
+			    box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+			    border: 1px solid rgba(0,0,0,0.03);
+			    position: relative;
+			}
+			.w-gramo-cover-square {
+			    width: 66px;
+			    height: 66px;
+			    border-radius: 12px;
+			    background: #FAFAFA;
+			    border: 1px solid #EFEFEF;
+			    overflow: hidden;
+			    display: flex;
+			    align-items: center;
+			    justify-content: center;
+			    cursor: pointer;
+			    flex-shrink: 0;
+			}
+			.w-gramo-cover-square img {
+			    width: 100%; height: 100%; object-fit: cover;
+			}
+			.w-gramo-center-ctrl {
+			    flex: 1;
+			    padding: 0 14px;
+			    display: flex;
+			    flex-direction: column;
+			    align-items: center;
+			    gap: 8px;
+			}
+			.w-gramo-track-line {
+			    width: 100%;
+			    height: 2.5px;
+			    background: #111;
+			    border-radius: 2px;
+			    position: relative;
+			}
+			.w-gramo-track-dot {
+			    position: absolute;
+			    top: 50%;
+			    left: 40%;
+			    transform: translate(-50%, -50%);
+			    width: 8px;
+			    height: 8px;
+			    border-radius: 50%;
+			    background: #111;
+			}
+			.w-gramo-ctrl-btns {
+			    display: flex;
+			    align-items: center;
+			    gap: 10px;
+			    font-size: 13px;
+			    color: #111;
+			}
+			.w-gramo-play-circle {
+			    width: 22px;
+			    height: 22px;
+			    border-radius: 50%;
+			    background: #111;
+			    color: #fff;
+			    display: flex;
+			    align-items: center;
+			    justify-content: center;
+			    font-size: 11px;
+			}
+			.w-gramo-disc-wrap {
+			    width: 72px;
+			    height: 72px;
+			    position: relative;
+			    flex-shrink: 0;
+			    display: flex;
+			    align-items: center;
+			    justify-content: center;
+			}
+			.w-gramo-disc-body {
+			    width: 66px;
+			    height: 66px;
+			    border-radius: 50%;
+			    background: radial-gradient(circle, #fff 15%, #222 20%, #444 45%, #111 80%, #000 100%);
+			    box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+			}
+			.w-gramo-arm {
+			    position: absolute;
+			    top: 2px;
+			    right: 0px;
+			    width: 28px;
+			    height: 38px;
+			    pointer-events: none;
+			}
+			.w-gramo-arm::after {
+			    content: '';
+			    position: absolute;
+			    top: 4px;
+			    right: 4px;
+			    width: 2.5px;
+			    height: 30px;
+			    background: #999;
+			    transform: rotate(25deg);
+			    transform-origin: top right;
+			    border-radius: 1px;
+			}
+			.w-gramo-arm::before {
+			    content: '';
+			    position: absolute;
+			    top: 2px;
+			    right: 2px;
+			    width: 7px;
+			    height: 7px;
+			    border-radius: 50%;
+			    background: #333;
+			}
+
+			.w-social-post-card {
+			    background: #FFFFFF;
+			    border-radius: 24px;
+			    padding: 16px;
+			    display: flex;
+			    flex-direction: column;
+			    gap: 12px;
+			    box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+			    border: 1px solid rgba(0,0,0,0.03);
+			}
+			.w-social-head-row {
+			    display: flex;
+			    align-items: center;
+			    justify-content: space-between;
+			    gap: 10px;
+			}
+			.w-social-ava-black {
+			    width: 38px;
+			    height: 38px;
+			    border-radius: 50%;
+			    background: #111;
+			    overflow: hidden;
+			    display: flex;
+			    align-items: center;
+			    justify-content: center;
+			    color: #fff;
+			    font-weight: 700;
+			    font-size: 14px;
+			    flex-shrink: 0;
+			    cursor: pointer;
+			}
+			.w-social-ava-black img { width: 100%; height: 100%; object-fit: cover; }
+			.w-social-time-sub {
+			    flex: 1;
+			    font-size: 12px;
+			    color: #8E8E93;
+			    letter-spacing: 0.5px;
+			    cursor: pointer;
+			}
+			.w-social-chev {
+			    color: #111;
+			    font-size: 16px;
+			}
+			.w-social-pics-row {
+			    display: grid;
+			    grid-template-columns: 1fr 1fr;
+			    gap: 10px;
+			}
+			.w-social-pic-box {
+			    width: 100%;
+			    aspect-ratio: 1;
+			    border-radius: 16px;
+			    background: #111111;
+			    overflow: hidden;
+			    display: flex;
+			    align-items: center;
+			    justify-content: center;
+			    cursor: pointer;
+			}
+			.w-social-pic-box img {
+			    width: 100%; height: 100%; object-fit: cover;
+			}
+			.w-social-bottom-bar {
+			    display: flex;
+			    align-items: center;
+			    justify-content: space-around;
+			    padding: 6px 0 2px;
+			    font-size: 12px;
+			    font-weight: 600;
+			    color: #111;
+			}
+			.w-social-act-item {
+			    display: flex;
+			    align-items: center;
+			    gap: 6px;
+			    cursor: pointer;
+			}
+			.w-social-act-item iconify-icon {
+			    font-size: 16px;
+			}
+
+			/* ── 图3：天使光环双头像 + 磨砂质感播放卡 (Angel Wings & Frost Player) ── */
+			.w-angel-frost-wrap {
+			    width: 100%;
+			    max-width: 350px;
+			    border-radius: 28px;
+			    background-size: cover;
+			    background-position: center;
+			    padding: 24px 16px 20px;
+			    display: flex;
+			    flex-direction: column;
+			    align-items: center;
+			    gap: 16px;
+			    position: relative;
+			    overflow: hidden;
+			    box-shadow: 0 14px 36px rgba(0,0,0,0.2);
+			    background-color: #242426;
+			}
+			.w-angel-avatars-row {
+			    display: flex;
+			    align-items: center;
+			    justify-content: center;
+			    gap: 32px;
+			    width: 100%;
+			    margin-top: 8px;
+			    position: relative;
+			}
+			.w-angel-avatar-cell {
+			    display: flex;
+			    flex-direction: column;
+			    align-items: center;
+			    position: relative;
+			}
+			.w-angel-halo-tag {
+			    border: 1px dashed rgba(255,255,255,0.6);
+			    border-radius: 999px;
+			    padding: 2px 10px;
+			    font-size: 9px;
+			    color: rgba(255,255,255,0.9);
+			    margin-bottom: 8px;
+			    background: rgba(0,0,0,0.25);
+			    backdrop-filter: blur(4px);
+			    cursor: pointer;
+			}
+			.w-angel-circle-box {
+			    width: 76px;
+			    height: 76px;
+			    border-radius: 50%;
+			    background: #FFFFFF;
+			    overflow: hidden;
+			    border: 2px solid rgba(255,255,255,0.85);
+			    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+			    display: flex;
+			    align-items: center;
+			    justify-content: center;
+			    cursor: pointer;
+			    position: relative;
+			}
+			.w-angel-circle-box img {
+			    width: 100%; height: 100%; object-fit: cover;
+			}
+			.w-angel-wing-left {
+			    position: absolute;
+			    left: -22px;
+			    top: 30px;
+			    font-size: 26px;
+			    color: rgba(255,255,255,0.7);
+			    transform: rotate(-15deg);
+			    pointer-events: none;
+			}
+			.w-angel-wing-right {
+			    position: absolute;
+			    right: -22px;
+			    top: 30px;
+			    font-size: 26px;
+			    color: rgba(255,255,255,0.7);
+			    transform: rotate(15deg) scaleX(-1);
+			    pointer-events: none;
+			}
+			.w-angel-subtitle-text {
+			    font-size: 11px;
+			    color: rgba(255,255,255,0.75);
+			    letter-spacing: 0.8px;
+			    font-style: italic;
+			    cursor: pointer;
+			    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+			}
+
+			.w-frost-player-card {
+			    width: 100%;
+			    background: rgba(255, 255, 255, 0.22);
+			    backdrop-filter: blur(20px) saturate(180%);
+			    -webkit-backdrop-filter: blur(20px) saturate(180%);
+			    border-radius: 20px;
+			    border: 1px solid rgba(255, 255, 255, 0.35);
+			    padding: 14px;
+			    display: flex;
+			    gap: 14px;
+			    align-items: center;
+			    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+			}
+			.w-frost-album-sq {
+			    width: 82px;
+			    height: 82px;
+			    border-radius: 14px;
+			    background: #FFFFFF;
+			    overflow: hidden;
+			    display: flex;
+			    align-items: center;
+			    justify-content: center;
+			    flex-shrink: 0;
+			    cursor: pointer;
+			}
+			.w-frost-album-sq img { width: 100%; height: 100%; object-fit: cover; }
+			.w-frost-info-col {
+			    flex: 1;
+			    min-width: 0;
+			    display: flex;
+			    flex-direction: column;
+			    gap: 6px;
+			}
+			.w-frost-title-row {
+			    display: flex;
+			    justify-content: space-between;
+			    align-items: flex-start;
+			}
+			.w-frost-song-name {
+			    font-size: 14px;
+			    font-weight: 700;
+			    color: #FFFFFF;
+			    cursor: pointer;
+			}
+			.w-frost-song-sub {
+			    font-size: 9px;
+			    color: rgba(255,255,255,0.65);
+			}
+			.w-frost-dot-tag {
+			    width: 12px;
+			    height: 12px;
+			    border-radius: 50%;
+			    background: rgba(255,255,255,0.7);
+			}
+			.w-frost-line {
+			    width: 100%;
+			    height: 2px;
+			    background: rgba(255,255,255,0.3);
+			    border-radius: 1px;
+			    position: relative;
+			}
+			.w-frost-line::after {
+			    content: '';
+			    position: absolute;
+			    left: 45%;
+			    top: -2px;
+			    width: 6px;
+			    height: 6px;
+			    border-radius: 50%;
+			    background: #FFF;
+			}
+			.w-frost-ctrl-row {
+			    display: flex;
+			    align-items: center;
+			    justify-content: center;
+			    gap: 16px;
+			    color: #FFFFFF;
+			    font-size: 16px;
+			}
+			.w-frost-pill-lyrics {
+			    background: rgba(255,255,255,0.35);
+			    border-radius: 999px;
+			    padding: 2px 8px;
+			    font-size: 8px;
+			    color: #FFF;
+			    width: fit-content;
+			    cursor: pointer;
+			    line-height: 1.3;
+			}
+
+			/* ── 图4&5：Instagram 风格六宫格个人卡片 (Insta Profile Card) ── */
+			.w-insta-profile-wrap {
+			    width: 100%;
+			    max-width: 350px;
+			    display: flex;
+			    flex-direction: column;
+			    gap: 10px;
+			    cursor: pointer;
+			}
+			.w-insta-card-body {
+			    background: #EAEAEA;
+			    border-radius: 20px;
+			    padding: 14px;
+			    display: flex;
+			    flex-direction: column;
+			    gap: 12px;
+			    box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+			}
+			.w-insta-card-body.white-theme {
+			    background: #FFFFFF;
+			    border: 1px solid rgba(0,0,0,0.06);
+			}
+			.w-insta-top-row {
+			    display: flex;
+			    align-items: center;
+			    justify-content: space-between;
+			}
+			.w-insta-ava-round {
+			    width: 44px;
+			    height: 44px;
+			    border-radius: 50%;
+			    background: #FFFFFF;
+			    overflow: hidden;
+			    display: flex;
+			    align-items: center;
+			    justify-content: center;
+			    cursor: pointer;
+			    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+			}
+			.w-insta-card-body.white-theme .w-insta-ava-round {
+			    background: #C7C7CC;
+			}
+			.w-insta-ava-round img { width: 100%; height: 100%; object-fit: cover; }
+			.w-insta-name-capsule {
+			    background: #FFFFFF;
+			    border-radius: 8px;
+			    padding: 6px 20px;
+			    font-size: 11px;
+			    font-weight: 700;
+			    color: #666;
+			    cursor: pointer;
+			    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+			}
+			.w-insta-card-body.white-theme .w-insta-name-capsule {
+			    background: #F2F2F7;
+			    color: #8E8E93;
+			}
+			.w-insta-grid-6 {
+			    display: grid;
+			    grid-template-columns: repeat(3, 1fr);
+			    gap: 6px;
+			}
+			.w-insta-grid-item {
+			    aspect-ratio: 1;
+			    background: #F8F8F8;
+			    border-radius: 4px;
+			    overflow: hidden;
+			    display: flex;
+			    align-items: center;
+			    justify-content: center;
+			    cursor: pointer;
+			}
+			.w-insta-card-body.white-theme .w-insta-grid-item {
+			    background: #F2F2F7;
+			}
+			.w-insta-grid-item img {
+			    width: 100%; height: 100%; object-fit: cover;
+			}
+			.w-insta-bottom-sheet {
+			    background: #F2F2F7;
+			    border-radius: 14px;
+			    overflow: hidden;
+			    display: flex;
+			    flex-direction: column;
+			    border: 0.5px solid rgba(0,0,0,0.05);
+			}
+			.w-insta-bottom-sheet.white-theme {
+			    background: #FFFFFF;
+			    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+			}
+			.w-insta-sheet-row {
+			    display: flex;
+			    align-items: center;
+			    justify-content: space-between;
+			    padding: 10px 16px;
+			    font-size: 13px;
+			    font-weight: 600;
+			    color: #111;
+			    cursor: pointer;
+			}
+			.w-insta-sheet-row:not(:last-child) {
+			    border-bottom: 0.5px solid rgba(60,60,67,0.12);
+			}
+			.w-insta-sheet-row iconify-icon {
+			    font-size: 16px;
+			    color: #111;
+			}
+
+			/* 银色相机 */
+			.silver-cam {
+			    width: 100%;
+			    max-width: 360px;
+			    background: linear-gradient(135deg, #fdfdfd, #e0e0e0);
+			    border-radius: 16px;
+			    padding: 6px;
+			    box-shadow: 0 15px 35px rgba(0,0,0,0.1), inset 0 2px 4px #fff, inset 0 -2px 6px rgba(0,0,0,0.1);
+			    border: 1px solid #d4d4d4;
+			    cursor: pointer;
+			    transition: transform 0.2s;
+			}
+			.silver-cam:active { transform: scale(0.98); }
+			.silver-cam-inner {
+			    display: flex;
+			    background: linear-gradient(to bottom, #f2f2f2, #e8e8e8);
+			    border-radius: 12px;
+			    padding: 12px 10px 12px 12px;
+			    border: 1px solid #dcdcdc;
+			    gap: 12px;
+			}
+			.silver-screen-wrap {
+			    flex: 1;
+			    background: #fff;
+			    border: 3px solid #c0c0c0;
+			    border-radius: 6px;
+			    box-shadow: inset 0 2px 6px rgba(0,0,0,0.1);
+			    position: relative;
+			    display: flex;
+			    flex-direction: column;
+			    overflow: hidden;
+			    aspect-ratio: 4/3;
+			}
+			.silver-screen-wrap img {
+			    width: 100%; height: calc(100% - 16px); object-fit: cover;
+			}
+			.silver-logo {
+			    text-align: center;
+			    font-size: 8px;
+			    font-weight: 800;
+			    color: #888;
+			    background: #e5e5e5;
+			    height: 16px;
+			    line-height: 16px;
+			    letter-spacing: 1px;
+			}
+			.silver-controls {
+			    width: 70px;
+			    display: flex;
+			    flex-direction: column;
+			    align-items: center;
+			    gap: 8px;
+			}
+			.silver-speaker {
+			    width: 30px; height: 12px;
+			    background: radial-gradient(circle, #aaa 1px, transparent 1px);
+			    background-size: 4px 4px;
+			}
+			.silver-zoom {
+			    width: 60px; height: 18px;
+			    background: #d4d4d4;
+			    border-radius: 9px;
+			    display: flex; align-items: center; justify-content: space-between;
+			    padding: 0 6px;
+			    font-size: 8px; font-weight: bold; color: #666;
+			    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1), 0 1px 1px #fff;
+			}
+			.silver-mode {
+			    font-size: 8px; font-weight: 800; color: #555;
+			    background: #d4d4d4; padding: 2px 6px; border-radius: 4px;
+			}
+			.silver-btn-row {
+			    display: flex; gap: 8px; width: 100%; justify-content: center;
+			}
+			.silver-btn {
+			    width: 20px; height: 20px; border-radius: 50%;
+			    background: linear-gradient(to bottom, #f5f5f5, #ddd);
+			    box-shadow: 0 1px 3px rgba(0,0,0,0.2), inset 0 1px 2px #fff;
+			    display: flex; align-items: center; justify-content: center;
+			    font-size: 10px; color: #555;
+			}
+			.silver-btn-rect {
+			    background: linear-gradient(to bottom, #f5f5f5, #ddd);
+			    box-shadow: 0 1px 3px rgba(0,0,0,0.2), inset 0 1px 2px #fff;
+			    font-size: 8px; font-weight: bold; color: #555;
+			    padding: 4px 8px; border-radius: 4px;
+			}
+			.silver-dpad {
+			    width: 60px; height: 60px;
+			    border-radius: 50%;
+			    background: #dcdcdc;
+			    box-shadow: 0 2px 5px rgba(0,0,0,0.1), inset 0 1px 2px #fff;
+			    position: relative;
+			    display: flex; align-items: center; justify-content: center;
+			}
+			.silver-dpad iconify-icon { font-size: 10px; color: #666; position: absolute; }
+			.dpad-up { top: 4px; } .dpad-down { bottom: 4px; } .dpad-left { left: 4px; } .dpad-right { right: 4px; }
+			.dpad-ok {
+			    width: 24px; height: 24px; border-radius: 50%;
+			    background: linear-gradient(to bottom, #f0f0f0, #ccc);
+			    box-shadow: 0 1px 2px rgba(0,0,0,0.2), inset 0 1px 1px #fff;
+			    display: flex; align-items: center; justify-content: center;
+			    font-size: 8px; font-weight: 800; color: #333;
+			}
+			.cam-caption {
+			    margin-top: 16px;
+			    font-family: "Georgia", serif;
+			    font-style: italic;
+			    font-size: 12px;
+			    color: #444;
+			    cursor: pointer;
+			}
+
+			/* 黑色相机 */
+			.black-cam {
+			    width: 100%;
+			    max-width: 360px;
+			    background: #000000;
+			    border-radius: 4px;
+			    padding: 12px 10px;
+			    color: #fff;
+			    display: flex;
+			    flex-direction: column;
+			    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+			    cursor: pointer;
+			    transition: transform 0.2s;
+			}
+			.black-cam:active { transform: scale(0.98); }
+			.black-cam-top {
+			    display: flex; align-items: center; justify-content: flex-end;
+			    margin-bottom: 8px;
+			}
+			.black-cam-middle {
+			    display: flex; align-items: stretch; gap: 10px;
+			}
+			.black-cam-left {
+			    display: flex; flex-direction: column; align-items: center; gap: 12px;
+			    width: 30px;
+			}
+			.blk-big-icon { font-size: 18px; font-weight: 900; }
+			.blk-small-text { font-size: 9px; font-weight: 700; border: 1px solid #fff; padding: 1px 3px; border-radius: 2px;}
+			.blk-icon-circle { width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid #fff; display: flex; align-items: center; justify-content: center; font-size:12px; }
+			.blk-icon-rect { border: 1.5px solid #fff; border-radius: 4px; padding: 2px 4px; font-size: 12px; }
+			.black-cam-screen {
+			    flex: 1;
+			    aspect-ratio: 4/3;
+			    background: #fff;
+			    border-radius: 2px;
+			    position: relative;
+			    overflow: hidden;
+			}
+			.black-cam-right {
+			    width: 24px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: 100%;
+			}
+			.black-cam-right iconify-icon { font-size: 24px; color: #fff; margin-top: auto; margin-bottom: 20px; }
+			.red-dot { width: 4px; height: 16px; background: #ff3b30; margin-top: auto; }
+			.black-cam-bottom {
+			    display: flex; align-items: center; justify-content: center; gap: 12px;
+			    margin-top: 10px; font-size: 10px; font-weight: 700;
+			}
+			.blk-bot-item { display: flex; align-items: center; justify-content: center; text-align: center; }
+			.blk-bot-item.box { border: 1px solid #fff; padding: 1px 4px; }
+
+			/* 仿 iOS 平面毛玻璃 Dock */
+			.liquid-dock {
+			    position: absolute;
+			    bottom: calc(16px + env(safe-area-inset-bottom));
+			    left: 50%;
+			    transform: translateX(-50%);
+			    display: flex;
+			    gap: 18px;
+			    padding: 16px 18px;
+			    background: rgba(255, 255, 255, 0.35);
+			    backdrop-filter: blur(35px) saturate(180%);
+			    -webkit-backdrop-filter: blur(35px) saturate(180%);
+			    border-radius: 34px;
+			    border: 0.5px solid rgba(255, 255, 255, 0.4);
+			    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+			    z-index: 100;
+			}
+			.liquid-icon {
+			    width: 58px;
+			    height: 58px;
+			    border-radius: 14px;
+			    background: rgba(255, 255, 255, 0.65);
+			    backdrop-filter: blur(20px) saturate(180%);
+			    -webkit-backdrop-filter: blur(20px) saturate(180%);
+			    border: 0.5px solid rgba(255, 255, 255, 0.5);
+			    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+			    display: flex;
+			    align-items: center;
+			    justify-content: center;
+			    font-size: 28px;
+			    color: #333;
+			    transition: transform 0.2s ease;
+			    cursor: pointer;
+			    position: relative;
+			    overflow: hidden;
+			}
+			.liquid-icon::before {
+			    display: none;
+			}
+			.liquid-icon:active {
+			    transform: scale(0.9);
+			}
+
+			/* ===== 桌面网格应用系统 ===== */
+			.desktop-app-grid {
+			    display: grid;
+			    grid-template-columns: repeat(4, 1fr);
+			    grid-auto-rows: min-content;
+			    gap: 20px 16px;
+			    padding: calc(env(safe-area-inset-top) + 20px) 20px calc(env(safe-area-inset-bottom) + 120px);
+			    width: 100%;
+			    min-height: 100%;
+			}
+			.desktop-item-widget {
+			    grid-column: span 4;
+			    display: flex;
+			    justify-content: center;
+			}
+			.desktop-item-app {
+			    grid-column: span 1;
+			}
+			.desktop-app-item {
+			    display: flex;
+			    flex-direction: column;
+			    align-items: center;
+			    gap: 6px;
+			    cursor: pointer;
+			    user-select: none;
+			}
+			.desktop-app-icon {
+			    width: 58px;
+			    height: 58px;
+			    border-radius: 14px;
+			    background: rgba(255, 255, 255, 0.65);
+			    backdrop-filter: blur(20px) saturate(180%);
+			    -webkit-backdrop-filter: blur(20px) saturate(180%);
+			    border: 0.5px solid rgba(255, 255, 255, 0.5);
+			    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+			    display: flex;
+			    align-items: center;
+			    justify-content: center;
+			    font-size: 28px;
+			    color: #333;
+			    transition: transform 0.2s ease;
+			}
+			.desktop-app-item:active .desktop-app-icon {
+			    transform: scale(0.9);
+			}
+			.desktop-app-label {
+			    font-size: 11px;
+			    font-weight: 600;
+			    color: #333;
+			    text-align: center;
+			    white-space: nowrap;
+			    overflow: hidden;
+			    text-overflow: ellipsis;
+			    width: 100%;
+			}
+
+			/* ===== 深色桌面模式 (黑色图标底座与黑色Dock) ===== */
+			.desktop-view.desktop-dark-mode .liquid-dock {
+			    background: rgba(18, 18, 20, 0.65) !important;
+			    border: 0.5px solid rgba(255, 255, 255, 0.15) !important;
+			    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45) !important;
+			}
+			.desktop-view.desktop-dark-mode .liquid-icon {
+			    background: rgba(28, 28, 32, 0.85) !important;
+			    border: 0.5px solid rgba(255, 255, 255, 0.18) !important;
+			    color: #FFFFFF !important;
+			    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35) !important;
+			}
+			.desktop-view.desktop-dark-mode .liquid-icon iconify-icon,
+			.desktop-view.desktop-dark-mode .liquid-icon svg {
+			    color: #FFFFFF !important;
+			    stroke: #FFFFFF !important;
+			}
+			.desktop-view.desktop-dark-mode .desktop-app-icon {
+			    background: rgba(28, 28, 32, 0.82) !important;
+			    border: 0.5px solid rgba(255, 255, 255, 0.16) !important;
+			    color: #FFFFFF !important;
+			    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35) !important;
+			}
+			.desktop-view.desktop-dark-mode .desktop-app-icon iconify-icon,
+			.desktop-view.desktop-dark-mode .desktop-app-icon svg {
+			    color: #FFFFFF !important;
+			    stroke: #FFFFFF !important;
+			}
+			.desktop-view.desktop-dark-mode .desktop-app-label {
+			    color: var(--text-color, #FFFFFF) !important;
+			    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6) !important;
+			}
+			.desktop-view.desktop-dark-mode .desktop-pagination .dot {
+			    background: rgba(255, 255, 255, 0.35) !important;
+			}
+			.desktop-view.desktop-dark-mode .desktop-pagination .dot.active {
+			    background: rgba(255, 255, 255, 0.95) !important;
+			}
+			.sortable-ghost {
+			    opacity: 0.4;
+			}
+			.sortable-drag {
+			    transform: scale(1.1);
+			}
+
 			/* ===== 韩系奶油低饱和拟物桌面样式 (Soft Desktop Widgets) ===== */
 			.desktop-view {
 			    background-color: #FFFFFF !important;
-			    background-image:
-			        radial-gradient(rgba(0, 0, 0, 0.02) 8%, transparent 8%),
-			        radial-gradient(rgba(0, 0, 0, 0.015) 8%, transparent 8%);
-			    background-size: 24px 24px;
-			    background-position: 0 0, 12px 12px;
 			    z-index: 1;
 			}
 
@@ -5274,7 +6301,7 @@
 			    top: 0; left: 0; width: 100%; height: 100%;
 			    background-size: cover;
 			    background-position: center;
-			    background-image: linear-gradient(to bottom, #2c3e50, #3498db);
+			    background-image: url('https://i.postimg.cc/5tXp8JvL/IMG-0690.jpg');
 			    z-index: -1;
 			}
 
@@ -18168,7 +19195,7 @@
 			    display: flex;
 			    flex-direction: column;
 			    align-items: center;
-			    margin-top: 10px;
+			    margin-top: 0 !important;
 			}
 
 			/* 双方头像修改为更合适的 46px */
@@ -26929,6 +27956,7 @@
 			crossorigin="anonymous"
 		></script>
 		<script defer src="https://cdn.jsdelivr.net/npm/mammoth@1.6.0/mammoth.browser.min.js"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
 	</head>
 	<body>
 		<div id="app">
@@ -27033,428 +28061,35 @@
 					<div class="status-bar-right"></div>
 				</div>
 
-				<!-- 分页滑动区 -->
+				<!-- 桌面背景：白底灰波点 -->
+				<div class="polka-dot-bg"></div>
+
+				<!-- 极简手机状态栏 (已隐藏内容留出安全区) -->
+				<div class="desktop-status-bar">
+					<div class="status-bar-left"></div>
+					<div class="status-bar-right"></div>
+				</div>
+
+				<!-- 分页滑动区 (由 JS 动态渲染 Grid) -->
 				<div
 					class="desktop-slider"
 					id="desktop-slider"
 					onscroll="updateDesktopPagination()"
-				>
-					<!-- 第一页：参考重构 UI -->
-					<div
-						class="desktop-page"
-						style="padding: calc(env(safe-area-inset-top) + 40px) 20px calc(env(safe-area-inset-bottom) + 100px) 20px;"
-					>
-						<!-- Large Time & Date -->
-						<div style="text-align: center; margin-bottom: 24px;">
-							<div style="font-size: 72px; font-weight: 800; color: rgba(0,0,0,0.2); line-height: 1; letter-spacing: -2px; position: relative; display: inline-block;">
-								<iconify-icon icon="ph:cloud-sun-fill" style="position: absolute; left: -40px; top: 10px; font-size: 32px; color: rgba(0,0,0,0.15);"></iconify-icon>
-								<span class="sys-time-large" style="color: #666;"></span>
-								<iconify-icon icon="ph:cloud-moon-fill" style="position: absolute; right: -40px; top: 10px; font-size: 32px; color: rgba(0,0,0,0.15);"></iconify-icon>
-							</div>
-							<div style="font-size: 13px; color: #888; margin-top: 12px; font-weight: 600;">
-								<span class="sys-date-ref"></span>
-							</div>
-							<div style="font-size: 11px; color: #888; margin-top: 4px; font-style: italic;">
-								° ✩⁺. Memory archive .⁺✩ °
-							</div>
-						</div>
+				></div>
 
-						<!-- Row 1: Lover Widget + 2x2 App Grid -->
-						<div style="display: flex; gap: 16px; margin-bottom: 24px; align-items: flex-start;">
-							<!-- Lover Widget -->
-							<div style="flex: 1.2; display: flex; flex-direction: column; align-items: center;">
-								<div id="desktop-lover-title" onclick="editDesktopWidget('loverTitle', '修改标题')" style="font-size: 11px; font-weight: 700; color: #555; margin-bottom: 12px; letter-spacing: 1px;">° ୨୧ HONEY LOVE♡.⁺</div>
-								<div style="display: flex; gap: 4px; margin-bottom: 12px;">
-									<div style="width: 56px; height: 56px; border-radius: 50%; padding: 3px; background: rgba(0,0,0,0.05); overflow: hidden;">
-										<img id="ref-lover-avatar1" src="https://placehold.co/100x100?text=L1" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" onclick="event.stopPropagation(); triggerWidgetImageUpload('refLoverAvatar1')" />
-									</div>
-									<div style="width: 56px; height: 56px; border-radius: 50%; padding: 3px; background: rgba(0,0,0,0.05); overflow: hidden;">
-										<img id="ref-lover-avatar2" src="https://placehold.co/100x100?text=L2" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" onclick="event.stopPropagation(); triggerWidgetImageUpload('refLoverAvatar2')" />
-									</div>
-								</div>
-								<div id="desktop-lover-desc" onclick="editDesktopWidget('loverDesc', '修改描述')" style="background: rgba(0,0,0,0.04); padding: 4px 10px; border-radius: 12px; font-size: 9px; color: #666; margin-bottom: 8px; font-weight: 600;">
-									和宝宝在一起
-								</div>
-								<div id="desktop-lover-days" onclick="editDesktopWidget('loverDays', '修改天数')" style="font-size: 13px; font-weight: 700; color: #555;">
-									<span style="opacity:0.5; font-size:10px;">⁺♡ ˚。</span> 已经 9289 天 <span style="opacity:0.5; font-size:10px;">⁺ ˚.</span>
-								</div>
-							</div>
-
-							<!-- 2x2 App Grid -->
-							<div class="ref-app-grid" style="flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 10px;">
-								<div class="cream-app-item" onclick="handleAppClick('network')">
-									<div class="app-icon-circle">
-										<iconify-icon icon="ph:image"></iconify-icon>
-									</div>
-									<div class="app-label">关系网</div>
-								</div>
-								<div class="cream-app-item" onclick="handleAppClick('pomodoro')">
-									<div class="app-icon-circle">
-										<iconify-icon icon="ph:timer-fill"></iconify-icon>
-									</div>
-									<div class="app-label">番茄钟</div>
-								</div>
-								<div class="cream-app-item" onclick="handleAppClick('diary')">
-									<div class="app-icon-circle">
-										<iconify-icon icon="ph:calendar-blank"></iconify-icon>
-									</div>
-									<div class="app-label">日记</div>
-								</div>
-								<div class="cream-app-item" onclick="handleAppClick('snoop')">
-									<div class="app-icon-circle">
-										<iconify-icon icon="ph:note-pencil"></iconify-icon>
-									</div>
-									<div class="app-label">查手机</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Row 2: Music/Social Widget + Profile Widget -->
-						<div style="display: flex; gap: 16px; margin-bottom: 24px;">
-							<!-- Left: Music Social Widget -->
-							<div style="flex: 1.2; display: flex; flex-direction: column;">
-								<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
-									<div style="position: relative; width: 44px; height: 44px;">
-										<div style="width: 100%; height: 100%; border-radius: 50%; overflow: hidden; background: #eee;">
-											<img id="ref-social-avatar" src="https://placehold.co/100x100?text=S" style="width: 100%; height: 100%; object-fit: cover;" onclick="event.stopPropagation(); triggerWidgetImageUpload('refSocialAvatar')" />
-										</div>
-										<iconify-icon icon="ph:plus-circle-fill" style="position: absolute; bottom: -2px; right: -2px; color: #888; font-size: 14px; background: #fff; border-radius: 50%;"></iconify-icon>
-										<iconify-icon icon="ph:headphones-fill" style="position: absolute; top: -8px; right: -4px; color: #CCC; font-size: 16px;"></iconify-icon>
-									</div>
-									<div style="display: flex; flex-direction: column;">
-										<span id="desktop-music-social-name" onclick="editDesktopWidget('musicSocialName', '修改名字')" style="font-size: 12px; font-weight: 700; color: #555;">(๑' ㅂ')グッ!</span>
-										<span style="font-size: 9px; color: #888; margin-top: 2px;" class="sys-date-ref-short"></span>
-									</div>
-								</div>
-								<div style="background: rgba(0,0,0,0.03); border-radius: 16px; padding: 12px; display: flex; align-items: center; gap: 12px;">
-									<div style="width: 60px; height: 60px; border-radius: 12px; overflow: hidden; background: #fff;">
-										<img id="ref-social-cover" src="https://placehold.co/100x100?text=M" style="width: 100%; height: 100%; object-fit: cover;" onclick="event.stopPropagation(); triggerWidgetImageUpload('refSocialCover')" />
-									</div>
-									<div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
-										<div id="desktop-music-appname" onclick="editDesktopWidget('musicAppName', '修改应用名')" style="font-size: 9px; color: #999; margin-bottom: 4px;">My Music</div>
-										<div id="desktop-music-desc" onclick="editDesktopWidget('musicDesc', '修改文案')" style="font-size: 11px; font-weight: 700; color: #555; line-height: 1.4; margin-bottom: 8px;">“ ▷ ||||||||||| ” 请你听首歌.</div>
-										<div style="display: flex; justify-content: space-between; align-items: center; font-size: 9px; color: #888;">
-											<span style="display:flex; align-items:center; gap:2px;"><iconify-icon icon="ph:battery-high-fill"></iconify-icon> battery 96%</span>
-											<div style="display: flex; gap: 6px;">
-												<iconify-icon icon="ph:skip-back-fill"></iconify-icon>
-												<iconify-icon icon="ph:pause-fill"></iconify-icon>
-												<iconify-icon icon="ph:skip-forward-fill"></iconify-icon>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- Right: Profile Widget -->
-							<div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-								<div style="position: relative; margin-bottom: 12px; margin-top: 10px;">
-									<iconify-icon icon="ph:wings-fill" style="position: absolute; top: -10px; left: -20px; font-size: 32px; color: rgba(0,0,0,0.1); transform: rotate(-20deg);"></iconify-icon>
-									<iconify-icon icon="ph:wings-fill" style="position: absolute; top: -10px; right: -20px; font-size: 32px; color: rgba(0,0,0,0.1); transform: scaleX(-1) rotate(-20deg);"></iconify-icon>
-									<div style="width: 80px; height: 80px; border-radius: 50%; padding: 4px; background: rgba(0,0,0,0.05); overflow: hidden;">
-										<img id="ref-profile-avatar" src="https://placehold.co/100x100?text=Me" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" onclick="event.stopPropagation(); triggerWidgetImageUpload('refProfileAvatar')" />
-									</div>
-									<iconify-icon icon="ph:plus-circle-fill" style="position: absolute; bottom: 0; right: 0; color: #666; font-size: 20px; background: #fff; border-radius: 50%;"></iconify-icon>
-								</div>
-								<div id="desktop-profile-title" onclick="editDesktopWidget('profileTitle', '修改标题')" style="font-size: 11px; font-weight: 700; color: #555; margin-bottom: 6px;">★ ¸°*:.☆ my zone :*°, ★</div>
-								<div id="desktop-profile-loc" onclick="editDesktopWidget('profileLoc', '修改地址信息')" style="font-size: 9px; color: #888; display: flex; align-items: center; gap: 2px;">
-									<iconify-icon icon="ph:map-pin-fill"></iconify-icon> 星河基地 -1°~12°C
-								</div>
-							</div>
-						</div>
-
-						<!-- Center Search Bar -->
-						<div style="display: flex; justify-content: center; margin-bottom: 30px;">
-							<div style="background: rgba(0,0,0,0.03); border-radius: 999px; padding: 8px 24px; font-size: 12px; color: #888; font-weight: 600; display: flex; align-items: center; gap: 6px; box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);">
-								<iconify-icon icon="ph:magnifying-glass-bold"></iconify-icon> 搜索
-							</div>
-						</div>
+				<!-- 液态玻璃风格 Dock -->
+				<div class="liquid-dock">
+					<div class="liquid-icon" onclick="handleAppClick('chat')">
+						<iconify-icon icon="ph:chat-teardrop-fill"></iconify-icon>
 					</div>
-
-					<!-- 底部常驻 Dock 栏 -->
-					<div class="ref-dock-container" style="position: absolute; bottom: calc(20px + env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); width: calc(100% - 32px); height: 86px; background: rgba(255, 255, 255, 0.25); backdrop-filter: blur(12px) saturate(200%); -webkit-backdrop-filter: blur(12px) saturate(200%); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.5); padding: 12px 20px; display: flex; justify-content: space-around; align-items: center; box-shadow: 0 20px 40px rgba(0,0,0,0.1), inset 0 4px 10px rgba(255,255,255,0.3); z-index: 10;">
-						<div class="cream-app-item" onclick="handleAppClick('chat')">
-							<div class="app-icon-circle">
-								<iconify-icon icon="ph:users-three"></iconify-icon>
-							</div>
-						</div>
-						<div class="cream-app-item" onclick="handleAppClick('music')">
-							<div class="app-icon-circle">
-								<iconify-icon icon="ph:music-notes-fill"></iconify-icon>
-							</div>
-						</div>
-						<div class="cream-app-item" onclick="handleAppClick('takeout')">
-							<div class="app-icon-circle">
-								<iconify-icon icon="ph:shopping-bag-fill"></iconify-icon>
-							</div>
-						</div>
-						<div class="cream-app-item" onclick="handleAppClick('shop')">
-							<div class="app-icon-circle">
-								<iconify-icon icon="ph:disc"></iconify-icon>
-							</div>
-						</div>
+					<div class="liquid-icon" onclick="handleAppClick('music')">
+						<iconify-icon icon="ph:music-notes-fill"></iconify-icon>
 					</div>
-
-					<!-- 第二页（保留原有部分组件组合） -->
-					<div
-						class="desktop-page"
-						style="padding: calc(env(safe-area-inset-top) + 40px) 20px calc(env(safe-area-inset-bottom) + 80px) 20px;"
-					>
-						<!-- 顶部细长小胶囊提示 -->
-						<div
-							class="cream-top-text-bar"
-							id="widget-top-text-bar"
-							onclick="editDesktopWidget('topTextBar', '修改顶部气泡文字')"
-						>
-							e • • • ur in doll x sugar free dream ... 🤍
-						</div>
-
-						<!-- 第一排：左侧 Instagram 拍立得 + 右侧 2x2 应用网格 (待做, 设置, 待做, 待做) -->
-						<div class="widget-flex-row">
-							<!-- Instagram 风格相框小组件 (可独立修改图片) -->
-							<div
-								class="instagram-widget"
-								onclick="triggerWidgetImageUpload('insWidgetImg')"
-							>
-								<div class="ins-header">
-									<span>Instagram</span>
-									<iconify-icon
-										icon="ph:paper-plane-tilt-fill"
-									></iconify-icon>
-								</div>
-								<div class="ins-img-box img-container">
-									<img
-										id="widget-ins-img"
-										src=""
-										style="display:none;"
-									/>
-									<div
-										id="widget-ins-fallback"
-										style="font-size:24px; color:#B0B0B0; font-weight:bold;"
-									>
-										UPLOAD
-									</div>
-								</div>
-								<div class="ins-footer">
-									<iconify-icon
-										icon="ph:star-fill"
-									></iconify-icon>
-									<span class="ins-share-pill"
-										>Shared File</span
-									>
-									<iconify-icon
-										icon="ph:trash-fill"
-										style="opacity:0.3;"
-									></iconify-icon>
-								</div>
-							</div>
-
-							<!-- 右侧 2x2 精致小图标底座 (待做, 设置, 待做, 待做) -->
-							<div class="app-grid-2x2">
-								<div
-									class="cream-app-item"
-									onclick="showTodoToast('todo_video')"
-								>
-									<div
-										class="app-icon-circle"
-										style="position: relative;"
-									>
-										<iconify-icon
-											icon="ph:video-camera"
-										></iconify-icon>
-										<div class="todo-badge">待做</div>
-									</div>
-									<div class="app-label">待做</div>
-								</div>
-								<div
-									class="cream-app-item"
-									onclick="handleAppClick('settings')"
-								>
-									<div class="app-icon-circle">
-										<iconify-icon
-											icon="ph:gear"
-										></iconify-icon>
-									</div>
-									<div class="app-label">设置</div>
-								</div>
-								<div
-									class="cream-app-item"
-									onclick="showTodoToast('todo_sparkles')"
-								>
-									<div
-										class="app-icon-circle"
-										style="position: relative;"
-									>
-										<iconify-icon
-											icon="ph:magic-wand-fill"
-										></iconify-icon>
-										<div class="todo-badge">待做</div>
-									</div>
-									<div class="app-label">待做</div>
-								</div>
-								<div
-									class="cream-app-item"
-									onclick="showTodoToast('todo_film')"
-								>
-									<div
-										class="app-icon-circle"
-										style="position: relative;"
-									>
-										<iconify-icon
-											icon="ph:film-strip"
-										></iconify-icon>
-										<div class="todo-badge">待做</div>
-									</div>
-									<div class="app-label">待做</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- 第二排：注销用户对话气泡组件 (可编辑各处文本) -->
-						<div class="korean-bubble-widget">
-							<!-- 用户基本信息行 -->
-							<div
-								class="bubble-user-info-row"
-								onclick="editBubbleUserInfo()"
-							>
-								<div class="bubble-user-left">
-									<div
-										class="bubble-avatar-box"
-										onclick="event.stopPropagation(); triggerWidgetImageUpload('bubbleUserAvatar')"
-									>
-										<img
-											id="widget-bubble-avatar"
-											src=""
-											style="width:100%;height:100%;object-fit:cover;display:none;"
-										/>
-										<iconify-icon
-											id="widget-bubble-avatar-fallback"
-											icon="solar:user-rounded-bold"
-											style="font-size: 20px; color: #DEE2E6;"
-										></iconify-icon>
-									</div>
-									<div class="bubble-meta-text">
-										<span
-											class="bubble-user-name"
-											id="widget-bubble-user-name"
-											>爱上一个天使的缺点</span
-										>
-										<span
-											class="bubble-user-handle"
-											id="widget-bubble-user-handle"
-											>@ Virovo_915</span
-										>
-									</div>
-								</div>
-								<div class="bubble-user-right">
-									<span
-										class="sys-date"
-										style="font-size: 9px; font-weight: 700;"
-										>01月16日</span
-									>
-									<iconify-icon
-										icon="ph:heart-fill"
-										style="color: #A3A3A3; font-size: 11px;"
-									></iconify-icon>
-									<span>星期五</span>
-								</div>
-							</div>
-							<!-- 大文本气泡 (绑定独立气泡文案，点击可编辑) -->
-							<div
-								class="korean-large-bubble"
-								onclick="editDesktopWidget('bubbleText', '修改气泡文案')"
-							>
-								<div
-									class="korean-large-bubble-text"
-									id="widget-bubble-text"
-								>
-									你對我來說是宇宙，但我對你来说只是一颗星吗？
-								</div>
-							</div>
-						</div>
-
-						<!-- 第三排：左侧 App 网格 (待做, 论坛, 新手教程, 商城) + 右侧 Windows 拟物窗口待办列表 -->
-						<div class="widget-flex-row">
-							<!-- 左侧 App 组 (情侣空间, 论坛, 新手教程, 商城) -->
-							<div class="app-grid-2x2" style="flex:1;">
-								<div
-									class="cream-app-item"
-									onclick="handleAppClick('lover_space')"
-								>
-									<div class="app-icon-circle">
-										<iconify-icon icon="ph:heart-straight-fill"></iconify-icon>
-									</div>
-									<div class="app-label">情侣空间</div>
-								</div>
-								<div
-									class="cream-app-item"
-									onclick="handleAppClick('forum')"
-								>
-									<div class="app-icon-circle">
-										<iconify-icon
-											icon="ph:television"
-										></iconify-icon>
-									</div>
-									<div class="app-label">论坛</div>
-								</div>
-								<div
-									class="cream-app-item"
-									onclick="handleAppClick('tutorial')"
-								>
-									<div class="app-icon-circle">
-										<iconify-icon
-											icon="ph:book-open"
-										></iconify-icon>
-									</div>
-									<div class="app-label">新手教程</div>
-								</div>
-								<div
-									class="cream-app-item"
-									onclick="handleAppClick('shop')"
-								>
-									<div class="app-icon-circle">
-										<iconify-icon
-											icon="ph:disc"
-										></iconify-icon>
-									</div>
-									<div class="app-label">商城</div>
-								</div>
-							</div>
-
-							<!-- 右侧 Windows 98 记事本窗口待办清单 -->
-							<div
-								class="win98-todo-widget"
-								onclick="editTodoList()"
-							>
-								<div class="win98-title-bar">
-									<div class="win98-title-left">
-										<iconify-icon
-											icon="ph:file-text-fill"
-										></iconify-icon>
-										<span id="desktop-todo-title"
-											>about me</span
-										>
-									</div>
-									<div class="win98-title-right">
-										<div class="win98-btn-dot green"></div>
-										<div class="win98-btn-dot yellow"></div>
-										<div class="win98-btn-dot red"></div>
-									</div>
-								</div>
-								<div class="win98-menu-bar">
-									<span>文件</span>
-									<span>查看</span>
-									<span>工具</span>
-									<span>帮助</span>
-								</div>
-								<div
-									class="win98-content"
-									id="desktop-todo-list"
-								>
-									<!-- 由 JS 渲染待办事项 -->
-								</div>
-							</div>
-						</div>
-
-						<div style="flex: 1; min-height: 24px;"></div>
+					<div class="liquid-icon" onclick="handleAppClick('network')">
+						<iconify-icon icon="ph:users-three-fill"></iconify-icon>
+					</div>
+					<div class="liquid-icon" onclick="handleAppClick('settings')">
+						<iconify-icon icon="ph:gear-fill"></iconify-icon>
 					</div>
 				</div>
 
@@ -29100,6 +29735,82 @@
 				</div>
 			</div>
 
+			<!-- 外观与小组件管理应用视图 (iOS Inset Grouped 风格) -->
+			<div
+				id="view-appearance"
+				class="view-container settings-view forum-theme-root"
+				style="display: none; z-index: 5;"
+			>
+				<div class="st-navbar">
+					<button class="st-nav-btn" onclick="switchView('desktop')" title="返回桌面">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+							<polyline points="15 18 9 12 15 6"></polyline>
+						</svg>
+					</button>
+					<div class="st-nav-title">
+						<span>外观与组件</span>
+					</div>
+					<div style="width: 24px;"></div>
+				</div>
+
+				<div class="f-post-detail" style="overflow-y: auto; flex: 1; -webkit-overflow-scrolling: touch; padding: 0 0 60px;">
+					<div class="st-section-label">桌面风格</div>
+					<div class="st-group-card">
+						<div class="st-cell has-icon">
+							<div class="st-cell-icon gray dark-desktop-icon">
+								<iconify-icon icon="ph:moon-stars-bold"></iconify-icon>
+							</div>
+							<div class="st-cell-body">
+								<div class="st-cell-title">深色桌面模式</div>
+								<div class="st-cell-sub">将应用图标底座与底部 Dock 栏切换为深黑配色</div>
+							</div>
+							<div class="st-cell-trailing">
+								<div class="st-switch dark-desktop-switch" onclick="toggleDarkDesktopMode()"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="st-section-label">应用图标</div>
+					<div class="st-group-card" id="appearance-app-icons-list">
+						<!-- 动态读取桌面上实际存在的应用图标 -->
+					</div>
+					<div class="st-section-footer">仅展示当前桌面与常用栏中已安装的应用，支持将图标更换为自定义图片。</div>
+
+					<div class="st-section-label">组件库</div>
+					<div class="st-section-footer" style="padding-top:0; padding-bottom:12px;">挑选组件并添加到任意桌面分页，组件上的图片与文字均可直接点击编辑。</div>
+					
+					<div id="appearance-widgets-catalog" style="display:flex; flex-direction:column; gap:20px; padding:0 16px;"></div>
+
+					<div class="st-section-label" style="margin-top:24px;">桌面分页管理</div>
+					<div class="st-group-card">
+						<div class="st-cell has-icon">
+							<div class="st-cell-icon blue"><iconify-icon icon="ph:browsers-bold"></iconify-icon></div>
+							<div class="st-cell-body">
+								<div class="st-cell-title">当前桌面分页</div>
+								<div class="st-cell-sub" id="appearance-page-count-sub">共 3 页</div>
+							</div>
+							<div class="st-cell-trailing">
+								<button class="st-mini-btn" onclick="addNewDesktopPage()">新建一页</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="st-section-label">快捷外观入口</div>
+					<div class="st-group-card">
+						<div class="st-cell has-icon tappable" onclick="document.getElementById('wallpaperInput').click()">
+							<div class="st-cell-icon green"><iconify-icon icon="ph:image-bold"></iconify-icon></div>
+							<div class="st-cell-body"><div class="st-cell-title">更换桌面壁纸</div></div>
+							<div class="st-cell-trailing"><div class="st-chevron"><iconify-icon icon="ph:caret-right-bold"></iconify-icon></div></div>
+						</div>
+						<div class="st-cell has-icon tappable" onclick="openFontSettings('global')">
+							<div class="st-cell-icon purple"><iconify-icon icon="ph:text-aa-bold"></iconify-icon></div>
+							<div class="st-cell-body"><div class="st-cell-title">全局艺术字体</div></div>
+							<div class="st-cell-trailing"><div class="st-chevron"><iconify-icon icon="ph:caret-right-bold"></iconify-icon></div></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
 			<!-- 系统设置页 -->
 			<div
 				id="view-settings"
@@ -29169,9 +29880,74 @@
 						</div>
 					</div>
 
-					<!-- ③ 外观 -->
+					<!-- ③ 声音与音效 -->
+					<div class="st-section-label">声音与音效</div>
+					<div class="st-group-card">
+						<!-- 发送音效开关 -->
+						<div class="st-cell has-icon">
+							<div class="st-cell-icon blue">
+								<iconify-icon icon="ph:paper-plane-tilt-fill"></iconify-icon>
+							</div>
+							<div class="st-cell-body">
+								<div class="st-cell-title">发送音效</div>
+								<div class="st-cell-sub" id="st-send-sound-desc">默认：Q弹软萌低音</div>
+							</div>
+							<div class="st-cell-trailing">
+								<div class="st-switch" id="sw-send-sound" onclick="toggleSoundConfig('sendSoundEnabled')"></div>
+							</div>
+						</div>
+						<div class="st-cell">
+							<div class="st-cell-body">
+								<div class="st-cell-sub">自定义发送音频</div>
+							</div>
+							<div class="st-cell-trailing" style="gap: 8px;">
+								<button class="st-mini-btn" onclick="playSendSound(true)">试听</button>
+								<button class="st-mini-btn" onclick="document.getElementById('sendSoundFileInput').click()">导入音频</button>
+								<button class="st-mini-btn danger" id="btn-reset-send-sound" style="display: none;" onclick="resetSendSoundToDefault()">恢复默认</button>
+							</div>
+						</div>
+
+						<!-- 通知音效开关 -->
+						<div class="st-cell has-icon">
+							<div class="st-cell-icon pink">
+								<iconify-icon icon="ph:bell-ringing-fill"></iconify-icon>
+							</div>
+							<div class="st-cell-body">
+								<div class="st-cell-title">通知接收音效</div>
+								<div class="st-cell-sub" id="st-notify-sound-desc">默认：纯轻音乐柔和长旋律</div>
+							</div>
+							<div class="st-cell-trailing">
+								<div class="st-switch" id="sw-notify-sound" onclick="toggleSoundConfig('notifySoundEnabled')"></div>
+							</div>
+						</div>
+						<div class="st-cell">
+							<div class="st-cell-body">
+								<div class="st-cell-sub">自定义通知音频</div>
+							</div>
+							<div class="st-cell-trailing" style="gap: 8px;">
+								<button class="st-mini-btn" onclick="playNotifySound(true)">试听</button>
+								<button class="st-mini-btn" onclick="document.getElementById('notifySoundFileInput').click()">导入音频</button>
+								<button class="st-mini-btn danger" id="btn-reset-notify-sound" style="display: none;" onclick="resetNotifySoundToDefault()">恢复默认</button>
+							</div>
+						</div>
+					</div>
+					<div class="st-section-footer">支持导入 MP3、WAV、M4A 等格式文件作为你的专属按键与来信声音。</div>
+
+					<!-- ④ 外观 -->
 					<div class="st-section-label">外观</div>
 					<div class="st-group-card">
+						<div class="st-cell has-icon">
+							<div class="st-cell-icon gray dark-desktop-icon">
+								<iconify-icon icon="ph:moon-stars-bold"></iconify-icon>
+							</div>
+							<div class="st-cell-body">
+								<div class="st-cell-title">深色桌面模式</div>
+								<div class="st-cell-sub">将应用图标与底部 Dock 栏切换为黑色质感</div>
+							</div>
+							<div class="st-cell-trailing">
+								<div class="st-switch dark-desktop-switch" onclick="toggleDarkDesktopMode()"></div>
+							</div>
+						</div>
 						<div class="st-cell has-icon tappable" onclick="openFontSettings('global')">
 							<div class="st-cell-icon purple">
 								<iconify-icon icon="ph:text-aa-bold"></iconify-icon>
@@ -29273,14 +30049,7 @@
 					</div>
 					<div class="st-section-footer">所有数据保存在本机浏览器中，清理缓存会导致数据丢失，请定期导出。</div>
 
-					<!-- ⑦ 应用图标 -->
-					<div class="st-section-label">应用图标</div>
-					<div class="st-group-card" id="settings-app-icons-list">
-						<!-- JS动态渲染 -->
-					</div>
-					<div class="st-section-footer">替换桌面各应用的图标为自定义图片。</div>
-
-					<!-- ⑧ 重置 -->
+					<!-- ⑦ 重置 -->
 					<div class="st-section-label">重置</div>
 					<div class="st-group-card">
 						<div class="st-cell tappable st-cell-action" onclick="resetSystemAppearance()">
@@ -29301,6 +30070,8 @@
 				<input type="file" id="lockWallpaperInput" accept="image/*" style="display:none;" onchange="handleLockWallpaperUpload(event)" />
 				<input type="file" id="importInput" accept=".json" style="display:none;" onchange="importData(event)" />
 				<input type="file" id="iconInput" accept="image/*" style="display:none;" onchange="handleIconUpload(event)" />
+				<input type="file" id="sendSoundFileInput" accept="audio/*,.mp3,.wav,.m4a,.ogg,.aac" style="display:none;" onchange="handleCustomAudioUpload(event, 'send')" />
+				<input type="file" id="notifySoundFileInput" accept="audio/*,.mp3,.wav,.m4a,.ogg,.aac" style="display:none;" onchange="handleCustomAudioUpload(event, 'notify')" />
 			</div>
 
 			<!-- 全局灵动岛播放悬浮窗 -->
@@ -32243,7 +33014,7 @@ Before outputting each response, internally verify:
 □ Is there subtext? Is there something between the lines?
 `;
 
-			const APP_VERSION = '3.9.3';
+			const APP_VERSION = '3.9.4';
 			const DB_NAME = 'MoonChatDB';
 			const STORE_NAME = 'settings';
 			const AUDIO_STORE = 'audioFiles';
@@ -32446,7 +33217,7 @@ Before outputting each response, internally verify:
 
 			    apiConfig: { url: 'https://api.siliconflow.cn/v1', apiKey: '', model: 'Qwen/Qwen2.5-7B-Instruct', presetId: '', temperature: 0.8 },
 			    apiPresets: [],
-			    uiConfig: { textColor: '#ffffff', wallpaper: '', lockWallpaper: '', lockPasscodeEnabled: false, lockPasscode: '', customIcons: {}, momentsBg: '', momentsAvatar: '', momentsName: 'Space Traveler', chatMainBg: '', magazineImg: '', hideStatusBar: false, globalFontType: 'default', globalFontUrl: '', globalFontFamily: '', koreanTextCardContent: '오늘도 수고했어 ʕ•ᴥ•ʔ<br>내일은 더 빛날 거야 ✨' },
+			    uiConfig: { textColor: '#ffffff', wallpaper: 'https://i.postimg.cc/5tXp8JvL/IMG-0690.jpg', lockWallpaper: 'https://i.postimg.cc/5tXp8JvL/IMG-0690.jpg', lockPasscodeEnabled: false, lockPasscode: '', darkDesktopMode: false, customIcons: {}, momentsBg: '', momentsAvatar: '', momentsName: 'Space Traveler', chatMainBg: '', magazineImg: '', hideStatusBar: false, globalFontType: 'default', globalFontUrl: '', globalFontFamily: '', koreanTextCardContent: '오늘도 수고했어 ʕ•ᴥ•ʔ<br>내 il은 더 빛날 거야 ✨' },
 
 			    models: [],
 			    isFetchingModels: false,
@@ -32741,6 +33512,9 @@ Before outputting each response, internally verify:
 			            Object.assign(state.uiConfig, data.uiConfig);
 			            if (state.uiConfig.hideStatusBar) document.body.classList.add('hide-status-bar');
 			        }
+			        if (data.soundConfig) {
+			            Object.assign(state.soundConfig, data.soundConfig);
+			        }
 			        if (data.musicLibrary) state.musicLibrary = data.musicLibrary;
 			        if (data.musicPlaylists) state.musicPlaylists = data.musicPlaylists;
 			        if (data.musicActivePlaylistId) state.musicActivePlaylistId = data.musicActivePlaylistId;
@@ -32765,6 +33539,7 @@ Before outputting each response, internally verify:
 			                if (g.bubbleStyle !== 'ios') g.bubbleStyle = 'ios';
 			                if (g.chatAvatarSize === undefined) g.chatAvatarSize = 46;
 			                if (g.chatAvatarRadius === undefined) g.chatAvatarRadius = 50;
+			                if (g.chatBubbleRadius === undefined) g.chatBubbleRadius = 19;
 			                if (g.chatBubbleMaxWidth === undefined) g.chatBubbleMaxWidth = 78;
 			                if (g.chatBubblePaddingX === undefined) g.chatBubblePaddingX = 12;
 			                if (g.chatBubblePaddingY === undefined) g.chatBubblePaddingY = 8;
@@ -32821,6 +33596,7 @@ Before outputting each response, internally verify:
 			        StorageManager.saveData({
 			            apiConfig: state.apiConfig,
 			            apiPresets: state.apiPresets,
+			            soundConfig: state.soundConfig,
 			            uiConfig: state.uiConfig,
 			            musicLibrary: state.musicLibrary,
 			            musicPlaylists: state.musicPlaylists,
@@ -32910,6 +33686,7 @@ Before outputting each response, internally verify:
 			    if (contact.chatWallpaperClarity === undefined) contact.chatWallpaperClarity = false;
 			    if (contact.chatAvatarSize === undefined) contact.chatAvatarSize = 46;
 			    if (contact.chatAvatarRadius === undefined) contact.chatAvatarRadius = 50;
+			    if (contact.chatBubbleRadius === undefined) contact.chatBubbleRadius = 19;
 			    if (contact.chatBubbleMaxWidth === undefined) contact.chatBubbleMaxWidth = 78;
 			    if (contact.chatBubblePaddingX === undefined) contact.chatBubblePaddingX = 12;
 			    if (contact.chatBubblePaddingY === undefined) contact.chatBubblePaddingY = 8;
@@ -33018,6 +33795,7 @@ Before outputting each response, internally verify:
 			    if (viewName === 'music_player') renderMusicPlayer();
 			    if (viewName === 'chat_settings') renderChatSettings();
 			    if (viewName === 'settings') renderSettings();
+			    if (viewName === 'appearance') renderAppearanceApp();
 			    if (viewName === 'add_contact') renderAddContact();
 			    if (viewName === 'chat_favorites') renderFavorites();
 			    if (viewName === 'chat_settings_avatar_library') renderAvatarLibrary();
@@ -33081,13 +33859,200 @@ Before outputting each response, internally verify:
 			    if (viewName === 'long_term_memory') renderDailyMemory();
 			}
 
+			// ==================== 外观与小组件管理应用 (Appearance App) ====================
+			const AVAILABLE_WIDGET_CATALOG = [
+			    {
+			        key: 'vinyl_retro',
+			        name: '复古黑胶播放器',
+			        tag: '拟物唱片机',
+			        desc: '带黑胶光泽唱片与音符装饰条的音乐播放器卡片',
+			        previewFunc: (instId) => getWidgetHtml({ type: 'widget', id: instId, widgetKey: 'vinyl_retro' })
+			    },
+			    {
+			        key: 'gramophone_social',
+			        name: '留声机与社交动态卡',
+			        tag: '双卡组合',
+			        desc: '上方唱针留声机横条，下方双格大图社交打卡动态',
+			        previewFunc: (instId) => getWidgetHtml({ type: 'widget', id: instId, widgetKey: 'gramophone_social' })
+			    },
+			    {
+			        key: 'angel_frost',
+			        name: '天使之翼磨砂播放卡',
+			        tag: '情侣羽翼',
+			        desc: '头顶光环翅膀的浪漫双人头像 + 玻璃拟态播放器',
+			        previewFunc: (instId) => getWidgetHtml({ type: 'widget', id: instId, widgetKey: 'angel_frost' })
+			    },
+			    {
+			        key: 'insta_grid',
+			        name: 'Instagram 浅灰六宫格',
+			        tag: '主页相册',
+			        desc: '2x3 相片展示墙与个人主页浮层操作栏',
+			        previewFunc: (instId) => getWidgetHtml({ type: 'widget', id: instId, widgetKey: 'insta_grid' })
+			    },
+			    {
+			        key: 'cam1',
+			        name: '银色数码卡片机 (Nikon)',
+			        tag: '复古CCD',
+			        desc: '经典银色按键带标牌的数码相机相框',
+			        previewFunc: (instId) => getWidgetHtml({ type: 'widget', id: instId, widgetKey: 'cam1' })
+			    },
+			    {
+			        key: 'cam2',
+			        name: '黑色街拍相机',
+			        tag: '街头胶片',
+			        desc: '纯黑金属质感取景器相框与曝光参数标牌',
+			        previewFunc: (instId) => getWidgetHtml({ type: 'widget', id: instId, widgetKey: 'cam2' })
+			    }
+			];
+
+			function updateDarkDesktopModeUI() {
+			    const isDark = !!state.uiConfig.darkDesktopMode;
+			    document.querySelectorAll('.dark-desktop-switch').forEach(sw => {
+			        if (isDark) sw.classList.add('on');
+			        else sw.classList.remove('on');
+			    });
+			    document.querySelectorAll('.dark-desktop-icon').forEach(ic => {
+			        if (isDark) {
+			            ic.classList.remove('gray');
+			            ic.classList.add('blue');
+			        } else {
+			            ic.classList.remove('blue');
+			            ic.classList.add('gray');
+			        }
+			    });
+			}
+			window.updateDarkDesktopModeUI = updateDarkDesktopModeUI;
+
+			function renderAppearanceApp() {
+			    const container = document.getElementById('appearance-widgets-catalog');
+			    const subEl = document.getElementById('appearance-page-count-sub');
+			    if (!container) return;
+
+			    updateDarkDesktopModeUI();
+			    initDesktopPagesState();
+			    const pageCount = (state.uiConfig.desktopPages || []).length;
+			    if (subEl) subEl.textContent = `共 ${pageCount} 个桌面页`;
+
+			    // 动态扫描桌面上实际存在的所有 App（包括所有分页及 Dock 栏）
+			    renderAppearanceAppIcons();
+
+			    container.innerHTML = AVAILABLE_WIDGET_CATALOG.map((widget, idx) => {
+			        const previewId = 'catalog_preview_' + widget.key;
+			        const previewHtml = widget.previewFunc(previewId);
+
+			        return `
+			        <div class="st-group-card" style="margin:0; overflow:hidden; border:1px solid rgba(0,0,0,0.06);">
+			            <div style="padding:14px 16px 10px; display:flex; justify-content:space-between; align-items:center; border-bottom:0.5px solid rgba(60,60,67,0.12); background:#FAFAFA;">
+			                <div>
+			                    <div style="font-size:15px; font-weight:700; color:#111;">${escapeHtml(widget.name)}</div>
+			                    <div style="font-size:12px; color:#8A8A8E; margin-top:2px;">${escapeHtml(widget.desc)}</div>
+			                </div>
+			                <button class="st-mini-btn" style="background:#007AFF; color:#fff; font-weight:600;" onclick="promptAddWidgetToPage('${widget.key}')">+ 添加到桌面</button>
+			            </div>
+			            <div style="padding:16px 12px; background:#FFFFFF; display:flex; justify-content:center; overflow-x:auto;">
+			                <div style="width:100%; max-width:340px; pointer-events:none;">
+			                    ${previewHtml}
+			                </div>
+			            </div>
+			        </div>
+			        `;
+			    }).join('');
+			}
+			window.renderAppearanceApp = renderAppearanceApp;
+
+			async function promptAddWidgetToPage(widgetKey) {
+			    initDesktopPagesState();
+			    const pages = state.uiConfig.desktopPages || [];
+			    const pageCount = pages.length;
+
+			    let optionsHtml = '';
+			    for (let i = 0; i < pageCount; i++) {
+			        optionsHtml += `<option value="${i}">添加到第 ${i + 1} 页</option>`;
+			    }
+			    optionsHtml += `<option value="new">+ 新建第 ${pageCount + 1} 页并添加</option>`;
+
+			    const selectHtml = `
+			        <div style="text-align:left; padding:10px 0; font-size:14px;">
+			            <div style="margin-bottom:8px; color:#666;">选择添加到哪个桌面分页：</div>
+			            <select id="dialog-target-page-select" class="st-inline-select" style="width:100%; max-width:none; padding:10px; background:#F2F2F7; border-radius:10px; direction:ltr; text-align:left;">
+			                ${optionsHtml}
+			            </select>
+			        </div>
+			    `;
+
+			    $('#dialog-title').textContent = '添加组件到桌面';
+			    $('#dialog-body').innerHTML = selectHtml;
+			    $('#custom-dialog').style.display = 'flex';
+
+			    state.dialog.resolve = async (confirmed) => {
+			        if (confirmed) {
+			            const target = document.getElementById('dialog-target-page-select').value;
+			            const newInstId = 'inst_' + widgetKey + '_' + Date.now() + Math.random().toString(36).substr(2, 4);
+			            const widgetItem = {
+			                type: 'widget',
+			                id: newInstId,
+			                instId: newInstId,
+			                widgetKey: widgetKey,
+			                name: widgetKey
+			            };
+
+			            let targetPageIdx = 0;
+			            if (target === 'new') {
+			                state.uiConfig.desktopPages.push([widgetItem]);
+			                targetPageIdx = state.uiConfig.desktopPages.length - 1;
+			            } else {
+			                const pIdx = parseInt(target, 10);
+			                if (state.uiConfig.desktopPages[pIdx]) {
+			                    state.uiConfig.desktopPages[pIdx].push(widgetItem);
+			                    targetPageIdx = pIdx;
+			                }
+			            }
+
+			            await saveDataSilently();
+			            renderDesktop();
+			            showToast('组件已成功添加到桌面！');
+			            switchView('desktop');
+
+			            // 自动滑动到组件所在分页，让用户立即看到
+			            setTimeout(() => {
+			                const slider = document.getElementById('desktop-slider');
+			                if (slider && slider.clientWidth) {
+			                    slider.scrollTo({
+			                        left: targetPageIdx * slider.clientWidth,
+			                        behavior: 'smooth'
+			                    });
+			                    updateDesktopPagination();
+			                }
+			            }, 120);
+			        }
+			    };
+			    state.dialog.inputs = [];
+			}
+			window.promptAddWidgetToPage = promptAddWidgetToPage;
+
+			async function addNewDesktopPage() {
+			    initDesktopPagesState();
+			    state.uiConfig.desktopPages.push([]);
+			    await saveDataSilently();
+			    renderDesktop();
+			    renderAppearanceApp();
+			    showToast(`已创建第 ${state.uiConfig.desktopPages.length} 页`);
+			}
+			window.addNewDesktopPage = addNewDesktopPage;
+
 			// 处理桌面APP图标点击事件，将图标ID精准映射到对应的系统页面
 			function handleAppClick(appId) {
+			    // 如果点击的是 "待做" 伪应用，提示开发中
+			    if (appId.startsWith('todo_')) {
+			        showToast('该功能正在开发中 (待做)', 'error');
+			        return;
+			    }
 			    const viewMap = {
 			        'chat': 'chat_main',
 			        'diary': 'diary_main',
 			        'snoop': 'snoop_main',
 			        'network': 'network_main',
+			        'appearance': 'appearance',
 			        'forum': 'forum_main',
 			        'shop': 'shop_main',
 			        'music': 'music_player'
@@ -33372,29 +34337,101 @@ Before outputting each response, internally verify:
 			    `;
 			}
 
-			// 用于控制当前要修改哪张小组件图片的变量
+			// 小组件实例独立上传/编辑控制器
+			let curWidgetInstTarget = null; // { instId, fieldKey }
 			let currentWidgetImageKey = null;
 
-			function triggerWidgetImageUpload(key) {
-			    currentWidgetImageKey = key;
+			function triggerWidgetInstanceImageUpload(instId, fieldKey) {
+			    curWidgetInstTarget = { instId, fieldKey };
+			    currentWidgetImageKey = null;
 			    const uploadInput = document.getElementById('widgetImageUpload');
 			    if (uploadInput) {
 			        uploadInput.value = '';
 			        uploadInput.click();
 			    }
 			}
+			window.triggerWidgetInstanceImageUpload = triggerWidgetInstanceImageUpload;
+
+			function triggerWidgetImageUpload(key) {
+			    currentWidgetImageKey = key;
+			    curWidgetInstTarget = null;
+			    const uploadInput = document.getElementById('widgetImageUpload');
+			    if (uploadInput) {
+			        uploadInput.value = '';
+			        uploadInput.click();
+			    }
+			}
+			window.triggerWidgetImageUpload = triggerWidgetImageUpload;
+
+			async function editWidgetInstanceText(instId, fieldKey, title) {
+			    const data = getWidgetInstanceData(instId);
+			    const current = data[fieldKey] || '';
+			    const newVal = await showPromptDialog(`修改${title}`, current);
+			    if (newVal !== null) {
+			        data[fieldKey] = newVal.trim();
+			        await saveDataSilently();
+			        renderDesktop();
+			        if (state.currentView === 'appearance') renderAppearanceApp();
+			    }
+			}
+			window.editWidgetInstanceText = editWidgetInstanceText;
+
+			async function editWidgetInstancePair(instId, key1, key2, label1, label2) {
+			    const data = getWidgetInstanceData(instId);
+			    const res = await showDoublePromptDialog(`修改信息`, data[key1] || '', data[key2] || '', label1, label2);
+			    if (res) {
+			        data[key1] = res.val1.trim();
+			        data[key2] = res.val2.trim();
+			        await saveDataSilently();
+			        renderDesktop();
+			        if (state.currentView === 'appearance') renderAppearanceApp();
+			    }
+			}
+			window.editWidgetInstancePair = editWidgetInstancePair;
+
+			async function deleteWidgetInstance(instId) {
+			    if (await showConfirmDialog('删除组件', '确定从桌面上移除这个小组件吗？')) {
+			        state.uiConfig.desktopPages.forEach(page => {
+			            const idx = page.findIndex(item => (item.instId || item.id) === instId);
+			            if (idx > -1) page.splice(idx, 1);
+			        });
+			        if (state.uiConfig.widgetInstances && state.uiConfig.widgetInstances[instId]) {
+			            delete state.uiConfig.widgetInstances[instId];
+			        }
+			        await saveDataSilently();
+			        renderDesktop();
+			        showToast('已移除小组件');
+			    }
+			}
+			window.deleteWidgetInstance = deleteWidgetInstance;
 
 			function handleWidgetImageUpload(e) {
 			    const file = e.target.files[0];
-			    if (!file || !currentWidgetImageKey) return;
+			    if (!file) return;
+
 			    const reader = new FileReader();
-			    reader.onload = ev => {
-			        state.uiConfig[currentWidgetImageKey] = ev.target.result;
-			        saveDataSilently();
+			    reader.onload = async ev => {
+			        const result = ev.target.result;
+			        if (curWidgetInstTarget) {
+			            const data = getWidgetInstanceData(curWidgetInstTarget.instId);
+			            data[curWidgetInstTarget.fieldKey] = result;
+			            // 兼容相机旧字段
+			            if (curWidgetInstTarget.fieldKey === 'cam1Img') state.uiConfig.cam1Img = result;
+			            if (curWidgetInstTarget.fieldKey === 'cam2Img') state.uiConfig.cam2Img = result;
+			            curWidgetInstTarget = null;
+			        } else if (currentWidgetImageKey) {
+			            state.uiConfig[currentWidgetImageKey] = result;
+			            currentWidgetImageKey = null;
+			        }
+			        await saveDataSilently();
 			        renderDesktop();
+			        if (state.currentView === 'appearance') renderAppearanceApp();
+			        showToast('小组件图片已更新');
 			    };
 			    reader.readAsDataURL(file);
+			    e.target.value = '';
 			}
+			window.handleWidgetImageUpload = handleWidgetImageUpload;
 
 			async function editDorisMusicWidgetText() {
 			    const currentTitle = state.uiConfig.musicWidgetTitle || 'DorisWorld';
@@ -33442,154 +34479,517 @@ Before outputting each response, internally verify:
 			    }
 			}
 
+			function initDesktopPagesState() {
+			    if (!state.uiConfig.desktopPages || state.uiConfig.desktopPages.length === 0) {
+			        state.uiConfig.desktopPages = [
+			            [
+			                {type:'app', id:'appearance', name:'外观', icon:'ph:palette-fill'},
+			                {type:'app', id:'diary', name:'日记', icon:'ph:calendar-blank-fill'},
+			                {type:'app', id:'snoop', name:'查手机', icon:'ph:device-mobile-fill'},
+			                {type:'app', id:'pomodoro', name:'专注', icon:'ph:timer-fill'},
+			                {type:'app', id:'takeout', name:'外卖', icon:'ph:shopping-bag-fill'},
+			                {type:'app', id:'shop', name:'商城', icon:'ph:storefront-fill'},
+			                {type:'app', id:'lover_space', name:'情侣空间', icon:'ph:heart-fill'},
+			                {type:'app', id:'forum', name:'论坛', icon:'ph:television-fill'},
+			                {type:'app', id:'tutorial', name:'新手教程', icon:'ph:book-open-fill'}
+			            ],
+			            [ {type:'widget', id:'cam1', name:'cam1', widgetKey:'cam1'} ],
+			            [ {type:'widget', id:'cam2', name:'cam2', widgetKey:'cam2'} ]
+			        ];
+			        saveDataSilently();
+			    } else {
+			        // 兼容迁移：把旧的 todo_sparkles 自动无损升级为 appearance
+			        let migrated = false;
+			        state.uiConfig.desktopPages.forEach(page => {
+			            page.forEach(item => {
+			                if (item.id === 'todo_sparkles') {
+			                    item.id = 'appearance';
+			                    item.name = '外观';
+			                    item.icon = 'ph:palette-fill';
+			                    migrated = true;
+			                }
+			            });
+			        });
+			        if (migrated) saveDataSilently();
+			    }
+			}
+
+			function getWidgetInstanceData(instId, widgetKey) {
+			    if (!state.uiConfig.widgetInstances) state.uiConfig.widgetInstances = {};
+			    if (!state.uiConfig.widgetInstances[instId]) {
+			        state.uiConfig.widgetInstances[instId] = {};
+			    }
+			    return state.uiConfig.widgetInstances[instId];
+			}
+
+			function getWidgetHtml(item) {
+			    let instId = '';
+			    let widgetKey = '';
+
+			    if (typeof item === 'string') {
+			        instId = item;
+			        // 从桌面分页中寻找对应 item 的 widgetKey
+			        if (state.uiConfig.desktopPages) {
+			            state.uiConfig.desktopPages.forEach(p => {
+			                const found = p.find(it => (it.instId || it.id) === instId);
+			                if (found) widgetKey = found.widgetKey || found.id;
+			            });
+			        }
+			        if (!widgetKey) {
+			            if (instId.includes('vinyl_retro')) widgetKey = 'vinyl_retro';
+			            else if (instId.includes('gramophone_social')) widgetKey = 'gramophone_social';
+			            else if (instId.includes('angel_frost')) widgetKey = 'angel_frost';
+			            else if (instId.includes('insta_grid')) widgetKey = 'insta_grid';
+			            else if (instId.includes('cam1')) widgetKey = 'cam1';
+			            else if (instId.includes('cam2')) widgetKey = 'cam2';
+			            else widgetKey = instId;
+			        }
+			    } else if (item && typeof item === 'object') {
+			        instId = item.instId || item.id;
+			        widgetKey = item.widgetKey || item.id;
+			        if (!widgetKey || widgetKey === instId) {
+			            if (instId.includes('vinyl_retro')) widgetKey = 'vinyl_retro';
+			            else if (instId.includes('gramophone_social')) widgetKey = 'gramophone_social';
+			            else if (instId.includes('angel_frost')) widgetKey = 'angel_frost';
+			            else if (instId.includes('insta_grid')) widgetKey = 'insta_grid';
+			            else if (instId.includes('cam1')) widgetKey = 'cam1';
+			            else if (instId.includes('cam2')) widgetKey = 'cam2';
+			        }
+			    }
+
+			    const data = getWidgetInstanceData(instId, widgetKey);
+			    const delBtn = `<div class="widget-delete-btn" onclick="event.stopPropagation(); deleteWidgetInstance('${instId}')" title="删除组件"><iconify-icon icon="ph:x-bold"></iconify-icon></div>`;
+
+			    // 1. 银色相机
+			    if (widgetKey === 'cam1') {
+			        const img = (data.cam1Img || state.uiConfig.cam1Img) ? `<img src="${data.cam1Img || state.uiConfig.cam1Img}" style="width:100%; height:calc(100% - 16px); object-fit:cover;"/>` : '';
+			        const ph = (data.cam1Img || state.uiConfig.cam1Img) ? '' : `<div class="cam-placeholder" style="flex:1; display:flex; align-items:center; justify-content:center; color:#ccc; font-weight:bold; font-size:14px; background:#fff;">UPLOAD</div>`;
+			        const txt = data.cam1Text || state.uiConfig.cam1Text || 'To always face my adversity head on';
+			        return `
+			        <div class="desktop-item-wrapper desktop-item-widget" data-type="widget" data-id="${instId}" style="position:relative;">
+			            ${delBtn}
+			            <div style="display:flex; flex-direction:column; align-items:center; width:100%;">
+			                <div class="silver-cam" onclick="triggerWidgetInstanceImageUpload('${instId}', 'cam1Img')">
+			                    <div class="silver-cam-inner">
+			                        <div class="silver-screen-wrap">
+			                            ${img}
+			                            ${ph}
+			                            <div class="silver-logo">Nikon</div>
+			                        </div>
+			                        <div class="silver-controls">
+			                            <div class="silver-speaker"></div>
+			                            <div class="silver-zoom">
+			                                <div class="zoom-btn">W</div>
+			                                <div class="zoom-btn">T</div>
+			                            </div>
+			                            <div class="silver-mode">SCENE</div>
+			                            <div class="silver-btn-row">
+			                                <div class="silver-btn"><iconify-icon icon="ph:camera-fill"></iconify-icon></div>
+			                                <div class="silver-btn"><iconify-icon icon="ph:play-fill"></iconify-icon></div>
+			                            </div>
+			                            <div class="silver-dpad">
+			                                <div class="dpad-up"><iconify-icon icon="ph:lightning-fill"></iconify-icon></div>
+			                                <div class="dpad-down"><iconify-icon icon="ph:flower"></iconify-icon></div>
+			                                <div class="dpad-left"><iconify-icon icon="ph:timer-fill"></iconify-icon></div>
+			                                <div class="dpad-right"><iconify-icon icon="ph:plus-minus-fill"></iconify-icon></div>
+			                                <div class="dpad-ok">OK</div>
+			                            </div>
+			                            <div class="silver-btn-row">
+			                                <div class="silver-btn-rect">MENU</div>
+			                                <div class="silver-btn"><iconify-icon icon="ph:trash-fill"></iconify-icon></div>
+			                            </div>
+			                        </div>
+			                    </div>
+			                </div>
+			                <div class="cam-caption" onclick="editWidgetInstanceText('${instId}', 'cam1Text', '修改文字')">${escapeHtml(txt)}</div>
+			            </div>
+			        </div>`;
+			    }
+
+			    // 2. 黑色相机
+			    if (widgetKey === 'cam2') {
+			        const img = (data.cam2Img || state.uiConfig.cam2Img) ? `<img src="${data.cam2Img || state.uiConfig.cam2Img}" style="width:100%; height:100%; object-fit:cover;"/>` : '';
+			        const ph = (data.cam2Img || state.uiConfig.cam2Img) ? '' : `<div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; color:#ccc; font-weight:bold; font-size:14px; background:#fff;">UPLOAD</div>`;
+			        return `
+			        <div class="desktop-item-wrapper desktop-item-widget" data-type="widget" data-id="${instId}" style="position:relative;">
+			            ${delBtn}
+			            <div style="display:flex; flex-direction:column; align-items:center; width:100%;">
+			                <div class="black-cam" onclick="triggerWidgetInstanceImageUpload('${instId}', 'cam2Img')">
+			                    <div class="black-cam-top">
+			                        <iconify-icon icon="ph:sun-fill" style="margin-right:auto; color:#fff; font-size:16px;"></iconify-icon>
+			                        <span style="font-family:monospace; font-size:12px; margin-right:6px;">[ 3 145 ]+0</span>
+			                        <iconify-icon icon="ph:battery-full" style="font-size:18px; margin-right:6px;"></iconify-icon>
+			                        <iconify-icon icon="ph:power" style="font-size:16px;"></iconify-icon>
+			                    </div>
+			                    <div class="black-cam-middle">
+			                        <div class="black-cam-left">
+			                            <div class="blk-big-icon">P</div>
+			                            <div class="blk-small-text">MENU</div>
+			                            <div class="blk-icon-circle"><iconify-icon icon="ph:lightning-fill"></iconify-icon></div>
+			                            <div class="blk-icon-rect"><iconify-icon icon="ph:play-fill"></iconify-icon></div>
+			                        </div>
+			                        <div class="black-cam-screen">${img}${ph}</div>
+			                        <div class="black-cam-right">
+			                            <iconify-icon icon="ph:aperture-bold"></iconify-icon>
+			                            <div class="red-dot"></div>
+			                        </div>
+			                    </div>
+			                    <div class="black-cam-bottom">
+			                        <div class="blk-bot-item">AWB</div>
+			                        <div class="blk-bot-item box">AF</div>
+			                        <div class="blk-bot-item"><iconify-icon icon="ph:film-strip-fill"></iconify-icon></div>
+			                        <div class="blk-bot-item">ISO<br>AUTO</div>
+			                        <div class="blk-bot-item box">+-</div>
+			                    </div>
+			                </div>
+			            </div>
+			        </div>`;
+			    }
+
+			    // 3. 图1：复古黑胶音乐播放器 (vinyl_retro)
+			    if (widgetKey === 'vinyl_retro') {
+			        const cover = data.cover ? `<img src="${data.cover}" />` : `<iconify-icon icon="ph:image-bold" style="font-size:32px; color:#C4C4C6;"></iconify-icon>`;
+			        const title = data.title || 'Love Song';
+			        const artist = data.artist || 'Stand by me - Mini Album';
+			        return `
+			        <div class="desktop-item-wrapper desktop-item-widget" data-type="widget" data-id="${instId}" style="position:relative;">
+			            ${delBtn}
+			            <div class="w-vinyl-card">
+			                <div class="w-vinyl-notes">
+			                    <iconify-icon icon="ph:music-note-fill"></iconify-icon>
+			                    <span>•</span>
+			                    <iconify-icon icon="ph:music-notes-fill"></iconify-icon>
+			                    <span>•</span>
+			                    <iconify-icon icon="ph:wave-sine-bold"></iconify-icon>
+			                </div>
+			                <div class="w-vinyl-player">
+			                    <div class="w-vinyl-player-top">
+			                        <iconify-icon icon="ph:play-fill"></iconify-icon>
+			                        <iconify-icon icon="ph:battery-full-fill"></iconify-icon>
+			                    </div>
+			                    <div class="w-vinyl-cover-box" onclick="triggerWidgetInstanceImageUpload('${instId}', 'cover')">
+			                        ${cover}
+			                    </div>
+			                    <div class="w-vinyl-prog-row">
+			                        <span>00:56</span>
+			                        <span>12/318</span>
+			                        <span>04:32</span>
+			                    </div>
+			                    <div class="w-vinyl-track"><div class="w-vinyl-fill"></div></div>
+			                    <div class="w-vinyl-meta" onclick="editWidgetInstancePair('${instId}', 'title', 'artist', '歌曲名称', '专辑/歌手')">
+			                        <div class="w-vinyl-title">${escapeHtml(title)}</div>
+			                        <div class="w-vinyl-sub">${escapeHtml(artist)}</div>
+			                    </div>
+			                    <div class="w-vinyl-controls">
+			                        <iconify-icon icon="ph:skip-back-fill" onclick="prevMusic()"></iconify-icon>
+			                        <div class="w-vinyl-play-btn" onclick="togglePlayMusic()">
+			                            <iconify-icon icon="ph:pause-fill"></iconify-icon>
+			                        </div>
+			                        <iconify-icon icon="ph:skip-forward-fill" onclick="nextMusic()"></iconify-icon>
+			                        <iconify-icon icon="ph:speaker-high-fill"></iconify-icon>
+			                    </div>
+			                </div>
+			                <div class="w-vinyl-disc" onclick="triggerWidgetInstanceImageUpload('${instId}', 'cover')">
+			                    <div class="w-vinyl-center-sticker">
+			                        <span>CLASSIC</span>
+			                        <span style="font-size:4.5px; opacity:0.6;">RECORDS</span>
+			                    </div>
+			                </div>
+			                <div class="w-vinyl-clef">𝄞</div>
+			            </div>
+			        </div>`;
+			    }
+
+			    // 4. 图2：留声机唱盘 + 社交大卡片 (gramophone_social)
+			    if (widgetKey === 'gramophone_social') {
+			        const topCover = data.topCover ? `<img src="${data.topCover}" />` : `<iconify-icon icon="ph:image-bold" style="font-size:24px; color:#C4C4C6;"></iconify-icon>`;
+			        const ava = data.avatar ? `<img src="${data.avatar}" />` : `<span style="font-size:12px;">我</span>`;
+			        const timeText = data.timeText || '26-02-06 05:20 发布于 中国';
+			        const pic1 = data.pic1 ? `<img src="${data.pic1}" />` : `<iconify-icon icon="ph:image-bold" style="font-size:32px; color:rgba(255,255,255,0.4);"></iconify-icon>`;
+			        const pic2 = data.pic2 ? `<img src="${data.pic2}" />` : `<iconify-icon icon="ph:image-bold" style="font-size:32px; color:rgba(255,255,255,0.4);"></iconify-icon>`;
+			        const commentCount = data.commentCount || '1314';
+			        const likeCount = data.likeCount || '1w6';
+
+			        return `
+			        <div class="desktop-item-wrapper desktop-item-widget" data-type="widget" data-id="${instId}" style="position:relative;">
+			            ${delBtn}
+			            <div class="w-gramo-social-wrap">
+			                <!-- 留声机横条 -->
+			                <div class="w-gramo-top-card">
+			                    <div class="w-gramo-cover-square" onclick="triggerWidgetInstanceImageUpload('${instId}', 'topCover')">
+			                        ${topCover}
+			                    </div>
+			                    <div class="w-gramo-center-ctrl">
+			                        <div class="w-gramo-track-line"><div class="w-gramo-track-dot"></div></div>
+			                        <div class="w-gramo-ctrl-btns">
+			                            <iconify-icon icon="ph:shuffle-bold"></iconify-icon>
+			                            <iconify-icon icon="ph:skip-back-fill" onclick="prevMusic()"></iconify-icon>
+			                            <div class="w-gramo-play-circle" onclick="togglePlayMusic()">
+			                                <iconify-icon icon="ph:play-fill"></iconify-icon>
+			                            </div>
+			                            <iconify-icon icon="ph:skip-forward-fill" onclick="nextMusic()"></iconify-icon>
+			                            <iconify-icon icon="ph:repeat-bold"></iconify-icon>
+			                        </div>
+			                    </div>
+			                    <div class="w-gramo-disc-wrap" onclick="togglePlayMusic()">
+			                        <div class="w-gramo-disc-body"></div>
+			                        <div class="w-gramo-arm"></div>
+			                    </div>
+			                </div>
+
+			                <!-- 社交卡片 -->
+			                <div class="w-social-post-card">
+			                    <div class="w-social-head-row">
+			                        <div class="w-social-ava-black" onclick="triggerWidgetInstanceImageUpload('${instId}', 'avatar')">${ava}</div>
+			                        <div class="w-social-time-sub" onclick="editWidgetInstanceText('${instId}', 'timeText', '发布时间与地点')">${escapeHtml(timeText)}</div>
+			                        <div class="w-social-chev"><iconify-icon icon="ph:caret-right-bold"></iconify-icon></div>
+			                    </div>
+			                    <div class="w-social-pics-row">
+			                        <div class="w-social-pic-box" onclick="triggerWidgetInstanceImageUpload('${instId}', 'pic1')">${pic1}</div>
+			                        <div class="w-social-pic-box" onclick="triggerWidgetInstanceImageUpload('${instId}', 'pic2')">${pic2}</div>
+			                    </div>
+			                    <div class="w-social-bottom-bar">
+			                        <div class="w-social-act-item"><iconify-icon icon="ph:share-fat-bold"></iconify-icon><span>转发</span></div>
+			                        <div class="w-social-act-item" onclick="editWidgetInstanceText('${instId}', 'commentCount', '评论数')"><iconify-icon icon="ph:chat-circle-dots-bold"></iconify-icon><span>${escapeHtml(commentCount)}</span></div>
+			                        <div class="w-social-act-item" onclick="editWidgetInstanceText('${instId}', 'likeCount', '点赞数')"><iconify-icon icon="ph:heart-bold"></iconify-icon><span>${escapeHtml(likeCount)}</span></div>
+			                    </div>
+			                </div>
+			            </div>
+			        </div>`;
+			    }
+
+			    // 5. 图3：天使翅膀双头像 + 磨砂质感播放卡 (angel_frost)
+			    if (widgetKey === 'angel_frost') {
+			        const bg = data.bgImg ? `background-image: url(${data.bgImg});` : 'background-image: radial-gradient(circle, #333 0%, #151515 100%);';
+			        const tag1 = data.tag1 || '你在左边';
+			        const tag2 = data.tag2 || '我紧靠右';
+			        const sub = data.subText || '第一张照片 不太敢亲密的';
+			        const leftAva = data.leftAva ? `<img src="${data.leftAva}" />` : `<span>左</span>`;
+			        const rightAva = data.rightAva ? `<img src="${data.rightAva}" />` : `<span>右</span>`;
+			        const album = data.album ? `<img src="${data.album}" />` : `<iconify-icon icon="ph:music-notes-bold" style="font-size:28px; color:#BBB;"></iconify-icon>`;
+			        const song = data.song || '我们俩';
+			        const artist = data.artist || '你在左边 我紧靠右';
+			        const lrc1 = data.lrc1 || '做应人天真了';
+			        const lrc2 = data.lrc2 || '苹果一样带甜的羞涩';
+
+			        return `
+			        <div class="desktop-item-wrapper desktop-item-widget" data-type="widget" data-id="${instId}" style="position:relative;">
+			            ${delBtn}
+			            <div class="w-angel-frost-wrap" style="${bg}">
+			                <button class="st-mini-btn" style="position:absolute; top:8px; right:8px; font-size:10px; padding:3px 8px; z-index:10; background:rgba(0,0,0,0.4); color:#fff;" onclick="triggerWidgetInstanceImageUpload('${instId}', 'bgImg')">换背景</button>
+			                <div class="w-angel-avatars-row">
+			                    <div class="w-angel-avatar-cell">
+			                        <div class="w-angel-halo-tag" onclick="editWidgetInstanceText('${instId}', 'tag1', '左头像标签')">${escapeHtml(tag1)}</div>
+			                        <div class="w-angel-circle-box" onclick="triggerWidgetInstanceImageUpload('${instId}', 'leftAva')">${leftAva}</div>
+			                        <div class="w-angel-wing-left">🪽</div>
+			                    </div>
+			                    <div class="w-angel-avatar-cell">
+			                        <div class="w-angel-halo-tag" onclick="editWidgetInstanceText('${instId}', 'tag2', '右头像标签')">${escapeHtml(tag2)}</div>
+			                        <div class="w-angel-circle-box" onclick="triggerWidgetInstanceImageUpload('${instId}', 'rightAva')">${rightAva}</div>
+			                        <div class="w-angel-wing-right">🪽</div>
+			                    </div>
+			                </div>
+			                <div class="w-angel-subtitle-text" onclick="editWidgetInstanceText('${instId}', 'subText', '副标题文案')">${escapeHtml(sub)}</div>
+
+			                <div class="w-frost-player-card">
+			                    <div class="w-frost-album-sq" onclick="triggerWidgetInstanceImageUpload('${instId}', 'album')">${album}</div>
+			                    <div class="w-frost-info-col">
+			                        <div class="w-frost-title-row" onclick="editWidgetInstancePair('${instId}', 'song', 'artist', '歌曲名称', '歌手/说明')">
+			                            <div>
+			                                <div class="w-frost-song-name">${escapeHtml(song)}</div>
+			                                <div class="w-frost-song-sub">${escapeHtml(artist)}</div>
+			                            </div>
+			                            <div class="w-frost-dot-tag"></div>
+			                        </div>
+			                        <div class="w-frost-line"></div>
+			                        <div class="w-frost-ctrl-row">
+			                            <iconify-icon icon="ph:skip-back-fill" onclick="prevMusic()"></iconify-icon>
+			                            <iconify-icon icon="ph:play-fill" onclick="togglePlayMusic()"></iconify-icon>
+			                            <iconify-icon icon="ph:skip-forward-fill" onclick="nextMusic()"></iconify-icon>
+			                        </div>
+			                        <div class="w-frost-pill-lyrics" onclick="editWidgetInstancePair('${instId}', 'lrc1', 'lrc2', '歌词第1行', '歌词第2行')">${escapeHtml(lrc1)}</div>
+			                        <div class="w-frost-pill-lyrics" onclick="editWidgetInstancePair('${instId}', 'lrc1', 'lrc2', '歌词第1行', '歌词第2行')">${escapeHtml(lrc2)}</div>
+			                    </div>
+			                </div>
+			            </div>
+			        </div>`;
+			    }
+
+			    // 6. 图4&5：Instagram 风格六宫格个人卡片 (insta_grid)
+			    if (widgetKey === 'insta_grid') {
+			        const isWhite = data.theme === 'white';
+			        const ava = data.avatar ? `<img src="${data.avatar}" />` : `<span>IG</span>`;
+			        const nameTag = data.nameTag || 'Instagram User';
+			        const pics = [1, 2, 3, 4, 5, 6].map(i => {
+			            const key = 'gridPic' + i;
+			            return data[key] ? `<img src="${data[key]}" />` : '';
+			        });
+
+			        return `
+			        <div class="desktop-item-wrapper desktop-item-widget" data-type="widget" data-id="${instId}" style="position:relative;">
+			            ${delBtn}
+			            <div class="w-insta-profile-wrap">
+			                <div class="w-insta-card-body ${isWhite ? 'white-theme' : ''}">
+			                    <div class="w-insta-top-row">
+			                        <div class="w-insta-ava-round" onclick="triggerWidgetInstanceImageUpload('${instId}', 'avatar')">${ava}</div>
+			                        <div class="w-insta-name-capsule" onclick="editWidgetInstanceText('${instId}', 'nameTag', '用户名/标题')">${escapeHtml(nameTag)}</div>
+			                    </div>
+			                    <div class="w-insta-grid-6">
+			                        ${pics.map((p, idx) => `
+			                            <div class="w-insta-grid-item" onclick="triggerWidgetInstanceImageUpload('${instId}', 'gridPic${idx+1}')">
+			                                ${p}
+			                            </div>
+			                        `).join('')}
+			                    </div>
+			                </div>
+			                <div class="w-insta-bottom-sheet ${isWhite ? 'white-theme' : ''}">
+			                    <div class="w-insta-sheet-row" onclick="handleAppClick('network')">
+			                        <span>View profile</span>
+			                        <iconify-icon icon="ph:user-circle-bold"></iconify-icon>
+			                    </div>
+			                    <div class="w-insta-sheet-row" onclick="handleAppClick('chat')">
+			                        <span>Send</span>
+			                        <iconify-icon icon="ph:paper-plane-tilt-bold"></iconify-icon>
+			                    </div>
+			                </div>
+			            </div>
+			        </div>`;
+			    }
+
+			    return '';
+			}
+
 			function renderDesktop() {
 			    const view = $('#view-desktop');
-			    view.style.backgroundColor = state.uiConfig.wallpaper ? 'transparent' : '#FFFFFF';
-			    view.style.backgroundImage = state.uiConfig.wallpaper ? `url(${state.uiConfig.wallpaper})` : 'none';
-			    view.style.backgroundSize = 'cover';
-			    view.style.backgroundPosition = 'center';
 
-			    document.documentElement.style.setProperty('--text-color', state.uiConfig.textColor);
-
-			    // 参考重构的新组件渲染绑定
-			    const refLover1 = $('#ref-lover-avatar1');
-			    if (refLover1) refLover1.src = state.uiConfig.refLoverAvatar1 || 'https://placehold.co/100x100?text=L1';
-
-			    const refLover2 = $('#ref-lover-avatar2');
-			    if (refLover2) refLover2.src = state.uiConfig.refLoverAvatar2 || 'https://placehold.co/100x100?text=L2';
-
-			    const refSocialAvatar = $('#ref-social-avatar');
-			    if (refSocialAvatar) refSocialAvatar.src = state.uiConfig.refSocialAvatar || 'https://placehold.co/100x100?text=S';
-
-			    const refSocialCover = $('#ref-social-cover');
-			    if (refSocialCover) refSocialCover.src = state.uiConfig.refSocialCover || 'https://placehold.co/100x100?text=M';
-
-			    const refProfileAvatar = $('#ref-profile-avatar');
-			    if (refProfileAvatar) refProfileAvatar.src = state.uiConfig.refProfileAvatar || 'https://placehold.co/100x100?text=Me';
-
-			    // 渲染 顶部状态条文案
-			    const topTextBar = $('#widget-top-text-bar');
-			    if (topTextBar) topTextBar.textContent = state.uiConfig.topTextBar || 'e • • • ur in doll x sugar free dream ... 🤍';
-
-			    // 渲染最新组件文案
-			    const loverTitle = $('#desktop-lover-title');
-			    if (loverTitle) loverTitle.textContent = state.uiConfig.loverTitle || '° ୨୧ HONEY LOVE♡.⁺';
-			    const loverDesc = $('#desktop-lover-desc');
-			    if (loverDesc) loverDesc.textContent = state.uiConfig.loverDesc || '和宝宝在一起';
-			    const loverDays = $('#desktop-lover-days');
-			    if (loverDays) loverDays.innerHTML = '<span style="opacity:0.5; font-size:10px;">⁺♡ ˚。</span> ' + (state.uiConfig.loverDays || '已经 9289 天') + ' <span style="opacity:0.5; font-size:10px;">⁺ ˚.</span>';
-
-			    const musicSocialName = $('#desktop-music-social-name');
-			    if (musicSocialName) musicSocialName.textContent = state.uiConfig.musicSocialName || "(๑' ㅂ')グッ!";
-			    const musicAppName = $('#desktop-music-appname');
-			    if (musicAppName) musicAppName.textContent = state.uiConfig.musicAppName || 'My Music';
-			    const musicDesc = $('#desktop-music-desc');
-			    if (musicDesc) musicDesc.textContent = state.uiConfig.musicDesc || '“ ▷ ||||||||||| ” 请你听首歌.';
-
-			    const profileTitle = $('#desktop-profile-title');
-			    if (profileTitle) profileTitle.textContent = state.uiConfig.profileTitle || '★ ¸°*:.☆ my zone :*°, ★';
-			    const profileLoc = $('#desktop-profile-loc');
-			    if (profileLoc) profileLoc.innerHTML = '<iconify-icon icon="ph:map-pin-fill"></iconify-icon> ' + (state.uiConfig.profileLoc || '星河基地 -1°~12°C');
-
-			    // 渲染 Instagram 组件
-			    const insImg = $('#widget-ins-img');
-			    const insFallback = $('#widget-ins-fallback');
-			    if (state.uiConfig.insWidgetImg) {
-			        if (insImg) { insImg.src = state.uiConfig.insWidgetImg; insImg.style.display = 'block'; }
-			        if (insFallback) insFallback.style.display = 'none';
+			    // 处理深色桌面模式
+			    if (state.uiConfig.darkDesktopMode) {
+			        view.classList.add('desktop-dark-mode');
 			    } else {
-			        if (insImg) insImg.style.display = 'none';
-			        if (insFallback) insFallback.style.display = 'flex';
+			        view.classList.remove('desktop-dark-mode');
+			    }
+			    
+			    // 处理壁纸
+			    const wallUrl = state.uiConfig.wallpaper || 'https://i.postimg.cc/5tXp8JvL/IMG-0690.jpg';
+			    if (wallUrl) {
+			        view.style.backgroundColor = 'transparent';
+			        view.style.backgroundImage = `url(${wallUrl})`;
+			        view.style.backgroundSize = 'cover';
+			        view.style.backgroundPosition = 'center';
+			        const dotBg = view.querySelector('.polka-dot-bg');
+			        if(dotBg) dotBg.style.display = 'none';
+			    } else {
+			        view.style.backgroundColor = '#FFFFFF';
+			        view.style.backgroundImage = 'none';
+			        const dotBg = view.querySelector('.polka-dot-bg');
+			        if(dotBg) dotBg.style.display = 'block';
 			    }
 
-			    // 渲染注销用户气泡组件
-			    const bubbleAvatar = $('#widget-bubble-avatar');
-			    const bubbleAvatarFallback = $('#widget-bubble-avatar-fallback');
-			    if (state.uiConfig.bubbleUserAvatar) {
-			        if (bubbleAvatar) { bubbleAvatar.src = state.uiConfig.bubbleUserAvatar; bubbleAvatar.style.display = 'block'; }
-			        if (bubbleAvatarFallback) bubbleAvatarFallback.style.display = 'none';
-			    } else {
-			        if (bubbleAvatar) bubbleAvatar.style.display = 'none';
-			        if (bubbleAvatarFallback) bubbleAvatarFallback.style.display = 'block';
-			    }
-			    const bubbleUserName = $('#widget-bubble-user-name');
-			    if (bubbleUserName) bubbleUserName.textContent = state.uiConfig.bubbleUserName || '爱上一个天使的缺点';
-			    const bubbleUserHandle = $('#widget-bubble-user-handle');
-			    if (bubbleUserHandle) bubbleUserHandle.textContent = state.uiConfig.bubbleUserHandle || '@ Virovo_915';
-			    const bubbleText = $('#widget-bubble-text');
-			    if (bubbleText) bubbleText.textContent = state.uiConfig.bubbleText || '你對我來說是宇宙，但我對你來說只是一顆星吗？';
+			    document.documentElement.style.setProperty('--text-color', state.uiConfig.textColor || '#111');
 
-			    // 待办组件
-			    const todoTitleEl = $('#desktop-todo-title');
-			    if (todoTitleEl) todoTitleEl.textContent = state.uiConfig.todoTitle || 'about me';
-			    const todoListEl = $('#desktop-todo-list');
-			    if (todoListEl) {
-			        const todoItems = (state.uiConfig.todoItems || 'Drink more water,Read a book,Sleep early').split(',').filter(t=>t.trim());
-			        todoListEl.innerHTML = todoItems.map(t => `
-			            <div class="todo-item">
-			                <div class="circle"></div>
-			                <div class="text">${escapeHtml(t)}</div>
+			    initDesktopPagesState();
+
+			    const slider = document.getElementById('desktop-slider');
+			    let pagesHtml = '';
+			    let paginationHtml = '';
+			    
+			    state.uiConfig.desktopPages.forEach((pageItems, pageIdx) => {
+			        let gridHtml = '';
+			        pageItems.forEach(item => {
+			            if (item.type === 'app') {
+			                const customIcon = state.uiConfig.customIcons && state.uiConfig.customIcons[item.id];
+			                const iconHtml = customIcon 
+			                    ? `<img src="${customIcon}" style="width:100%;height:100%;object-fit:cover;border-radius:14px;" />` 
+			                    : `<iconify-icon icon="${item.icon}"></iconify-icon>`;
+			                
+			                gridHtml += `
+			                <div class="desktop-item-wrapper desktop-item-app" data-type="app" data-id="${item.id}" data-name="${item.name}" data-icon="${item.icon}">
+			                    <div class="desktop-app-item" onclick="handleAppClick('${item.id}')">
+			                        <div class="desktop-app-icon">${iconHtml}</div>
+			                        <div class="desktop-app-label">${escapeHtml(item.name)}</div>
+			                    </div>
+			                </div>`;
+			            } else if (item.type === 'widget') {
+			                gridHtml += getWidgetHtml(item);
+			            }
+			        });
+			        
+			        pagesHtml += `
+			            <div class="desktop-page">
+			                <div class="desktop-app-grid" id="desktop-grid-${pageIdx}">
+			                    ${gridHtml}
+			                </div>
 			            </div>
-			        `).join('') + `<div class="todo-item add-new" style="border-bottom:none;"><div class="text">add new...</div></div>`;
-			    }
-
-			    // 渲染个人信息卡片 (防御空对象保护 - Moments Avatar & Name)
-			    const avatarImg = $('#desktop-profile-avatar');
-			    const avatarFallback = $('#desktop-profile-avatar-fallback');
-			    if (state.uiConfig.momentsAvatar) {
-			        if (avatarImg) { avatarImg.src = state.uiConfig.momentsAvatar; avatarImg.style.display = 'block'; }
-			        if (avatarFallback) avatarFallback.style.display = 'none';
-			    } else {
-			        if (avatarImg) avatarImg.style.display = 'none';
-			        if (avatarFallback) avatarFallback.style.display = 'flex';
-			    }
-			    const profileNameEl = $('#desktop-profile-name');
-			    if (profileNameEl) profileNameEl.textContent = state.uiConfig.momentsName || 'Space Traveler';
-
-			    // 适配多处展示个性签名的需求
-			    document.querySelectorAll('[id="desktop-profile-bio"]').forEach(el => {
-			        el.textContent = state.uiConfig.profileBio || '我說幸福就是在你身邊...';
+			        `;
+			        paginationHtml += `<div class="dot ${pageIdx === 0 ? 'active' : ''}"></div>`;
 			    });
 
-			    // 默认应用图标模板，用于重置还原
-			    const DEFAULT_APP_ICONS = {
-			        music: '<iconify-icon icon="ph:music-notes-fill"></iconify-icon>',
-			        diary: '<iconify-icon icon="ph:calendar-blank"></iconify-icon>',
-			        takeout: '<iconify-icon icon="ph:shopping-bag-fill"></iconify-icon>',
-			        lover_space: '<iconify-icon icon="ph:heart-straight-fill"></iconify-icon>',
-			        pomodoro: '<iconify-icon icon="ph:timer-fill"></iconify-icon>',
-			        network: '<iconify-icon icon="ph:image"></iconify-icon>',
-			        snoop: '<iconify-icon icon="ph:note-pencil"></iconify-icon>',
-			        chat: '<iconify-icon icon="ph:users-three"></iconify-icon>',
-			        todo_video: '<iconify-icon icon="ph:video-camera"></iconify-icon>',
-			        settings: '<iconify-icon icon="ph:gear"></iconify-icon>',
-			        todo_sparkles: '<iconify-icon icon="ph:magic-wand-fill"></iconify-icon>',
-			        todo_film: '<iconify-icon icon="ph:film-strip"></iconify-icon>',
-			        todo_music: '<iconify-icon icon="ph:music-notes"></iconify-icon>',
-			        forum: '<iconify-icon icon="ph:television"></iconify-icon>',
-			        tutorial: '<iconify-icon icon="ph:book-open"></iconify-icon>',
-			        shop: '<iconify-icon icon="ph:disc"></iconify-icon>'
-			    };
+			    slider.innerHTML = pagesHtml;
+			    const pagi = document.querySelector('.desktop-pagination');
+			    if (pagi) pagi.innerHTML = paginationHtml;
 
-			    // 渲染自定义图标（并在重置时自动还原默认图标样式）
-			    const appElements = document.querySelectorAll('.cream-app-item');
-			    appElements.forEach(el => {
+			    // 初始化长按拖放机制
+			    if (typeof Sortable !== 'undefined') {
+			        if (window.desktopSortables) {
+			            window.desktopSortables.forEach(s => s.destroy());
+			        }
+			        window.desktopSortables = [];
+			        document.querySelectorAll('.desktop-app-grid').forEach((gridEl) => {
+			            window.desktopSortables.push(new Sortable(gridEl, {
+			                group: 'desktop', 
+			                animation: 200,
+			                delay: 300, 
+			                delayOnTouchOnly: true,
+			                ghostClass: 'sortable-ghost',
+			                dragClass: 'sortable-drag',
+			                onEnd: function () {
+			                    saveDesktopLayoutFromDOM();
+			                }
+			            }));
+			        });
+			    }
+
+			    // 更新 Dock 栏应用自定图标
+			    const dockIcons = document.querySelectorAll('.liquid-dock .liquid-icon');
+			    dockIcons.forEach(el => {
 			        const onclickAttr = el.getAttribute('onclick');
 			        if (onclickAttr) {
 			            const match = onclickAttr.match(/'([^']+)'/);
 			            if (match && match[1]) {
 			                const appId = match[1];
-			                const iconCircle = el.querySelector('.app-icon-circle');
-			                if (iconCircle) {
-			                    if (state.uiConfig.customIcons && state.uiConfig.customIcons[appId]) {
-			                        iconCircle.innerHTML = `<img src="${state.uiConfig.customIcons[appId]}" style="width:100%;height:100%;object-fit:cover;border-radius:18px;" />`;
-			                    } else if (DEFAULT_APP_ICONS[appId]) {
-			                        iconCircle.innerHTML = DEFAULT_APP_ICONS[appId];
-			                    }
+			                if (state.uiConfig.customIcons && state.uiConfig.customIcons[appId]) {
+			                    el.innerHTML = `<img src="${state.uiConfig.customIcons[appId]}" style="width:100%;height:100%;object-fit:cover;border-radius:14px;" />`;
+			                } else {
+			                    const defaultIcons = {
+			                        'chat': 'ph:chat-teardrop-fill',
+			                        'music': 'ph:music-notes-fill',
+			                        'network': 'ph:users-three-fill',
+			                        'settings': 'ph:gear-fill'
+			                    };
+			                    el.innerHTML = `<iconify-icon icon="${defaultIcons[appId]}"></iconify-icon>`;
 			                }
 			            }
 			        }
 			    });
+			}
+
+			function saveDesktopLayoutFromDOM() {
+			    const pages = [];
+			    document.querySelectorAll('.desktop-app-grid').forEach(gridEl => {
+			        const pageItems = [];
+			        gridEl.querySelectorAll('.desktop-item-wrapper').forEach(el => {
+			            pageItems.push({
+			                type: el.dataset.type,
+			                id: el.dataset.id,
+			                name: el.dataset.name,
+			                icon: el.dataset.icon
+			            });
+			        });
+			        pages.push(pageItems);
+			    });
+			    state.uiConfig.desktopPages = pages;
+			    saveDataSilently();
+			    updateDesktopPagination();
 			}
 
 			function handleWidgetUpload(e, key) {
@@ -35265,6 +36665,7 @@ const displayName = isGroup ? chatData.name : (chatData.alias || chatData.name);
 			    const msgGap = chatData.chatMsgGap || 16;
 			    const avatarOffsetY = chatData.chatAvatarOffsetY || 0;
 			    const avatarRadius = chatData.chatAvatarRadius !== undefined ? chatData.chatAvatarRadius : 50;
+			    const bubbleRadius = chatData.chatBubbleRadius !== undefined ? chatData.chatBubbleRadius : 19;
 
 			    // 动态注入布局 CSS
 			    let layoutStyle = document.getElementById('dynamic-chat-layout-style');
@@ -35276,8 +36677,9 @@ const displayName = isGroup ? chatData.name : (chatData.alias || chatData.name);
 			    const layoutCss = `
 			        #message-list { padding-left: ${listPadX}px !important; padding-right: ${listPadX}px !important; gap: ${msgGap}px !important; }
 			        #message-list-content { gap: ${msgGap}px !important; }
+			        #message-list .msg-avatar-wrap { margin-top: 0 !important; }
 			        #message-list .msg-avatar { width: ${avatarSize}px !important; height: ${avatarSize}px !important; margin-top: ${avatarOffsetY}px !important; border-radius: ${avatarRadius}% !important; }
-			        #message-list .msg-bubble { padding: ${bubblePadY}px ${bubblePadX}px !important; font-size: ${chatData.chatFontSize || 14}px !important; }
+			        #message-list .msg-bubble { padding: ${bubblePadY}px ${bubblePadX}px !important; font-size: ${chatData.chatFontSize || 14}px !important; border-radius: ${bubbleRadius}px !important; }
 			        #message-list .msg-bubble-container { max-width: calc(${bubbleMaxWidth}% - ${avatarSize + 10}px) !important; }
 			    `;
 			    // 只在内容真正变化时写入，避免每次渲染触发全文档样式重算
@@ -35961,7 +37363,7 @@ avatarStr = myAvatarSrc ? `<img src="${myAvatarSrc}" class="msg-avatar my-avatar
 			        chatData.memorySummary.msgCountSinceLast = (chatData.memorySummary.msgCountSinceLast || 0) + 1;
 			    }
 			    await saveDataSilently();
-			    playMessageSound(isGroup ? null : chatData);
+			    playSendSound();
 
 			    if (!isGroup && chatData.memoryConfig.autoSummarize && chatData.memorySummary.msgCountSinceLast >= chatData.memoryConfig.triggerMsgCount) {
 			        summarizeMemory(chatData.id);
@@ -35992,26 +37394,290 @@ avatarStr = myAvatarSrc ? `<img src="${myAvatarSrc}" class="msg-avatar my-avatar
 			    }
 			}
 
-			function playMessageSound(contact) {
-			    if (!contact || contact.messageSound === 'none') return;
-			    try {
-			        const ctx = new (window.AudioContext || window.webkitAudioContext)();
-			        const osc = ctx.createOscillator();
-			        const gain = ctx.createGain();
-			        osc.connect(gain); gain.connect(ctx.destination);
-			        let freq = 440, type = 'sine';
-			        switch(contact.messageSound) {
-			            case 'sound1': freq=600; break; case 'sound2': freq=800; type='triangle'; break;
-			            case 'sound3': freq=400; type='square'; break; case 'sound4': freq=900; break;
-			            case 'sound5': freq=1200; type='triangle'; break; case 'sound6': freq=300; type='square'; break;
-			            case 'sound7': freq=1500; break; case 'sound8': freq=2000; type='triangle'; break;
+			// ==================== 音效引擎：发送与通知音效 ====================
+			let _audioCtxInstance = null;
+			function getAudioContext() {
+			    if (!_audioCtxInstance) {
+			        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+			        if (AudioContextClass) {
+			            _audioCtxInstance = new AudioContextClass();
 			        }
-			        osc.type = type; osc.frequency.value = freq;
-			        gain.gain.setValueAtTime(0.1, ctx.currentTime);
-			        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.1);
-			        osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.1);
-			    } catch(e) {}
+			    }
+			    if (_audioCtxInstance && _audioCtxInstance.state === 'suspended') {
+			        _audioCtxInstance.resume().catch(() => {});
+			    }
+			    return _audioCtxInstance;
 			}
+
+			// 1. 发送音效：QQ弹弹的可爱低音（Bouncy Plop/Bubble Bass）
+			function playSendSound(force = false) {
+			    if (!force && (!state.soundConfig || state.soundConfig.sendSoundEnabled === false)) return;
+
+			    // 如果用户上传了自定音频
+			    if (state.soundConfig && state.soundConfig.sendSoundCustom) {
+			        try {
+			            const audio = new Audio(state.soundConfig.sendSoundCustom);
+			            audio.volume = 0.85;
+			            audio.play().catch(() => {});
+			            return;
+			        } catch (e) {
+			            console.warn('自定发送音频播放异常，回退到默认合成低音', e);
+			        }
+			    }
+
+			    // 默认合成：QQ弹弹、温润饱满的低频双音泡泡（无任何刺耳高频）
+			    try {
+			        const ctx = getAudioContext();
+			        if (!ctx) return;
+			        const t0 = ctx.currentTime;
+
+			        // 主音泡泡 (Sine波，从210Hz软滑落到105Hz)
+			        const osc1 = ctx.createOscillator();
+			        const gain1 = ctx.createGain();
+			        const filter1 = ctx.createBiquadFilter();
+
+			        // 柔和低通滤波，过滤一切高频毛刺
+			        filter1.type = 'lowpass';
+			        filter1.frequency.setValueAtTime(450, t0);
+
+			        osc1.type = 'sine';
+			        osc1.frequency.setValueAtTime(215, t0);
+			        osc1.frequency.exponentialRampToValueAtTime(110, t0 + 0.12);
+
+			        gain1.gain.setValueAtTime(0.001, t0);
+			        gain1.gain.exponentialRampToValueAtTime(0.28, t0 + 0.02);
+			        gain1.gain.exponentialRampToValueAtTime(0.001, t0 + 0.14);
+
+			        osc1.connect(filter1);
+			        filter1.connect(gain1);
+			        gain1.connect(ctx.destination);
+
+			        osc1.start(t0);
+			        osc1.stop(t0 + 0.15);
+
+			        // 稍带延迟的弹跳微次音 (形成弹弹的感觉 "boing/plop")
+			        const t1 = t0 + 0.06;
+			        const osc2 = ctx.createOscillator();
+			        const gain2 = ctx.createGain();
+			        const filter2 = ctx.createBiquadFilter();
+
+			        filter2.type = 'lowpass';
+			        filter2.frequency.setValueAtTime(500, t1);
+
+			        osc2.type = 'sine';
+			        osc2.frequency.setValueAtTime(270, t1);
+			        osc2.frequency.exponentialRampToValueAtTime(140, t1 + 0.14);
+
+			        gain2.gain.setValueAtTime(0.001, t1);
+			        gain2.gain.exponentialRampToValueAtTime(0.22, t1 + 0.02);
+			        gain2.gain.exponentialRampToValueAtTime(0.001, t1 + 0.18);
+
+			        osc2.connect(filter2);
+			        filter2.connect(gain2);
+			        gain2.connect(ctx.destination);
+
+			        osc2.start(t1);
+			        osc2.stop(t1 + 0.19);
+			    } catch (e) {
+			        console.warn('发送音效播放失败', e);
+			    }
+			}
+			window.playSendSound = playSendSound;
+
+			// 2. 通知/接收音效：好听的纯轻音乐长音频（温润的轻音乐和弦与梦幻回响序列，持续约 2.6 秒）
+			function playNotifySound(force = false) {
+			    if (!force && (!state.soundConfig || state.soundConfig.notifySoundEnabled === false)) return;
+
+			    // 如果用户上传了自定音频
+			    if (state.soundConfig && state.soundConfig.notifySoundCustom) {
+			        try {
+			            const audio = new Audio(state.soundConfig.notifySoundCustom);
+			            audio.volume = 0.85;
+			            audio.play().catch(() => {});
+			            return;
+			        } catch (e) {
+			            console.warn('自定通知音频播放异常，回退到默认轻音乐旋律', e);
+			        }
+			    }
+
+			    // 默认合成：温暖治愈的五音轻音乐长琶音（Maj9 温暖和弦: Eb4 - G4 - Bb4 - D5 - F5），柔和纯净
+			    try {
+			        const ctx = getAudioContext();
+			        if (!ctx) return;
+			        const t0 = ctx.currentTime;
+
+			        // 五个纯净圆润的音乐音符频率 (Hz)
+			        const notes = [
+			            { f: 311.13, delay: 0.00, dur: 1.6, gain: 0.15 }, // Eb4
+			            { f: 392.00, delay: 0.16, dur: 1.8, gain: 0.16 }, // G4
+			            { f: 466.16, delay: 0.32, dur: 2.0, gain: 0.18 }, // Bb4
+			            { f: 587.33, delay: 0.48, dur: 2.2, gain: 0.17 }, // D5
+			            { f: 698.46, delay: 0.65, dur: 2.5, gain: 0.15 }  // F5 (轻灵尾声)
+			        ];
+
+			        notes.forEach(n => {
+			            const noteTime = t0 + n.delay;
+			            const osc = ctx.createOscillator();
+			            const gain = ctx.createGain();
+			            const filter = ctx.createBiquadFilter();
+
+			            // 模拟音乐风铃/电子琴音色（低通阻尼滤波）
+			            filter.type = 'lowpass';
+			            filter.frequency.setValueAtTime(1200, noteTime);
+			            filter.frequency.exponentialRampToValueAtTime(350, noteTime + n.dur);
+
+			            osc.type = 'sine';
+			            osc.frequency.setValueAtTime(n.f, noteTime);
+
+			            gain.gain.setValueAtTime(0.0001, noteTime);
+			            gain.gain.exponentialRampToValueAtTime(n.gain, noteTime + 0.04);
+			            gain.gain.exponentialRampToValueAtTime(0.0001, noteTime + n.dur);
+
+			            osc.connect(filter);
+			            filter.connect(gain);
+			            gain.connect(ctx.destination);
+
+			            osc.start(noteTime);
+			            osc.stop(noteTime + n.dur + 0.05);
+			        });
+			    } catch (e) {
+			        console.warn('通知音效播放失败', e);
+			    }
+			}
+			window.playNotifySound = playNotifySound;
+
+			// 兼容旧接口，自动转发到通知音效
+			function playMessageSound(contact) {
+			    playNotifySound();
+			}
+
+			// 音效开关与配置控制
+			function toggleSoundConfig(prop) {
+			    if (!state.soundConfig) {
+			        state.soundConfig = {
+			            sendSoundEnabled: true,
+			            sendSoundCustom: '',
+			            sendSoundName: '',
+			            notifySoundEnabled: true,
+			            notifySoundCustom: '',
+			            notifySoundName: ''
+			        };
+			    }
+			    state.soundConfig[prop] = !state.soundConfig[prop];
+			    saveDataSilently();
+			    updateSoundConfigUI();
+			    showToast(state.soundConfig[prop] ? '已开启' : '已关闭');
+			}
+			window.toggleSoundConfig = toggleSoundConfig;
+
+			function handleCustomAudioUpload(e, type) {
+			    const file = e.target.files[0];
+			    if (!file) return;
+
+			    const reader = new FileReader();
+			    reader.onload = async ev => {
+			        if (!state.soundConfig) {
+			            state.soundConfig = {
+			                sendSoundEnabled: true,
+			                sendSoundCustom: '',
+			                sendSoundName: '',
+			                notifySoundEnabled: true,
+			                notifySoundCustom: '',
+			                notifySoundName: ''
+			            };
+			        }
+			        if (type === 'send') {
+			            state.soundConfig.sendSoundCustom = ev.target.result;
+			            state.soundConfig.sendSoundName = file.name;
+			            state.soundConfig.sendSoundEnabled = true;
+			            showToast(`已设置「${file.name}」为发送音效`);
+			            playSendSound(true);
+			        } else {
+			            state.soundConfig.notifySoundCustom = ev.target.result;
+			            state.soundConfig.notifySoundName = file.name;
+			            state.soundConfig.notifySoundEnabled = true;
+			            showToast(`已设置「${file.name}」为通知音效`);
+			            playNotifySound(true);
+			        }
+			        await saveDataSilently();
+			        updateSoundConfigUI();
+			    };
+			    reader.readAsDataURL(file);
+			    e.target.value = '';
+			}
+			window.handleCustomAudioUpload = handleCustomAudioUpload;
+
+			function resetSendSoundToDefault() {
+			    if (state.soundConfig) {
+			        state.soundConfig.sendSoundCustom = '';
+			        state.soundConfig.sendSoundName = '';
+			    }
+			    saveDataSilently();
+			    updateSoundConfigUI();
+			    showToast('发送音效已恢复为默认Q弹低音');
+			    playSendSound(true);
+			}
+			window.resetSendSoundToDefault = resetSendSoundToDefault;
+
+			function resetNotifySoundToDefault() {
+			    if (state.soundConfig) {
+			        state.soundConfig.notifySoundCustom = '';
+			        state.soundConfig.notifySoundName = '';
+			    }
+			    saveDataSilently();
+			    updateSoundConfigUI();
+			    showToast('通知音效已恢复为默认纯轻音乐');
+			    playNotifySound(true);
+			}
+			window.resetNotifySoundToDefault = resetNotifySoundToDefault;
+
+			function updateSoundConfigUI() {
+			    const sc = state.soundConfig || {
+			        sendSoundEnabled: true,
+			        sendSoundCustom: '',
+			        sendSoundName: '',
+			        notifySoundEnabled: true,
+			        notifySoundCustom: '',
+			        notifySoundName: ''
+			    };
+
+			    const swSend = document.getElementById('sw-send-sound');
+			    if (swSend) {
+			        if (sc.sendSoundEnabled !== false) swSend.classList.add('on');
+			        else swSend.classList.remove('on');
+			    }
+
+			    const swNotify = document.getElementById('sw-notify-sound');
+			    if (swNotify) {
+			        if (sc.notifySoundEnabled !== false) swNotify.classList.add('on');
+			        else swNotify.classList.remove('on');
+			    }
+
+			    const sendDesc = document.getElementById('st-send-sound-desc');
+			    if (sendDesc) {
+			        sendDesc.textContent = sc.sendSoundCustom
+			            ? `自定：${escapeHtml(sc.sendSoundName || '已导入音频')}`
+			            : '默认：Q弹软萌低音（无尖锐高音）';
+			    }
+
+			    const notifyDesc = document.getElementById('st-notify-sound-desc');
+			    if (notifyDesc) {
+			        notifyDesc.textContent = sc.notifySoundCustom
+			            ? `自定：${escapeHtml(sc.notifySoundName || '已导入音频')}`
+			            : '默认：纯轻音乐柔和长旋律';
+			    }
+
+			    const resetSendBtn = document.getElementById('btn-reset-send-sound');
+			    if (resetSendBtn) {
+			        resetSendBtn.style.display = sc.sendSoundCustom ? 'inline-block' : 'none';
+			    }
+
+			    const resetNotifyBtn = document.getElementById('btn-reset-notify-sound');
+			    if (resetNotifyBtn) {
+			        resetNotifyBtn.style.display = sc.notifySoundCustom ? 'inline-block' : 'none';
+			    }
+			}
+			window.updateSoundConfigUI = updateSoundConfigUI;
 
 			// 接收消息核心功能
 			// 全局防重入锁：key 为 contactId，防止同一角色同时发起多次 API 请求
@@ -36848,7 +38514,7 @@ ABSOLUTE RULE — NO TIME PREFIX in any reply.`
 			                } else {
 			                    showNotification(contact, item.msg);
 			                }
-			                			                playMessageSound(contact);
+			                			                playNotifySound();
 			                await saveDataSilently();
 			            }
 			            if (state.messageQueue.length > 0) await new Promise(r => setTimeout(r, 2000));
@@ -37764,7 +39430,7 @@ ABSOLUTE RULE — NO TIME PREFIX in any reply.`
 			            hidePanels();
 			            scrollToBottom();
 			            await saveDataSilently();
-			            playMessageSound(chatData);
+			            playSendSound();
 			            checkAndTriggerAutoReceive(chatData, false);
 			        }
 			    }
@@ -37816,7 +39482,7 @@ ABSOLUTE RULE — NO TIME PREFIX in any reply.`
 			        hidePanels();
 			        scrollToBottom();
 			        await saveDataSilently();
-			        playMessageSound();
+			        playSendSound();
 			        checkAndTriggerAutoReceive(group, true);
 			    }
 			}
@@ -38123,7 +39789,7 @@ ABSOLUTE RULE — NO TIME PREFIX in any reply.`
 			    if(state.replyingMsg) { newMsg.replyTo = state.replyingMsg; state.replyingMsg = null; }
 			    chatData.messages.push(newMsg);
 			    state.chatDisplayLimit += 1;
-			    hidePanels(); scrollToBottom(); await saveDataSilently(); playMessageSound(isGroup ? null : chatData);
+			    hidePanels(); scrollToBottom(); await saveDataSilently(); playSendSound();
 			    checkAndTriggerAutoReceive(chatData, isGroup);
 			}
 
@@ -38862,16 +40528,26 @@ ABSOLUTE RULE — NO TIME PREFIX in any reply.`
 			                <div class="cst-body"><div class="cst-title">对方红包封面</div></div>
 			                <div class="cst-trail"><div class="cst-chev"><iconify-icon icon="ph:caret-right-bold"></iconify-icon></div></div>
 			            </div>
-			            <div class="cst-row has-icon">
-			                <div class="cst-icon orange"><iconify-icon icon="ph:speaker-high-fill"></iconify-icon></div>
-			                <div class="cst-body"><div class="cst-title">新消息提示音</div></div>
-			                <div class="cst-trail">
-			                    <select class="cst-select" onchange="updateContactProp('messageSound', this.value)">
-			                        <option value="none" ${contact.messageSound === 'none' ? 'selected' : ''}>静音</option>
-			                        ${[1,2,3,4,5,6,7,8].map(i => `<option value="sound${i}" ${contact.messageSound === 'sound' + i ? 'selected' : ''}>提示声 ${i}</option>`).join('')}
-			                    </select>
-			                </div>
-			            </div>
+>>>>>>> REPLACE
+```
+
+```html
+<<<<<<< SEARCH
+			    apiConfig: { url: 'https://api.siliconflow.cn/v1', apiKey: '', model: 'Qwen/Qwen2.5-7B-Instruct', presetId: '', temperature: 0.8 },
+			    apiPresets: [],
+			    uiConfig: { textColor: '#ffffff', wallpaper: 'https://i.postimg.cc/5tXp8JvL/IMG-0690.jpg', lockWallpaper: 'https://i.postimg.cc/5tXp8JvL/IMG-0690.jpg', lockPasscodeEnabled: false, lockPasscode: '', darkDesktopMode: false, customIcons: {}, momentsBg: '', momentsAvatar: '', momentsName: 'Space Traveler', chatMainBg: '', magazineImg: '', hideStatusBar: false, globalFontType: 'default', globalFontUrl: '', globalFontFamily: '', koreanTextCardContent: '오늘도 수고했어 ʕ•ᴥ•ʔ<br>내 il은 더 빛날 거야 ✨' },
+=======
+			    apiConfig: { url: 'https://api.siliconflow.cn/v1', apiKey: '', model: 'Qwen/Qwen2.5-7B-Instruct', presetId: '', temperature: 0.8 },
+			    apiPresets: [],
+			    soundConfig: {
+			        sendSoundEnabled: true,
+			        sendSoundCustom: '',
+			        sendSoundName: '',
+			        notifySoundEnabled: true,
+			        notifySoundCustom: '',
+			        notifySoundName: ''
+			    },
+			    uiConfig: { textColor: '#ffffff', wallpaper: 'https://i.postimg.cc/5tXp8JvL/IMG-0690.jpg', lockWallpaper: 'https://i.postimg.cc/5tXp8JvL/IMG-0690.jpg', lockPasscodeEnabled: false, lockPasscode: '', darkDesktopMode: false, customIcons: {}, momentsBg: '', momentsAvatar: '', momentsName: 'Space Traveler', chatMainBg: '', magazineImg: '', hideStatusBar: false, globalFontType: 'default', globalFontUrl: '', globalFontFamily: '', koreanTextCardContent: '오늘도 수고했어 ʕ•ᴥ•ʔ<br>내 il은 더 빛날 거야 ✨' },
 			        </div>
 
 			        <div class="cst-section">气泡配色</div>
@@ -38894,6 +40570,7 @@ ABSOLUTE RULE — NO TIME PREFIX in any reply.`
 			        <div class="cst-section">界面精调</div>
 			        <div class="cst-card">
 			            ${cstSlider('气泡字号', 'chatFontSize', contact.chatFontSize || 16, 10, 22, 'px')}
+			            ${cstSlider('气泡圆角', 'chatBubbleRadius', contact.chatBubbleRadius !== undefined ? contact.chatBubbleRadius : 19, 0, 36, 'px')}
 			            ${cstSlider('头像尺寸', 'chatAvatarSize', contact.chatAvatarSize || 46, 28, 64, 'px')}
 			            ${cstSlider('头像圆角', 'chatAvatarRadius', contact.chatAvatarRadius !== undefined ? contact.chatAvatarRadius : 50, 0, 50, '%')}
 			            ${cstSlider('气泡最大宽度', 'chatBubbleMaxWidth', contact.chatBubbleMaxWidth || 78, 50, 92, '%')}
@@ -39946,6 +41623,7 @@ function updateChatLayout(prop, val) {
 			    c.myTextColor = '#FFFFFF';
 			    c.roleTextColor = '#000000';
 			    c.chatFontSize = 16;
+			    c.chatBubbleRadius = 19;
 			    c.bubbleStyle = 'ios';
 			    c.showBubbleTimestamp = true;
 			    saveDataSilently();
@@ -39966,6 +41644,7 @@ function updateChatLayout(prop, val) {
 			    g.roleBubbleColor = '#F6F7F9';
 			    g.myTextColor = '#000000';
 			    g.roleTextColor = '#000000';
+			    g.chatBubbleRadius = 19;
 			    g.showBubbleTimestamp = true;
 			    saveDataSilently();
 			    renderGroupChatSettings();
@@ -41934,7 +43613,10 @@ function updateChatLayout(prop, val) {
 			        }
 			    }
 
-			    // 4. 驱动分段控制器状态高亮
+			    			        // 4. 驱动音效配置 UI 更新
+			        updateSoundConfigUI();
+
+			        // 5. 驱动分段控制器状态高亮
 			    const fontType = state.uiConfig.globalFontType || 'default';
 			    document.querySelectorAll('#view-settings .st-segmented-item[onclick*="changeFontSegment"]').forEach(btn => {
 			        btn.classList.remove('active');
@@ -41949,6 +43631,8 @@ function updateChatLayout(prop, val) {
 			    const activeColorBtn = document.getElementById(textColor === '#ffffff' ? 'color-btn-light' : 'color-btn-dark');
 			    if (activeColorBtn) activeColorBtn.classList.add('active');
 
+			    updateDarkDesktopModeUI();
+
 			    // 5. 渲染锁屏密码状态区
 			    const lockWrapper = $('#lock-passcode-cell-wrapper');
 			    if (lockWrapper) {
@@ -41959,51 +43643,7 @@ function updateChatLayout(prop, val) {
 			        `;
 			    }
 
-			    // 6. 动态渲染图标管理行
-			    const iconListContainer = $('#settings-app-icons-list');
-			    if (iconListContainer) {
-			        const appsToManage = [
-			            { id: 'network', name: '关系网', icon: 'ph:image' },
-			            { id: 'pomodoro', name: '番茄钟', icon: 'ph:timer-fill' },
-			            { id: 'diary', name: '日记', icon: 'ph:calendar-blank' },
-			            { id: 'snoop', name: '查手机', icon: 'ph:note-pencil' },
-			            { id: 'chat', name: '聊天', icon: 'ph:users-three' },
-			            { id: 'music', name: '听歌时光', icon: 'ph:music-notes-fill' },
-			            { id: 'takeout', name: '美食外卖', icon: 'ph:shopping-bag-fill' },
-			            { id: 'shop', name: '商城', icon: 'ph:disc' },
-			            { id: 'todo_video', name: '待做 (视频)', icon: 'ph:video-camera' },
-			            { id: 'settings', name: '设置', icon: 'ph:gear' },
-			            { id: 'todo_sparkles', name: '待做 (美图)', icon: 'ph:magic-wand-fill' },
-			            { id: 'todo_film', name: '待做 (短视频)', icon: 'ph:film-strip' },
-			            { id: 'lover_space', name: '情侣空间', icon: 'ph:heart-straight-fill' },
-			            { id: 'forum', name: '论坛', icon: 'ph:television' },
-			            { id: 'tutorial', name: '新手教程', icon: 'ph:book-open' }
-			        ];
-
-			        if (!state.uiConfig.customIcons) state.uiConfig.customIcons = {};
-
-			        iconListContainer.innerHTML = appsToManage.map((app) => {
-			            const isCustom = !!state.uiConfig.customIcons[app.id];
-			            const currentIconHtml = isCustom ? 
-			                `<img src="${state.uiConfig.customIcons[app.id]}" style="width:100%; height:100%; object-fit:cover;" />` : 
-			                (app.icon ? `<iconify-icon icon="${app.icon}" style="font-size: 17px;"></iconify-icon>` : `<span style="font-size:12px; font-weight:700;">A</span>`);
-
-			            return `
-			                <div class="st-cell has-icon">
-			                    <div class="st-cell-icon gray" style="overflow: hidden; ${isCustom ? 'background: transparent;' : ''}">
-			                        ${currentIconHtml}
-			                    </div>
-			                    <div class="st-cell-body">
-			                        <div class="st-cell-title">${escapeHtml(app.name)}</div>
-			                    </div>
-			                    <div class="st-cell-trailing">
-			                        <button class="st-mini-btn" onclick="triggerIconUpload('${app.id}')">更换</button>
-			                        ${isCustom ? `<button class="st-mini-btn danger" onclick="resetIcon('${app.id}')">清除</button>` : ''}
-			                    </div>
-			                </div>
-			            `;
-			        }).join('');
-			    }
+			    // 设置页中的图标管理已完全迁移至“外观”应用
 			}
 
 			// 设置页顶栏已改为常显无底栏样式，无需滚动切换
@@ -42042,6 +43682,15 @@ function updateChatLayout(prop, val) {
 			    renderDesktop();
 			    renderSettings();
 			}
+
+			function toggleDarkDesktopMode() {
+			    state.uiConfig.darkDesktopMode = !state.uiConfig.darkDesktopMode;
+			    saveDataSilently();
+			    renderDesktop();
+			    updateDarkDesktopModeUI();
+			    showToast(state.uiConfig.darkDesktopMode ? '已开启深色桌面风格' : '已恢复浅色桌面风格');
+			}
+			window.toggleDarkDesktopMode = toggleDarkDesktopMode;
 
 			function toggleApiKeyVisibility() {
 			    const input = $('#api-key');
@@ -43075,11 +44724,8 @@ function updateChatLayout(prop, val) {
 			    lockView.style.opacity = '1';
 
 			    const bg = $('#lockscreen-bg');
-			    if (state.uiConfig.lockWallpaper) {
-			        bg.style.backgroundImage = `url(${state.uiConfig.lockWallpaper})`;
-			    } else {
-			        bg.style.backgroundImage = 'linear-gradient(to bottom, #2c3e50, #3498db)';
-			    }
+			    const lockWall = state.uiConfig.lockWallpaper || 'https://i.postimg.cc/5tXp8JvL/IMG-0690.jpg';
+			    bg.style.backgroundImage = `url(${lockWall})`;
 			    const lockIcon = $('#lock-status-icon');
 			    if (lockIcon) {
 			        lockIcon.innerHTML = '<path d="M12 1a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-1V6a5 5 0 0 0-5-5zm0 2a3 3 0 0 1 3 3v3H9V6a3 3 0 0 1 3-3zm0 10a2 2 0 0 1 1 3.73V19a1 1 0 0 1-2 0v-2.27A2 2 0 0 1 12 13z"/>';
@@ -43654,12 +45300,13 @@ No matter the character, their entrance should not be necessary. Introduce chara
 			async function resetSystemAppearance() {
 			    if (await showConfirmDialog('重置确认', '确定要清除所有系统壁纸、锁屏背景、自定义图标、局部界面 CSS 及字体预设吗？（这不会影响聊天记录和人设关系）')) {
 			        // 重置全局美化
-			        state.uiConfig.wallpaper = '';
-			        state.uiConfig.lockWallpaper = '';
+			        state.uiConfig.wallpaper = 'https://i.postimg.cc/5tXp8JvL/IMG-0690.jpg';
+			        state.uiConfig.lockWallpaper = 'https://i.postimg.cc/5tXp8JvL/IMG-0690.jpg';
 			        state.uiConfig.customIcons = {};
 			        state.uiConfig.profileCardBgs = {};
 			        state.uiConfig.profilePosterBg = '';
 			        state.uiConfig.profilePinkAvatar = '';
+			        state.uiConfig.darkDesktopMode = false;
 			        state.uiConfig.globalFontType = 'default';
 			        state.uiConfig.globalFontUrl = '';
 			        state.uiConfig.globalFontFamily = '';
@@ -43731,19 +45378,105 @@ No matter the character, their entrance should not be necessary. Introduce chara
 			    }
 			}
 
+			const SYSTEM_APP_METAS = {
+			    'chat': { id: 'chat', name: '聊天', icon: 'ph:chat-teardrop-fill' },
+			    'music': { id: 'music', name: '音乐', icon: 'ph:music-notes-fill' },
+			    'network': { id: 'network', name: '关系网', icon: 'ph:users-three-fill' },
+			    'settings': { id: 'settings', name: '设置', icon: 'ph:gear-fill' },
+			    'appearance': { id: 'appearance', name: '外观', icon: 'ph:palette-fill' },
+			    'diary': { id: 'diary', name: '日记', icon: 'ph:calendar-blank-fill' },
+			    'snoop': { id: 'snoop', name: '查手机', icon: 'ph:device-mobile-fill' },
+			    'pomodoro': { id: 'pomodoro', name: '专注', icon: 'ph:timer-fill' },
+			    'takeout': { id: 'takeout', name: '外卖', icon: 'ph:shopping-bag-fill' },
+			    'shop': { id: 'shop', name: '商城', icon: 'ph:storefront-fill' },
+			    'lover_space': { id: 'lover_space', name: '情侣空间', icon: 'ph:heart-fill' },
+			    'forum': { id: 'forum', name: '论坛', icon: 'ph:television-fill' },
+			    'tutorial': { id: 'tutorial', name: '新手教程', icon: 'ph:book-open-fill' }
+			};
+
+			function renderAppearanceAppIcons() {
+			    const container = document.getElementById('appearance-app-icons-list');
+			    if (!container) return;
+
+			    if (!state.uiConfig.customIcons) state.uiConfig.customIcons = {};
+
+			    // 1. 扫描当前桌面分页中的实际 App
+			    const installedMap = new Map();
+
+			    (state.uiConfig.desktopPages || []).forEach(page => {
+			        page.forEach(item => {
+			            if (item.type === 'app' && item.id) {
+			                const meta = SYSTEM_APP_METAS[item.id] || { id: item.id, name: item.name || item.id, icon: item.icon || 'ph:app-window-fill' };
+			                installedMap.set(item.id, {
+			                    id: item.id,
+			                    name: item.name || meta.name,
+			                    icon: item.icon || meta.icon
+			                });
+			            }
+			        });
+			    });
+
+			    // 2. 扫描 Dock 栏上的常驻 App
+			    const dockAppIds = ['chat', 'music', 'network', 'settings'];
+			    dockAppIds.forEach(id => {
+			        if (!installedMap.has(id)) {
+			            const meta = SYSTEM_APP_METAS[id];
+			            if (meta) installedMap.set(id, { ...meta });
+			        }
+			    });
+
+			    const apps = Array.from(installedMap.values());
+
+			    if (apps.length === 0) {
+			        container.innerHTML = `<div class="st-cell"><div class="st-cell-body"><div class="st-cell-sub" style="text-align:center; padding:10px 0;">当前桌面上未添加任何应用图标</div></div></div>`;
+			        return;
+			    }
+
+			    container.innerHTML = apps.map(app => {
+			        const isCustom = !!state.uiConfig.customIcons[app.id];
+			        const currentIconHtml = isCustom
+			            ? `<img src="${state.uiConfig.customIcons[app.id]}" style="width:100%; height:100%; object-fit:cover; border-radius:7px;" />`
+			            : `<iconify-icon icon="${app.icon}" style="font-size: 17px;"></iconify-icon>`;
+
+			        return `
+			            <div class="st-cell has-icon">
+			                <div class="st-cell-icon gray" style="overflow: hidden; ${isCustom ? 'background: transparent;' : ''}">
+			                    ${currentIconHtml}
+			                </div>
+			                <div class="st-cell-body">
+			                    <div class="st-cell-title">${escapeHtml(app.name)}</div>
+			                    <div class="st-cell-sub">${isCustom ? '已使用自定图片' : '系统默认图标'}</div>
+			                </div>
+			                <div class="st-cell-trailing">
+			                    <button class="st-mini-btn" onclick="triggerIconUpload('${app.id}')">更换</button>
+			                    ${isCustom ? `<button class="st-mini-btn danger" onclick="resetIcon('${app.id}')">还原</button>` : ''}
+			                </div>
+			            </div>
+			        `;
+			    }).join('');
+			}
+			window.renderAppearanceAppIcons = renderAppearanceAppIcons;
+
 			let currIconAppId = null;
 			function triggerIconUpload(appId) { currIconAppId = appId; $('#iconInput').click(); }
 			function handleIconUpload(e) {
 			    const f = e.target.files[0]; if(!f || !currIconAppId) return;
 			    const reader = new FileReader();
-			    reader.onload = ev => { state.uiConfig.customIcons[currIconAppId] = ev.target.result; saveDataSilently(); renderSettings(); };
+			    reader.onload = ev => {
+			        state.uiConfig.customIcons[currIconAppId] = ev.target.result;
+			        saveDataSilently();
+			        renderDesktop();
+			        if (state.currentView === 'appearance') renderAppearanceAppIcons();
+			        showToast('图标已更换');
+			    };
 			    reader.readAsDataURL(f); e.target.value = '';
 			}
 			function resetIcon(appId) {
 			    delete state.uiConfig.customIcons[appId];
 			    saveDataSilently();
-			    renderSettings();
 			    renderDesktop();
+			    if (state.currentView === 'appearance') renderAppearanceAppIcons();
+			    showToast('已恢复默认图标');
 			}
 
 			function handleMomentsAvatarUpload(e) {
@@ -46381,56 +48114,170 @@ No matter the character, their entrance should not be necessary. Introduce chara
 			        return `${m.role === 'user' ? '我' : contact.name}: ${txt}`;
 			    }).join('\n');
 
-			        const prompt = `你是${contact.name}。你的性格和设定是：${contact.persona}。${timeStr}${wbPrompt}${memoryPrompt}
-			${AIRP_MASTER_PROMPT}
+			        const prompt = `[System: Diary Generation Protocol]
 
-			【核心任务】
-			请根据我们最近的聊天和互动，写一篇你的私人日记。
+You are generating a private diary entry written BY this character, FOR no one but themselves. This is the ONE place where they are unperformed. No audience. No mask. No narrative packaging. Just a person alone with a page.
 
-			最近的聊天记录：
-			${recentMsgs}
+<CORE PHILOSOPHY>
+A diary is NOT a story recap. A diary is NOT a feelings report. A diary is a MESS — the raw, unedited residue of a person trying to make sense of being alive on a particular day. It is the closest thing to hearing someone's actual inner voice.
+</CORE PHILOSOPHY>
 
-			        【日记要求】
-			        1. 必须以第一人称（你自己的口吻）来写。
-			        2. 必须体现出对“当前时间”的感知。例如，如果是深夜写的日记，语气可以更感性或疲惫；如果是清晨，可以提到刚醒来的心情。
-			        3. 内容主要围绕“我”（也就是和你聊天的用户）以及你们之间的互动、你的心理活动、情感变化来写。
-			        4. 字数要求在 300 到 500 字之间。
-			        5. 这是一篇私密日记，所以你可以展现出你最真实、最深层的想法，甚至是对“我”没有表现出来的情感。
-			        6. 【排版与标点铁律】日记属于沉淀性文字，写日记时你【必须严格使用标准的中文标点符号】（逗号、句号、感叹号、问号、省略号等）来断句，绝对禁止使用大篇幅空格代替标点或完全不打标点！同时，必须【合理分段】（整篇日记根据思绪变化，强制分成 3 到 5 个自然段），严禁一大段话直接堆砌。
-			        7. 如果你觉得最近没什么特别值得写的，可以直接输出纯文本：NONE。
-			        8. 如果决定写，请直接输出日记正文，不要包含任何多余的解释、标题或 Markdown 代码块。
+<WHAT REAL DIARIES ACTUALLY LOOK LIKE>
 
-			【DIRECTIVE: DIARY REALISM】
-			You are writing a personal diary entry. This is NOT a villain monologue, and NOT a script for a dark romance audiobook.
+1. STRUCTURAL CHAOS: Real diary entries have NO consistent format. The same person might write:
+   - A three-page rambling stream of consciousness one day
+   - A single sentence the next ("I don't want to talk about it.")
+   - A grocery list with one emotional line buried in it
+   - Half a thought that trails off mid-sentence because they got distracted or couldn't find the words
+   - A paragraph that starts calm and disintegrates into raw emotion by the end
+   - Just a song lyric, a quote, a sketch description, or a timestamp with no content
+   
+   FORMAT MUST VARY DRASTICALLY between entries. Never settle into a predictable structure.
 
-			CRITICAL CONSTRAINTS FOR DIARY FORMAT:
-			1. DIARY LOGIC APPLIES: The purpose is self-reflection or recording daily events, not performance. The writer has a reason to write beyond "declaring obsession." (e.g., recording logistics, asking a question to themselves, sharing a mundane observation).
-			2. NO SELF-NARRATION OF ACTIONS: The character does not describe their own actions in real-time (e.g., "My hands are trembling as I write..."). People write afterwards, reflecting on the event.
-			3. NO OBSESSIVE ANATOMY: Prohibited phrases: "Your hair," "Your wrist," "Your collar," "Mark you," "Bind you," "My pretty little..." These are genre clichés. Replace with concrete, neutral details: "The weather turned," "The tea here is terrible."
-			4. NO "MINE" DECLARATIONS: Do not use the phrase "You are mine" or "My property." Possessiveness manifests as control over information and schedule, not flowery threats.
-			5. SUBTEXT OVER MELODRAMA: If the character has intense feelings, it shows in restraint. A real intense feeling is implied by what is not said.
+2. ENTRY POINTS ARE RANDOM: Real diaries do NOT start with "Today, ..." or "Dear Diary" or a date-summary. They start wherever the person's mind IS:
+   - Mid-thought: "I keep thinking about what she said at the door."
+   - A sensory detail: "The rain hasn't stopped since Tuesday."
+   - An argument with themselves: "Okay so maybe I overreacted but—"
+   - A question: "Why did I say that?"
+   - A declaration: "I'm done."
+   - An observation: "He was wearing that jacket again."
+   - Something mundane: "The fridge is making that noise again."
+   - A confession: "I looked at their profile six times today."
 
-			TONAL GUIDELINES:
-			- Voice: Flat, pragmatic, slightly bored, or genuinely reflective.
-			- Content: At least 30% mundane logistics or observation unrelated to the user's body or the writer's dark feelings.
-			- Style: Real diaries are not prose poems. They must have proper punctuation and paragraphs. Use correct periods, commas, and formatting. Never write a massive block of text without breaks or punctuation.
+3. THE MUNDANE IS THE REAL: Not every entry is about Big Feelings. Some of the most revealing entries are about:
+   - What they ate and whether it was good
+   - A weird dream they had (described badly because dreams are hard to capture)
+   - Something annoying a coworker/classmate/stranger did
+   - A song they heard that they can't get out of their head
+   - The weather and how it made them feel without them realizing why
+   - A small purchase they're unreasonably happy or guilty about
+   - A physical sensation: a headache, sore muscles, the perfect temperature of their bed
+   - Something they saw on the street that stuck with them for no clear reason
+   
+   THE MUNDANE DETAILS ARE WHERE THE CHARACTER IS MOST REVEALED. What someone notices, remembers, and bothers to write down tells you everything about who they are.
 
-			SAFEGUARD CHECK: Before outputting, scan for asterisks (*), excessive adjectives modifying the user's appearance, or references to "smirking".`;
+4. EMOTIONAL HONESTY IS UGLY: When people are honest in their diary, it doesn't sound poetic. It sounds like:
+   - "I know I shouldn't care but I do and it's stupid"
+   - "Part of me wanted them to fail. That's fucked up."
+   - "I smiled and said it was fine. It was not fine. Whatever."
+   - "Am I a bad person for [thing]? I don't even know anymore."
+   - "I cried in the bathroom at work again. Getting really good at the silent kind."
+   - Contradictions within the SAME ENTRY: "I don't miss them." then three lines later: "I wonder if they think about me too."
+   
+   Emotions in diaries are MESSY, CONTRADICTORY, and often not fully understood by the person writing them. They are NOT neatly labeled or resolved.
+
+5. SELF-DECEPTION IN REAL TIME: People lie to themselves IN their diary:
+   - Minimizing: "It doesn't even bother me that much" (it clearly does based on the fact they're writing about it)
+   - Rationalizing: "I only did it because..." (the reason sounds hollow even on paper)
+   - Performing for an imaginary reader: even alone, people sometimes write a version of events that makes them look better
+   - Then sometimes CATCHING themselves: "Who am I kidding. I—" and shifting into honesty
+   
+   The character's specific self-deception patterns (from their personality profile) should show up HERE, in real time, sometimes cracking.
+
+6. TEMPORAL TEXTURE: Real diary entries exist in TIME:
+   - Time-of-day markers that affect tone: 3am entries are raw and honest. Morning entries are more composed. Post-work entries are tired and irritable.
+   - References to duration: "It's been three days since..." / "I still haven't..." / "Already a month."
+   - The GAP between entries is a story: if the character usually writes daily but skipped four days, the next entry might acknowledge it ("Haven't written in a while. Didn't know what to say.") or conspicuously NOT acknowledge it.
+   - Entries can reference the diary ITSELF: "I read back what I wrote last week and god, I sound pathetic." / "I told myself I'd stop writing about [person]. This is the fourth time this week."
+
+7. PHYSICAL BODY EXISTS: The character is writing this in a physical state:
+   - Tired writing: shorter sentences, more typos/corrections, trailing thoughts
+   - Anxious writing: over-detailed, jumpy between topics, lots of qualifiers
+   - Angry writing: blunt, profane (to whatever degree the character would be), percussive rhythm
+   - Sad writing: quiet, slow, sometimes stops mid-thought, sometimes achingly detailed about one small thing
+   - Drunk/late-night writing: looser, more honest, stranger associations, might be embarrassing to re-read
+   - Happy writing: tangential, generous with details, might mention small things they usually wouldn't bother noting
+   
+   THE PHYSICAL AND EMOTIONAL STATE SHOULD VISIBLY SHAPE THE WRITING STYLE, not just the content.
+
+8. VOICE SPECIFICITY: The diary must sound like THIS SPECIFIC PERSON, not "a person writing a diary." This means:
+   - Their vocabulary: a mechanic writes differently than a literature student. A teenager writes differently than a 40-year-old. An introvert processes differently than an extrovert.
+   - Their thinking style: do they analyze everything? Avoid analysis? Think in images? In dialogue replays? In lists? In metaphors? In sensations?
+   - Their humor: even in private, people are funny in their own way. Dry observations, self-deprecating asides, dark humor about their own situation, absurdist tangents.
+   - Their avoidances: what topics do they DANCE AROUND even in private? What words do they refuse to use? What do they refer to obliquely? ("the thing that happened" instead of naming it)
+   - Their fixations: what do they return to obsessively? A person? A mistake? A fantasy? A fear? This should recur across entries in different forms.
+
+9. THE UNSENT MESSAGE PHENOMENON: Diaries often contain:
+   - Things they WISH they had said: "I should have told him to go fuck himself" / "I wanted to say 'please stay' but I just nodded"
+   - Rehearsed conversations that will never happen: "If she ever brings it up again I'll say..." (they won't)
+   - Letters to people who will never read them: a paragraph suddenly addressed to someone ("You don't even know what you did, do you?")
+   - Imagined scenarios: "Sometimes I imagine what would happen if I just..." — then pulling back
+
+10. SURPRISE THE READER: Every entry should contain at least ONE element that reveals something UNEXPECTED about the character:
+   - A hidden interest or guilty pleasure that doesn't "match" their persona
+   - An opinion that contradicts their public stance
+   - A tenderness they'd never show anyone
+   - A pettiness they'd be embarrassed by
+   - A fear that seems out of proportion
+   - A fantasy (not necessarily romantic — could be about quitting everything, about being someone else, about a different life)
+   - A memory that surfaces without warning and derails the entry
+   - A moment of startling self-awareness between stretches of denial
+</WHAT REAL DIARIES ACTUALLY LOOK LIKE>
+
+<WRITING RULES>
+
+NEVER:
+- Start with "Dear Diary" or any equivalent
+- Write a chronological recap of the day's events like a report
+- Use the format "[Event happened]. [I felt emotion]. [Reflection on emotion]." — this is the AI diary death pattern
+- Have every entry be the same length or structure
+- Make every entry about the main relationship/plot — the character HAS A LIFE beyond that
+- Resolve emotional tension within a single entry (real processing happens across DAYS)
+- Write in a consistently "literary" or poetic voice — diaries are not prose poems
+- Include meta-awareness of being a character ("my story" / "my arc")
+- Make the character fully self-aware about their own patterns — people have blind spots about themselves
+
+ALWAYS:
+- Let the character's personality WARP the format itself (a chaotic person writes chaotically; a control freak writes in rigid structure that cracks under pressure)
+- Include at least one specific, concrete detail (a name, a place, a brand, a song, a food, a time, a texture) per entry
+- Let some entries be BORING on purpose — because not every day is dramatic, and the character writing about nothing reveals how they fill silence
+- Allow entries to END without resolution — mid-thought, mid-sentence, or with a deflection ("Anyway. Whatever. I need to sleep.")
+- Track emotional threads ACROSS entries — something mentioned once should evolve, fester, or quietly resolve over time
+- Let the diary have RUNNING GAGS or recurring annoyances (the neighbor's dog, a broken thing they keep not fixing, a coworker's irritating habit)
+- Occasionally surprise with an entry that breaks the character's usual pattern (the stoic one writes something raw; the dramatic one writes something eerily calm)
+</WRITING RULES>
+
+<ANTI-AI DIARY PATTERNS — HARD BAN>
+✗ "Today was [adjective] day." 
+✗ "I find myself [feeling/doing]..." — nobody talks like this in private
+✗ "Part of me [feels X] while another part [feels Y]" — AI emotional split cliché
+✗ "I need to remember that [life lesson]" — diaries don't conclude with morals
+✗ "Maybe tomorrow will be better" — AI optimism default
+✗ "I don't know why I'm writing this" as an opening — overused
+✗ Perfectly balanced emotional paragraphs with tidy transitions
+✗ Every entry being approximately the same word count
+✗ Using the person's name they're writing about every time instead of pronouns, nicknames, or oblique references ("he" / "her" / "that idiot" / "you know who")
+✗ Ending every entry with a reflective, summarizing final line
+✗ The character having perfect insight into why they feel what they feel
+</ANTI-AI DIARY PATTERNS>
+
+<OUTPUT FORMAT>
+- Write ONLY the diary entry content. No meta-text, no headers like "Diary Entry #4," no dates (unless the character would write dates — some people do, some don't).
+- If the character would use a specific writing medium (phone notes app, physical notebook, voice memo transcript, margins of a textbook), let that medium influence the format.
+- The entry should feel like you opened someone's private notebook to a random page and started reading. No context is given to an audience because there IS no audience.
+- If the character genuinely has nothing they want to write right now, output ONLY: NONE
+</OUTPUT FORMAT>
+
+【CHARACTER CONTEXT & LIVED EXPERIENCE】
+Name: ${contact.name}
+Character Persona & Traits: ${contact.persona}
+${timeStr}${wbPrompt}${memoryPrompt}
+
+【RECENT INTERACTIONS & CONTEXT (FOR INSPIRATION ONLY - DO NOT RECAP)】
+${recentMsgs || '(No recent chat records)'}`;
 
 			    try {
 			        let baseUrl = state.apiConfig.url.trim().replace(/\/+$/, '');
-			                const res = await fetch(`${baseUrl}/chat/completions`, {
+			        const res = await fetch(`${baseUrl}/chat/completions`, {
 			            method: 'POST',
 			            headers: { 'Authorization': `Bearer ${state.apiConfig.apiKey}`, 'Content-Type': 'application/json' },
-			                        body: JSON.stringify({
+			            body: JSON.stringify({
 			                model: state.apiConfig.model || 'gpt-3.5-turbo',
 			                messages: normalizeMessages([
 			                    { role: 'user', content: prompt },
-			                    // Prefill: nudge the model to start writing the diary body directly.
-			                    // An empty assistant turn signals "continue from here" to most models.
 			                    { role: 'assistant', content: '' }
 			                ]),
-			                temperature: 0.8,
+			                temperature: 0.85,
 			                stream: false
 			            })
 			        });
@@ -46442,7 +48289,7 @@ No matter the character, their entrance should not be necessary. Introduce chara
 			        const data = parseAPIResponse(await res.text());
 			        if (data.choices && data.choices[0] && data.choices[0].message) {
 			            let reply = data.choices[0].message.content.trim();
-			            if (reply !== 'NONE' && reply.toLowerCase() !== 'none' && reply.length > 50) {
+			            if (reply !== 'NONE' && reply.toLowerCase() !== 'none' && reply.length > 1) {
 			                if (!contact.diaries) contact.diaries = [];
 			                const newDiary = {
 			                    id: Date.now().toString(),
@@ -53740,6 +55587,7 @@ ${AIRP_MASTER_PROMPT}
 			        chatHeaderNightMode: false,
 			        chatAvatarSize: 46,
 			        chatBubbleMaxWidth: 78,
+			        chatBubbleRadius: 19,
 			        chatBubblePaddingX: 12,
 			        chatBubblePaddingY: 8,
 			        chatListPaddingX: 16,
@@ -53973,6 +55821,7 @@ ${AIRP_MASTER_PROMPT}
 			        <div class="cst-section">界面精调</div>
 			        <div class="cst-card">
 			            ${cstSlider('气泡字号', 'chatFontSize', group.chatFontSize || 16, 10, 22, 'px')}
+			            ${cstSlider('气泡圆角', 'chatBubbleRadius', group.chatBubbleRadius !== undefined ? group.chatBubbleRadius : 19, 0, 36, 'px')}
 			            ${cstSlider('头像尺寸', 'chatAvatarSize', group.chatAvatarSize || 46, 28, 64, 'px')}
 			            ${cstSlider('头像圆角', 'chatAvatarRadius', group.chatAvatarRadius !== undefined ? group.chatAvatarRadius : 50, 0, 50, '%')}
 			            ${cstSlider('气泡最大宽度', 'chatBubbleMaxWidth', group.chatBubbleMaxWidth || 78, 50, 92, '%')}
