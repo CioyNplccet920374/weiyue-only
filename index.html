@@ -66,9 +66,11 @@
 
 			html, body {
 			    width: 100%;
+			    height: 100%;
 			    height: 100vh;
+			    height: 100dvh;
 			    overflow: hidden;
-			    background: #000000;
+			    background: #FFFFFF;
 			    padding: 0;
 			    margin: 0;
 			}
@@ -130,7 +132,9 @@
 			/* 视图容器基础样式 */
 			.view-container {
 			    width: 100%;
+			    height: 100%;
 			    height: 100vh;
+			    height: 100dvh;
 			    position: absolute;
 			    top: 0;
 			    left: 0;
@@ -6512,10 +6516,7 @@
 			    opacity: 0.9;
 			}
 
-			/* 安卓端对话界面90%缩放适配 */
-			.android-device .chat-room-view {
-			    zoom: 0.9;
-			}
+			/* 移除安卓端不合理的全局zoom缩放，保持100%全屏满高布局 */
 
 			/* ===== iOS 风格：记忆归档 ===== */
 			.imem-view {
@@ -19509,11 +19510,11 @@
 
 			.msg-bubble-menu {
 			    position: absolute;
-			    width: 210px;
-			    background: rgba(242, 242, 247, 0.88);
+			    width: 240px;
+			    background: rgba(242, 242, 247, 0.92);
 			    backdrop-filter: blur(30px) saturate(210%);
 			    -webkit-backdrop-filter: blur(30px) saturate(210%);
-			    border-radius: 14px;
+			    border-radius: 16px;
 			    border: 0.5px solid rgba(255, 255, 255, 0.7);
 			    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.2), 0 4px 12px rgba(0, 0, 0, 0.08);
 			    display: flex;
@@ -19524,6 +19525,143 @@
 			    transform-origin: center center;
 			    animation: ios-menu-scale 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.2);
 			    z-index: 10001;
+			}
+
+			/* iOS Tapback 表情反应顶栏 */
+			.msg-reaction-bar {
+			    display: flex;
+			    align-items: center;
+			    justify-content: space-around;
+			    padding: 9px 8px 8px;
+			    background: rgba(255, 255, 255, 0.6);
+			    border-bottom: 0.5px solid rgba(60, 60, 67, 0.16);
+			    user-select: none;
+			    -webkit-user-select: none;
+			}
+
+			.msg-reaction-btn {
+			    font-size: 23px;
+			    width: 34px;
+			    height: 34px;
+			    display: flex;
+			    align-items: center;
+			    justify-content: center;
+			    border-radius: 50%;
+			    cursor: pointer;
+			    transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.2), background-color 0.15s;
+			    position: relative;
+			}
+
+			.msg-reaction-btn:active {
+			    transform: scale(1.35);
+			}
+
+			.msg-reaction-btn.selected {
+			    background: rgba(0, 122, 255, 0.18);
+			    box-shadow: 0 0 0 1.5px #007AFF;
+			    transform: scale(1.08);
+			}
+
+			.glass-effect-bottom.night-mode ~ #msg-menu .msg-reaction-bar,
+			#view-chat_room.night-mode .msg-reaction-bar,
+			.ims-header.night ~ .msg-bubble-menu .msg-reaction-bar {
+			    background: rgba(255, 255, 255, 0.08);
+			    border-bottom-color: rgba(255, 255, 255, 0.12);
+			}
+
+			/* 气泡下方的反应徽章 (Discord 风格) */
+			.msg-reactions-wrap {
+			    display: flex;
+			    flex-wrap: wrap;
+			    gap: 4px;
+			    margin-top: 4px;
+			    margin-bottom: 2px;
+			    z-index: 3;
+			    position: relative;
+			    user-select: none;
+			    -webkit-user-select: none;
+			}
+
+			.message-item.user .msg-reactions-wrap {
+			    justify-content: flex-end;
+			}
+
+			.message-item.assistant .msg-reactions-wrap,
+			.message-item.system .msg-reactions-wrap {
+			    justify-content: flex-start;
+			}
+
+			.msg-reaction-pill {
+			    display: inline-flex;
+			    align-items: center;
+			    gap: 4px;
+			    background: #F5F5F5;
+			    border: none;
+			    border-radius: 8px;
+			    padding: 3px 8px;
+			    font-size: 13px;
+			    cursor: pointer;
+			    transition: all 0.15s ease;
+			    line-height: 1.2;
+			}
+			
+			.msg-reaction-pill:hover {
+			    background: #EAEAEA;
+			}
+
+			.msg-reaction-pill:active {
+			    transform: scale(0.95);
+			}
+
+			.msg-reaction-pill.has-mine {
+			    background: #E5E5EA;
+			}
+			
+			.msg-reaction-pill.has-mine:hover {
+			    background: #D1D1D6;
+			}
+
+			.msg-reaction-pill-users {
+			    font-size: 11px;
+			    color: #888888;
+			    font-weight: 700;
+			    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+			}
+
+			.msg-reaction-pill.has-mine .msg-reaction-pill-users {
+			    color: #111111;
+			}
+
+			.night-mode .msg-reaction-pill,
+			.ims-header.night ~ .message-list .msg-reaction-pill {
+			    background: #2C2C2E;
+			    border: none;
+			    box-shadow: none;
+			}
+			
+			.night-mode .msg-reaction-pill:hover,
+			.ims-header.night ~ .message-list .msg-reaction-pill:hover {
+			    background: #3A3A3C;
+			}
+
+			.night-mode .msg-reaction-pill-users,
+			.ims-header.night ~ .message-list .msg-reaction-pill-users {
+			    color: #8E8E93;
+			}
+
+			.night-mode .msg-reaction-pill.has-mine,
+			.ims-header.night ~ .message-list .msg-reaction-pill.has-mine {
+			    background: #3A3A3C;
+			}
+			
+			.night-mode .msg-reaction-pill.has-mine:hover,
+			.ims-header.night ~ .message-list .msg-reaction-pill.has-mine:hover {
+			    background: #48484A;
+			}
+
+			.night-mode .msg-reaction-pill.has-mine .msg-reaction-pill-users,
+			.ims-header.night ~ .message-list .msg-reaction-pill.has-mine .msg-reaction-pill-users {
+			    color: #FFFFFF;
 			}
 
 			.glass-effect-bottom.night-mode ~ #msg-menu .msg-bubble-menu,
@@ -27955,8 +28093,8 @@
 			src="https://unpkg.com/lucide@latest"
 			crossorigin="anonymous"
 		></script>
-		<script defer src="https://cdn.jsdelivr.net/npm/mammoth@1.6.0/mammoth.browser.min.js"></script>
-		<script defer src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/mammoth@1.6.0/mammoth.browser.min.js" crossorigin="anonymous"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
 		<div id="app">
@@ -28841,6 +28979,8 @@
 				onclick="closeMsgMenu(event)"
 			>
 				<div id="msg-menu-box" class="msg-bubble-menu">
+					<!-- 6种经典反应表情顶栏 -->
+					<div class="msg-reaction-bar" id="msg-reaction-bar"></div>
 					<div class="msg-bubble-menu-item" onclick="actionReplyMsg()">
 						<span>回复</span>
 						<svg viewBox="0 0 24 24"><polyline points="9 17 4 12 9 7"/><path d="M20 18v-2a4 4 0 0 0-4-4H4"/></svg>
@@ -29936,18 +30076,6 @@
 					<!-- ④ 外观 -->
 					<div class="st-section-label">外观</div>
 					<div class="st-group-card">
-						<div class="st-cell has-icon">
-							<div class="st-cell-icon gray dark-desktop-icon">
-								<iconify-icon icon="ph:moon-stars-bold"></iconify-icon>
-							</div>
-							<div class="st-cell-body">
-								<div class="st-cell-title">深色桌面模式</div>
-								<div class="st-cell-sub">将应用图标与底部 Dock 栏切换为黑色质感</div>
-							</div>
-							<div class="st-cell-trailing">
-								<div class="st-switch dark-desktop-switch" onclick="toggleDarkDesktopMode()"></div>
-							</div>
-						</div>
 						<div class="st-cell has-icon tappable" onclick="openFontSettings('global')">
 							<div class="st-cell-icon purple">
 								<iconify-icon icon="ph:text-aa-bold"></iconify-icon>
@@ -33019,12 +33147,23 @@ Before outputting each response, internally verify:
 			const STORE_NAME = 'settings';
 			const AUDIO_STORE = 'audioFiles';
 
+			let _dbInstance = null;
+			let isStorageLoaded = false; // 致命漏洞防线：在数据未从磁盘完全读入内存前，绝对禁止任何覆写操作
+
 			const dbHelper = {
 			    init() {
+			        if (_dbInstance) return Promise.resolve(_dbInstance);
 			        return new Promise((resolve, reject) => {
 			            const request = indexedDB.open(DB_NAME, 3);
 			            request.onerror = () => reject(request.error);
-			            request.onsuccess = () => resolve(request.result);
+			            request.onsuccess = () => {
+			                _dbInstance = request.result;
+			                _dbInstance.onversionchange = () => {
+			                    _dbInstance.close();
+			                    _dbInstance = null;
+			                };
+			                resolve(_dbInstance);
+			            };
 			            request.onupgradeneeded = (e) => {
 			                const db = e.target.result;
 			                if (!db.objectStoreNames.contains(STORE_NAME)) {
@@ -33087,6 +33226,10 @@ Before outputting each response, internally verify:
 
 			const StorageManager = {
 			    async saveData(data) {
+			        if (!isStorageLoaded) {
+			            console.warn('[StorageManager] 拦截未完成加载时的非法覆写，保护历史数据安全。');
+			            return;
+			        }
 			        try {
 			            await dbHelper.set('app_data', data);
 			        } catch(e) {
@@ -33098,7 +33241,9 @@ Before outputting each response, internally verify:
 			        try {
 			            const data = await dbHelper.get('app_data');
 			            if (data) return data;
-			        } catch(e) {}
+			        } catch(e) {
+			            console.warn('IndexedDB read error', e);
+			        }
 			        try {
 			            const lsData = localStorage.getItem('app_data');
 			            if (lsData) return JSON.parse(lsData);
@@ -33133,6 +33278,14 @@ Before outputting each response, internally verify:
 			        contacts: [],
 			    chatGroups: [],
 			        myPersonas: [],
+			    soundConfig: {
+			        sendSoundEnabled: true,
+			        sendSoundCustom: '',
+			        sendSoundName: '',
+			        notifySoundEnabled: true,
+			        notifySoundCustom: '',
+			        notifySoundName: ''
+			    },
 			        			    customFonts: [], // 全局已保存的字体库 [{ id, name, type, url, family, cssUrl }]
 			    dialoguePresets: [], // 全局高权重提示词预设
 			        emotePresets: [], // old legacy
@@ -33505,138 +33658,189 @@ Before outputting each response, internally verify:
 			}
 
 			async function loadSettings() {
+			    try {
 			        const data = await StorageManager.loadData();
 			        if (data) {
-			                if (data.apiConfig) Object.assign(state.apiConfig, data.apiConfig);
-			        if (data.uiConfig) {
-			            Object.assign(state.uiConfig, data.uiConfig);
-			            if (state.uiConfig.hideStatusBar) document.body.classList.add('hide-status-bar');
+			            if (data.apiConfig) Object.assign(state.apiConfig, data.apiConfig);
+			            if (data.uiConfig) {
+			                Object.assign(state.uiConfig, data.uiConfig);
+			                if (state.uiConfig.hideStatusBar) document.body.classList.add('hide-status-bar');
+			            }
+			            if (!state.soundConfig) {
+			                state.soundConfig = {
+			                    sendSoundEnabled: true,
+			                    sendSoundCustom: '',
+			                    sendSoundName: '',
+			                    notifySoundEnabled: true,
+			                    notifySoundCustom: '',
+			                    notifySoundName: ''
+			                };
+			            }
+			            if (data.soundConfig) {
+			                Object.assign(state.soundConfig, data.soundConfig);
+			            }
+			            if (data.musicLibrary) state.musicLibrary = data.musicLibrary;
+			            if (data.musicPlaylists) state.musicPlaylists = data.musicPlaylists;
+			            if (data.musicActivePlaylistId) state.musicActivePlaylistId = data.musicActivePlaylistId;
+			            if (data.musicPlayMode) state.musicPlayMode = data.musicPlayMode;
+			            if (data.togetherListeningSaved) {
+			                state.togetherListening.active = !!data.togetherListeningSaved.active;
+			                state.togetherListening.contactId = data.togetherListeningSaved.contactId || null;
+			                state.togetherListening.startTime = data.togetherListeningSaved.startTime || 0;
+			                state.togetherListening.sentSongIds = data.togetherListeningSaved.sentSongIds || [];
+			            }
+			            if (data.isJellyCollapsed !== undefined) state.isJellyCollapsed = data.isJellyCollapsed;
+			            if (data.contacts) {
+			                state.contacts = data.contacts;
+			                state.contacts.forEach(c => ensureContactConfig(c));
+			            }
+			            if (data.chatGroups) {
+			                state.chatGroups = data.chatGroups;
+			                state.chatGroups.forEach(g => {
+			                    if (g.showBubbleTimestamp === undefined) g.showBubbleTimestamp = true;
+			                    if (g.showReadTicks === undefined) g.showReadTicks = true;
+			                    if (g.chatHeaderNightMode === undefined) g.chatHeaderNightMode = false;
+			                    if (g.bubbleStyle !== 'ios') g.bubbleStyle = 'ios';
+			                    if (g.chatAvatarSize === undefined) g.chatAvatarSize = 46;
+			                    if (g.chatAvatarRadius === undefined) g.chatAvatarRadius = 50;
+			                    if (g.chatBubbleRadius === undefined) g.chatBubbleRadius = 19;
+			                    if (g.chatBubbleMaxWidth === undefined) g.chatBubbleMaxWidth = 78;
+			                    if (g.chatBubblePaddingX === undefined) g.chatBubblePaddingX = 12;
+			                    if (g.chatBubblePaddingY === undefined) g.chatBubblePaddingY = 8;
+			                    if (g.chatListPaddingX === undefined) g.chatListPaddingX = 16;
+			                    if (g.chatMsgGap === undefined) g.chatMsgGap = 16;
+			                    if (g.chatAvatarOffsetY === undefined) g.chatAvatarOffsetY = 0;
+			                });
+			            }
+			            if (data.myPersonas) state.myPersonas = data.myPersonas;
+			            if (data.chatUiThemes) state.chatUiThemes = data.chatUiThemes;
+			            if (data.customFonts) state.customFonts = data.customFonts;
+			            if (data.emotePackages) state.emotePackages = data.emotePackages;
+			            if (data.aiRecognizeEmote !== undefined) state.aiRecognizeEmote = data.aiRecognizeEmote;
+			            if (data.myActiveEmotePackageId !== undefined) state.myActiveEmotePackageId = data.myActiveEmotePackageId;
+			            if (data.dialoguePresets) state.dialoguePresets = data.dialoguePresets;
+			            if (data.apiPresets) state.apiPresets = data.apiPresets;
+			            if (data.moments) state.moments = data.moments;
+			            if (data.worldbooks) state.worldbooks = data.worldbooks;
+			            if (data.wallet) state.wallet = data.wallet;
+			            else state.wallet = { balance: 50000, transactions: [] };
+			            if (data.relationships) state.relationships = data.relationships;
+			            if (data.forumConfig) {
+			                state.forumConfig = data.forumConfig;
+			                if (!state.forumConfig.boards) state.forumConfig.boards = [{ id: 'board_default', name: '综合讨论区', desc: '畅所欲言，海纳百川', worldbookIds: [], allowedContactIds: [] }];
+			                if (!state.forumConfig.posts) state.forumConfig.posts = [];
+			                if (!state.forumConfig.profile) state.forumConfig.profile = { name: '匿名用户', avatar: '', bio: '这个人很懒，什么都没留下。' };
+			                if (!state.forumConfig.profiles) state.forumConfig.profiles = {};
+			                if (state.forumConfig.currentPersonaId === undefined) state.forumConfig.currentPersonaId = '';
+			            }
+			            if (data.shopConfig) state.shopConfig = data.shopConfig;
+			            if (data.inventory) state.inventory = data.inventory;
+			            if (data.bankCard) state.bankCard = data.bankCard;
+			            if (data.takeoutAddress) state.takeoutAddress = data.takeoutAddress;
+			            if (data.takeoutCart) state.takeoutCart = data.takeoutCart;
+			            if (data.meituan) Object.assign(state.meituan, data.meituan);
+			            if (data.loverSpaces) state.loverSpaces = data.loverSpaces;
+			            if (data.pomodoroTasks) state.pomodoroTasks = data.pomodoroTasks;
+			            if (data.forumConfig && data.forumConfig.favorites) {
+			                state.forumConfig.favorites = data.forumConfig.favorites;
+			            } else {
+			                if (state.forumConfig && !state.forumConfig.favorites) state.forumConfig.favorites = [];
+			            }
 			        }
-			        if (data.soundConfig) {
-			            Object.assign(state.soundConfig, data.soundConfig);
-			        }
-			        if (data.musicLibrary) state.musicLibrary = data.musicLibrary;
-			        if (data.musicPlaylists) state.musicPlaylists = data.musicPlaylists;
-			        if (data.musicActivePlaylistId) state.musicActivePlaylistId = data.musicActivePlaylistId;
-			        if (data.musicPlayMode) state.musicPlayMode = data.musicPlayMode;
-			        if (data.togetherListeningSaved) {
-			            state.togetherListening.active = !!data.togetherListeningSaved.active;
-			            state.togetherListening.contactId = data.togetherListeningSaved.contactId || null;
-			            state.togetherListening.startTime = data.togetherListeningSaved.startTime || 0;
-			            state.togetherListening.sentSongIds = data.togetherListeningSaved.sentSongIds || [];
-			        }
-			        if (data.isJellyCollapsed !== undefined) state.isJellyCollapsed = data.isJellyCollapsed;
-			                        if (data.contacts) {
-			            state.contacts = data.contacts;
-			            state.contacts.forEach(c => ensureContactConfig(c));
-			        }
-			        if (data.chatGroups) {
-			            state.chatGroups = data.chatGroups;
-			            state.chatGroups.forEach(g => {
-			                if (g.showBubbleTimestamp === undefined) g.showBubbleTimestamp = true;
-			                if (g.showReadTicks === undefined) g.showReadTicks = true;
-			                if (g.chatHeaderNightMode === undefined) g.chatHeaderNightMode = false;
-			                if (g.bubbleStyle !== 'ios') g.bubbleStyle = 'ios';
-			                if (g.chatAvatarSize === undefined) g.chatAvatarSize = 46;
-			                if (g.chatAvatarRadius === undefined) g.chatAvatarRadius = 50;
-			                if (g.chatBubbleRadius === undefined) g.chatBubbleRadius = 19;
-			                if (g.chatBubbleMaxWidth === undefined) g.chatBubbleMaxWidth = 78;
-			                if (g.chatBubblePaddingX === undefined) g.chatBubblePaddingX = 12;
-			                if (g.chatBubblePaddingY === undefined) g.chatBubblePaddingY = 8;
-			                if (g.chatListPaddingX === undefined) g.chatListPaddingX = 16;
-			                if (g.chatMsgGap === undefined) g.chatMsgGap = 16;
-			                if (g.chatAvatarOffsetY === undefined) g.chatAvatarOffsetY = 0;
-			            });
-			        }
-			        if (data.myPersonas) state.myPersonas = data.myPersonas;
-			        if (data.chatUiThemes) state.chatUiThemes = data.chatUiThemes;
-			        if (data.customFonts) state.customFonts = data.customFonts;
-			        if (data.emotePackages) state.emotePackages = data.emotePackages;
-			        if (data.aiRecognizeEmote !== undefined) state.aiRecognizeEmote = data.aiRecognizeEmote;
-			                                if (data.myActiveEmotePackageId !== undefined) state.myActiveEmotePackageId = data.myActiveEmotePackageId;
-			        if (data.dialoguePresets) state.dialoguePresets = data.dialoguePresets;
-			        if (data.apiPresets) state.apiPresets = data.apiPresets;
-			        // 已移除分组数据持久化读取
-			                if (data.moments) state.moments = data.moments;
-			                        if (data.worldbooks) state.worldbooks = data.worldbooks;
-			                if (data.wallet) state.wallet = data.wallet;
-			        else state.wallet = { balance: 50000, transactions: [] };
-			        if (data.relationships) state.relationships = data.relationships;
-			                if (data.forumConfig) {
-			            state.forumConfig = data.forumConfig;
-			            if (!state.forumConfig.boards) state.forumConfig.boards = [{ id: 'board_default', name: '综合讨论区', desc: '畅所欲言，海纳百川', worldbookIds: [], allowedContactIds: [] }];
-			            if (!state.forumConfig.posts) state.forumConfig.posts = [];
-			            if (!state.forumConfig.profile) state.forumConfig.profile = { name: '匿名用户', avatar: '', bio: '这个人很懒，什么都没留下。' };
-			            if (!state.forumConfig.profiles) state.forumConfig.profiles = {};
-			            if (state.forumConfig.currentPersonaId === undefined) state.forumConfig.currentPersonaId = '';
-			        }
-			                if (data.shopConfig) state.shopConfig = data.shopConfig;
-			        if (data.inventory) state.inventory = data.inventory;
-        if (data.bankCard) state.bankCard = data.bankCard;
-        if (data.takeoutAddress) state.takeoutAddress = data.takeoutAddress;
-        if (data.takeoutCart) state.takeoutCart = data.takeoutCart;
-        if (data.meituan) Object.assign(state.meituan, data.meituan);
-			        if (data.loverSpaces) state.loverSpaces = data.loverSpaces;
-			        if (data.pomodoroTasks) state.pomodoroTasks = data.pomodoroTasks;
-			        if (data.forumConfig && data.forumConfig.favorites) {
-			            state.forumConfig.favorites = data.forumConfig.favorites;
-			        } else {
-			            if (state.forumConfig && !state.forumConfig.favorites) state.forumConfig.favorites = [];
-			        }
+			    } catch (err) {
+			        console.error('加载历史数据异常:', err);
+			    } finally {
+			        isStorageLoaded = true; // 解除写入保护，允许后续正常保存
 			    }
 			}
 
 									let _saveDataTimer = null;
 
+			function getFullStateSnapshot() {
+			    return {
+			        apiConfig: state.apiConfig,
+			        apiPresets: state.apiPresets,
+			        soundConfig: state.soundConfig,
+			        uiConfig: state.uiConfig,
+			        musicLibrary: state.musicLibrary,
+			        musicPlaylists: state.musicPlaylists,
+			        musicActivePlaylistId: state.musicActivePlaylistId,
+			        musicPlayMode: state.musicPlayMode,
+			        togetherListeningSaved: {
+			            active: state.togetherListening.active,
+			            contactId: state.togetherListening.contactId,
+			            startTime: state.togetherListening.startTime,
+			            sentSongIds: state.togetherListening.sentSongIds
+			        },
+			        isJellyCollapsed: state.isJellyCollapsed,
+			        contacts: state.contacts,
+			        chatGroups: state.chatGroups,
+			        myPersonas: state.myPersonas,
+			        chatUiThemes: state.chatUiThemes,
+			        customFonts: state.customFonts,
+			        dialoguePresets: state.dialoguePresets,
+			        emotePackages: state.emotePackages,
+			        aiRecognizeEmote: state.aiRecognizeEmote,
+			        myActiveEmotePackageId: state.myActiveEmotePackageId,
+			        moments: state.moments,
+			        worldbooks: state.worldbooks,
+			        wallet: state.wallet,
+			        relationships: state.relationships,
+			        forumConfig: state.forumConfig,
+			        shopConfig: state.shopConfig,
+			        bankCard: state.bankCard,
+			        takeoutAddress: state.takeoutAddress,
+			        takeoutCart: state.takeoutCart,
+			        meituan: state.meituan,
+			        inventory: state.inventory,
+			        loverSpaces: state.loverSpaces,
+			        pomodoroTasks: state.pomodoroTasks
+			    };
+			}
+
+			// 立刻无延迟刷盘（消息发送、接收、修改关键数据时使用，确保秒级持久化）
+			async function flushSaveData() {
+			    if (!isStorageLoaded) return;
+			    if (_saveDataTimer) {
+			        clearTimeout(_saveDataTimer);
+			        _saveDataTimer = null;
+			    }
+			    try {
+			        await StorageManager.saveData(getFullStateSnapshot());
+			    } catch (e) {
+			        console.warn('Immediate save error:', e);
+			    }
+			}
+
 			async function saveDataSilently() {
+			    if (!isStorageLoaded) return Promise.resolve();
 			    if (_saveDataTimer) clearTimeout(_saveDataTimer);
 			    
-			    // 立即释放主线程，不阻塞 UI，延迟 1.5 秒在后台打包写入
+			    // 缩短防抖等待至 300ms（原 1500ms 极易在切屏瞬间丢失数据）
 			    _saveDataTimer = setTimeout(() => {
-			        StorageManager.saveData({
-			            apiConfig: state.apiConfig,
-			            apiPresets: state.apiPresets,
-			            soundConfig: state.soundConfig,
-			            uiConfig: state.uiConfig,
-			            musicLibrary: state.musicLibrary,
-			            musicPlaylists: state.musicPlaylists,
-			            musicActivePlaylistId: state.musicActivePlaylistId,
-			            musicPlayMode: state.musicPlayMode,
-			            togetherListeningSaved: {
-			                active: state.togetherListening.active,
-			                contactId: state.togetherListening.contactId,
-			                startTime: state.togetherListening.startTime,
-			                sentSongIds: state.togetherListening.sentSongIds
-			            },
-			            isJellyCollapsed: state.isJellyCollapsed,
-			            contacts: state.contacts,
-			            chatGroups: state.chatGroups,
-			            myPersonas: state.myPersonas,
-			            chatUiThemes: state.chatUiThemes,
-			            customFonts: state.customFonts,
-			            dialoguePresets: state.dialoguePresets,
-			            emotePackages: state.emotePackages,
-			            aiRecognizeEmote: state.aiRecognizeEmote,
-			            myActiveEmotePackageId: state.myActiveEmotePackageId,
-			            // 已移除分组数据保存
-			            moments: state.moments,
-			            worldbooks: state.worldbooks,
-			            wallet: state.wallet,
-			            relationships: state.relationships,
-			            forumConfig: state.forumConfig,
-			            shopConfig: state.shopConfig,
-            bankCard: state.bankCard,
-            takeoutAddress: state.takeoutAddress,
-            takeoutCart: state.takeoutCart,
-            meituan: state.meituan,
-            inventory: state.inventory,
-            loverSpaces: state.loverSpaces,
-            pomodoroTasks: state.pomodoroTasks
-        });
-			    }, 1500);
+			        _saveDataTimer = null;
+			        StorageManager.saveData(getFullStateSnapshot());
+			    }, 300);
 			    
-			    return Promise.resolve(); // 瞬间放行，彻底消除卡顿
+			    return Promise.resolve();
 			}
+
+			// 浏览器切出后台或关闭页面时，强制同步刷盘，避免丢失最近几秒内的对话
+			window.addEventListener('beforeunload', () => {
+			    if (isStorageLoaded) {
+			        flushSaveData();
+			    }
+			});
+			window.addEventListener('pagehide', () => {
+			    if (isStorageLoaded) {
+			        flushSaveData();
+			    }
+			});
+			document.addEventListener('visibilitychange', () => {
+			    if (document.visibilityState === 'hidden' && isStorageLoaded) {
+			        flushSaveData();
+			    }
+			});
 
 
 
@@ -37019,6 +37223,31 @@ avatarStr = myAvatarSrc ? `<img src="${myAvatarSrc}" class="msg-avatar my-avatar
 
 			        const hideMyAvatar = !isGroup && chatData.hideMyAvatar;
 
+			        // 气泡下方的表情反应角标 (Discord 风格)
+			        let reactionsHtml = '';
+			        if (msg.reactions && msg.reactions.length > 0) {
+			            const grouped = {};
+			            msg.reactions.forEach(r => {
+			                if (!grouped[r.emoji]) grouped[r.emoji] = [];
+			                grouped[r.emoji].push(r);
+			            });
+
+			            reactionsHtml = `
+			            <div class="msg-reactions-wrap" onclick="event.stopPropagation()">
+			                ${Object.keys(grouped).map(em => {
+			                    const list = grouped[em];
+			                    const hasMine = list.some(r => r.by === 'user');
+			                    const names = list.map(r => r.by === 'user' ? '我' : (r.name || '对方')).join('、');
+			                    const count = list.length;
+			                    return `
+			                    <div class="msg-reaction-pill ${hasMine ? 'has-mine' : ''}" onclick="handleClickReactionBadge('${msg.id}', '${em}', event)" title="${escapeHtml(names)} 点了 ${em}">
+			                        <span>${em}</span>
+			                        <span class="msg-reaction-pill-users">${count}</span>
+			                    </div>`;
+			                }).join('')}
+			            </div>`;
+			        }
+
 			        // 气泡内元数据（无时间，仅留已读状态）
 			        const showTicks = chatData.showReadTicks !== false;
 			        const ticksSvg = showTicks ? '<span class="msg-status-ticks"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L7 17l-5-5M22 10l-7.5 7.5-2-2"/></svg></span>' : '';
@@ -37075,6 +37304,7 @@ avatarStr = myAvatarSrc ? `<img src="${myAvatarSrc}" class="msg-avatar my-avatar
 			            ${!isMe ? `<div class="msg-avatar-wrap">${avatarStr}</div>` : ''}
 			            <div class="msg-bubble-container" ${isMe && hideMyAvatar ? `style="max-width: calc(100% - 20px);"` : ''}>
 			                <div class="msg-bubble ${bubbleGroupClass} ${msg.type === 'image' || msg.type === 'real_image' ? 'msg-image-bubble' : ''} ${(msg.type === 'transfer' || msg.type === 'red_packet' || msg.type === 'exclusive_red_packet' || msg.type === 'forward_records' || msg.type === 'gift' || msg.type === 'forum_post' || msg.type === 'music_share' || msg.type === 'takeout_pay_request' || msg.type === 'lover_invite' || msg.type === 'virtual_image' || msg.type === 'friend_request') ? 'msg-transfer-bubble-wrap' : ''}" style="${isMe ? `background-color: ${myBgColor}; color: ${myTextColor};` : `background-color: ${roleBgColor}; color: ${roleTextColor};`} font-size: ${fontSize}px;" onmousedown="startPress('${msg.id}', event)" onmouseup="endPress()" onmouseleave="endPress()" ontouchstart="startPress('${msg.id}', event)" ontouchend="endPress()" ontouchcancel="endPress()">${replyStr}${contentStr}${metaHtml}</div>
+			                ${reactionsHtml}
 			                ${translationHtml}
 			                ${timeHtml}
 			            </div>
@@ -37362,7 +37592,8 @@ avatarStr = myAvatarSrc ? `<img src="${myAvatarSrc}" class="msg-avatar my-avatar
 			    if (!isGroup) {
 			        chatData.memorySummary.msgCountSinceLast = (chatData.memorySummary.msgCountSinceLast || 0) + 1;
 			    }
-			    await saveDataSilently();
+			    // 用户发出消息后立刻写入磁盘，防止用户秒切退出导致刚才发的话丢失
+			    await flushSaveData();
 			    playSendSound();
 
 			    if (!isGroup && chatData.memoryConfig.autoSummarize && chatData.memorySummary.msgCountSinceLast >= chatData.memoryConfig.triggerMsgCount) {
@@ -37396,6 +37627,8 @@ avatarStr = myAvatarSrc ? `<img src="${myAvatarSrc}" class="msg-avatar my-avatar
 
 			// ==================== 音效引擎：发送与通知音效 ====================
 			let _audioCtxInstance = null;
+			let _audioUnlocked = false;
+
 			function getAudioContext() {
 			    if (!_audioCtxInstance) {
 			        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
@@ -37409,142 +37642,215 @@ avatarStr = myAvatarSrc ? `<img src="${myAvatarSrc}" class="msg-avatar my-avatar
 			    return _audioCtxInstance;
 			}
 
-			// 1. 发送音效：QQ弹弹的可爱低音（Bouncy Plop/Bubble Bass）
-			function playSendSound(force = false) {
-			    if (!force && (!state.soundConfig || state.soundConfig.sendSoundEnabled === false)) return;
+			// 预先由 PCM 渲染出的高保真标准音效 Base64 (避免移动端无手势时不发声)
+			// 发送音效：Q弹泡泡啵啵声 (Bouncy Plop Bubble)
+			const DEFAULT_SEND_SOUND_B64 = (() => {
+			    const sampleRate = 22050;
+			    const duration = 0.22;
+			    const numSamples = Math.floor(sampleRate * duration);
+			    const buffer = new ArrayBuffer(44 + numSamples * 2);
+			    const view = new DataView(buffer);
 
-			    // 如果用户上传了自定音频
-			    if (state.soundConfig && state.soundConfig.sendSoundCustom) {
-			        try {
-			            const audio = new Audio(state.soundConfig.sendSoundCustom);
-			            audio.volume = 0.85;
-			            audio.play().catch(() => {});
-			            return;
-			        } catch (e) {
-			            console.warn('自定发送音频播放异常，回退到默认合成低音', e);
-			        }
+			    // WAV 头
+			    const writeString = (offset, str) => {
+			        for (let i = 0; i < str.length; i++) view.setUint8(offset + i, str.charCodeAt(i));
+			    };
+			    writeString(0, 'RIFF');
+			    view.setUint32(4, 36 + numSamples * 2, true);
+			    writeString(8, 'WAVE');
+			    writeString(12, 'fmt ');
+			    view.setUint32(16, 16, true);
+			    view.setUint16(20, 1, true); // PCM
+			    view.setUint16(22, 1, true); // 单声道
+			    view.setUint32(24, sampleRate, true);
+			    view.setUint32(28, sampleRate * 2, true);
+			    view.setUint16(32, 2, true);
+			    view.setUint16(34, 16, true);
+			    writeString(36, 'data');
+			    view.setUint32(40, numSamples * 2, true);
+
+			    // 生成下潜低频泡泡波
+			    for (let i = 0; i < numSamples; i++) {
+			        const t = i / sampleRate;
+			        const freq = 340 * Math.exp(-t * 14) + 120;
+			        const env = Math.sin(Math.min(Math.PI, (t / duration) * Math.PI)) * Math.exp(-t * 7);
+			        const sample = Math.sin(2 * Math.PI * freq * t) * env * 0.75;
+			        view.setInt16(44 + i * 2, Math.max(-32768, Math.min(32767, sample * 32767)), true);
 			    }
 
-			    // 默认合成：QQ弹弹、温润饱满的低频双音泡泡（无任何刺耳高频）
+			    let binary = '';
+			    const bytes = new Uint8Array(buffer);
+			    for (let i = 0; i < bytes.byteLength; i++) binary += String.fromCharCode(bytes[i]);
+			    return 'data:audio/wav;base64,' + btoa(binary);
+			})();
+
+			// 通知音效：温暖轻音乐五音和弦长琶音 (Maj9 梦幻回响长音，持续约 2 秒)
+			const DEFAULT_NOTIFY_SOUND_B64 = (() => {
+			    const sampleRate = 22050;
+			    const duration = 2.0;
+			    const numSamples = Math.floor(sampleRate * duration);
+			    const buffer = new ArrayBuffer(44 + numSamples * 2);
+			    const view = new DataView(buffer);
+
+			    const writeString = (offset, str) => {
+			        for (let i = 0; i < str.length; i++) view.setUint8(offset + i, str.charCodeAt(i));
+			    };
+			    writeString(0, 'RIFF');
+			    view.setUint32(4, 36 + numSamples * 2, true);
+			    writeString(8, 'WAVE');
+			    writeString(12, 'fmt ');
+			    view.setUint32(16, 16, true);
+			    view.setUint16(20, 1, true);
+			    view.setUint16(22, 1, true);
+			    view.setUint32(24, sampleRate, true);
+			    view.setUint32(28, sampleRate * 2, true);
+			    view.setUint16(32, 2, true);
+			    view.setUint16(34, 16, true);
+			    writeString(36, 'data');
+			    view.setUint32(40, numSamples * 2, true);
+
+			    // Eb4, G4, Bb4, D5, F5
+			    const chords = [
+			        { f: 311.13, delay: 0.00, decay: 1.8 },
+			        { f: 392.00, delay: 0.14, decay: 2.0 },
+			        { f: 466.16, delay: 0.28, decay: 2.2 },
+			        { f: 587.33, delay: 0.42, decay: 2.4 },
+			        { f: 698.46, delay: 0.58, decay: 2.6 }
+			    ];
+
+			    for (let i = 0; i < numSamples; i++) {
+			        const t = i / sampleRate;
+			        let mix = 0;
+			        chords.forEach(c => {
+			            if (t >= c.delay) {
+			                const noteT = t - c.delay;
+			                const env = Math.exp(-noteT * (2.8 / c.decay)) * Math.min(1, noteT * 40);
+			                // 泛音混合使其更有电钢琴/八音盒质感
+			                const s = Math.sin(2 * Math.PI * c.f * noteT) + 0.35 * Math.sin(4 * Math.PI * c.f * noteT);
+			                mix += s * env * 0.25;
+			            }
+			        });
+			        view.setInt16(44 + i * 2, Math.max(-32768, Math.min(32767, mix * 32767)), true);
+			    }
+
+			    let binary = '';
+			    const bytes = new Uint8Array(buffer);
+			    for (let i = 0; i < bytes.byteLength; i++) binary += String.fromCharCode(bytes[i]);
+			    return 'data:audio/wav;base64,' + btoa(binary);
+			})();
+
+			// 全局音频交互解锁器：首次任何点击触发解锁 AudioContext 和 HTML5 Audio
+			function unlockGlobalAudio() {
+			    if (_audioUnlocked) return;
+			    const ctx = getAudioContext();
+			    if (ctx && ctx.state === 'suspended') {
+			        ctx.resume().catch(() => {});
+			    }
+
+			    // 激活一个空音频元素，获得移动端异步发声白名单
 			    try {
-			        const ctx = getAudioContext();
-			        if (!ctx) return;
-			        const t0 = ctx.currentTime;
+			        const silent = new Audio(DEFAULT_SEND_SOUND_B64);
+			        silent.volume = 0.001;
+			        const p = silent.play();
+			        if (p && p.then) {
+			            p.then(() => {
+			                silent.pause();
+			                _audioUnlocked = true;
+			            }).catch(() => {});
+			        }
+			    } catch (e) {}
 
-			        // 主音泡泡 (Sine波，从210Hz软滑落到105Hz)
-			        const osc1 = ctx.createOscillator();
-			        const gain1 = ctx.createGain();
-			        const filter1 = ctx.createBiquadFilter();
+			    document.removeEventListener('click', unlockGlobalAudio);
+			    document.removeEventListener('touchstart', unlockGlobalAudio);
+			}
+			document.addEventListener('click', unlockGlobalAudio);
+			document.addEventListener('touchstart', unlockGlobalAudio, { passive: true });
 
-			        // 柔和低通滤波，过滤一切高频毛刺
-			        filter1.type = 'lowpass';
-			        filter1.frequency.setValueAtTime(450, t0);
+			// 1. 发送音效：Q弹软萌气泡低音
+			function playSendSound(force = false) {
+			    const sc = state.soundConfig || {};
+			    if (!force && sc.sendSoundEnabled === false) return;
 
-			        osc1.type = 'sine';
-			        osc1.frequency.setValueAtTime(215, t0);
-			        osc1.frequency.exponentialRampToValueAtTime(110, t0 + 0.12);
-
-			        gain1.gain.setValueAtTime(0.001, t0);
-			        gain1.gain.exponentialRampToValueAtTime(0.28, t0 + 0.02);
-			        gain1.gain.exponentialRampToValueAtTime(0.001, t0 + 0.14);
-
-			        osc1.connect(filter1);
-			        filter1.connect(gain1);
-			        gain1.connect(ctx.destination);
-
-			        osc1.start(t0);
-			        osc1.stop(t0 + 0.15);
-
-			        // 稍带延迟的弹跳微次音 (形成弹弹的感觉 "boing/plop")
-			        const t1 = t0 + 0.06;
-			        const osc2 = ctx.createOscillator();
-			        const gain2 = ctx.createGain();
-			        const filter2 = ctx.createBiquadFilter();
-
-			        filter2.type = 'lowpass';
-			        filter2.frequency.setValueAtTime(500, t1);
-
-			        osc2.type = 'sine';
-			        osc2.frequency.setValueAtTime(270, t1);
-			        osc2.frequency.exponentialRampToValueAtTime(140, t1 + 0.14);
-
-			        gain2.gain.setValueAtTime(0.001, t1);
-			        gain2.gain.exponentialRampToValueAtTime(0.22, t1 + 0.02);
-			        gain2.gain.exponentialRampToValueAtTime(0.001, t1 + 0.18);
-
-			        osc2.connect(filter2);
-			        filter2.connect(gain2);
-			        gain2.connect(ctx.destination);
-
-			        osc2.start(t1);
-			        osc2.stop(t1 + 0.19);
+			    const src = sc.sendSoundCustom || DEFAULT_SEND_SOUND_B64;
+			    try {
+			        const audio = new Audio(src);
+			        audio.volume = 0.85;
+			        const playPromise = audio.play();
+			        if (playPromise && playPromise.catch) {
+			            playPromise.catch(() => {
+			                // 尝试用 WebAudio 兜底
+			                playSynthesizedSendSound();
+			            });
+			        }
 			    } catch (e) {
-			        console.warn('发送音效播放失败', e);
+			        playSynthesizedSendSound();
 			    }
 			}
 			window.playSendSound = playSendSound;
 
-			// 2. 通知/接收音效：好听的纯轻音乐长音频（温润的轻音乐和弦与梦幻回响序列，持续约 2.6 秒）
-			function playNotifySound(force = false) {
-			    if (!force && (!state.soundConfig || state.soundConfig.notifySoundEnabled === false)) return;
-
-			    // 如果用户上传了自定音频
-			    if (state.soundConfig && state.soundConfig.notifySoundCustom) {
-			        try {
-			            const audio = new Audio(state.soundConfig.notifySoundCustom);
-			            audio.volume = 0.85;
-			            audio.play().catch(() => {});
-			            return;
-			        } catch (e) {
-			            console.warn('自定通知音频播放异常，回退到默认轻音乐旋律', e);
-			        }
-			    }
-
-			    // 默认合成：温暖治愈的五音轻音乐长琶音（Maj9 温暖和弦: Eb4 - G4 - Bb4 - D5 - F5），柔和纯净
+			function playSynthesizedSendSound() {
 			    try {
 			        const ctx = getAudioContext();
 			        if (!ctx) return;
 			        const t0 = ctx.currentTime;
+			        const osc = ctx.createOscillator();
+			        const gain = ctx.createGain();
+			        osc.type = 'sine';
+			        osc.frequency.setValueAtTime(260, t0);
+			        osc.frequency.exponentialRampToValueAtTime(110, t0 + 0.15);
+			        gain.gain.setValueAtTime(0.001, t0);
+			        gain.gain.linearRampToValueAtTime(0.3, t0 + 0.02);
+			        gain.gain.linearRampToValueAtTime(0.001, t0 + 0.16);
+			        osc.connect(gain);
+			        gain.connect(ctx.destination);
+			        osc.start(t0);
+			        osc.stop(t0 + 0.18);
+			    } catch (e) {}
+			}
 
-			        // 五个纯净圆润的音乐音符频率 (Hz)
-			        const notes = [
-			            { f: 311.13, delay: 0.00, dur: 1.6, gain: 0.15 }, // Eb4
-			            { f: 392.00, delay: 0.16, dur: 1.8, gain: 0.16 }, // G4
-			            { f: 466.16, delay: 0.32, dur: 2.0, gain: 0.18 }, // Bb4
-			            { f: 587.33, delay: 0.48, dur: 2.2, gain: 0.17 }, // D5
-			            { f: 698.46, delay: 0.65, dur: 2.5, gain: 0.15 }  // F5 (轻灵尾声)
-			        ];
+			// 2. 通知/接收音效：轻音乐长音频
+			function playNotifySound(force = false) {
+			    const sc = state.soundConfig || {};
+			    if (!force && sc.notifySoundEnabled === false) return;
 
-			        notes.forEach(n => {
-			            const noteTime = t0 + n.delay;
-			            const osc = ctx.createOscillator();
-			            const gain = ctx.createGain();
-			            const filter = ctx.createBiquadFilter();
-
-			            // 模拟音乐风铃/电子琴音色（低通阻尼滤波）
-			            filter.type = 'lowpass';
-			            filter.frequency.setValueAtTime(1200, noteTime);
-			            filter.frequency.exponentialRampToValueAtTime(350, noteTime + n.dur);
-
-			            osc.type = 'sine';
-			            osc.frequency.setValueAtTime(n.f, noteTime);
-
-			            gain.gain.setValueAtTime(0.0001, noteTime);
-			            gain.gain.exponentialRampToValueAtTime(n.gain, noteTime + 0.04);
-			            gain.gain.exponentialRampToValueAtTime(0.0001, noteTime + n.dur);
-
-			            osc.connect(filter);
-			            filter.connect(gain);
-			            gain.connect(ctx.destination);
-
-			            osc.start(noteTime);
-			            osc.stop(noteTime + n.dur + 0.05);
-			        });
+			    const src = sc.notifySoundCustom || DEFAULT_NOTIFY_SOUND_B64;
+			    try {
+			        const audio = new Audio(src);
+			        audio.volume = 0.9;
+			        const playPromise = audio.play();
+			        if (playPromise && playPromise.catch) {
+			            playPromise.catch(() => {
+			                playSynthesizedNotifySound();
+			            });
+			        }
 			    } catch (e) {
-			        console.warn('通知音效播放失败', e);
+			        playSynthesizedNotifySound();
 			    }
 			}
 			window.playNotifySound = playNotifySound;
+
+			function playSynthesizedNotifySound() {
+			    try {
+			        const ctx = getAudioContext();
+			        if (!ctx) return;
+			        const t0 = ctx.currentTime;
+			        const freqs = [311.13, 392.00, 466.16, 587.33, 698.46];
+			        freqs.forEach((f, idx) => {
+			            const startT = t0 + idx * 0.14;
+			            const osc = ctx.createOscillator();
+			            const gain = ctx.createGain();
+			            osc.type = 'sine';
+			            osc.frequency.setValueAtTime(f, startT);
+			            gain.gain.setValueAtTime(0.001, startT);
+			            gain.gain.linearRampToValueAtTime(0.18, startT + 0.04);
+			            gain.gain.linearRampToValueAtTime(0.001, startT + 1.2);
+			            osc.connect(gain);
+			            gain.connect(ctx.destination);
+			            osc.start(startT);
+			            osc.stop(startT + 1.25);
+			        });
+			    } catch (e) {}
+			}
 
 			// 兼容旧接口，自动转发到通知音效
 			function playMessageSound(contact) {
@@ -37829,6 +38135,25 @@ ${AIRP_MASTER_PROMPT}
 			<Creative Integrity>\nNarrative authenticity takes precedence. A character's \ndarkness, moral ambiguity, or destructive impulses \nshould be rendered honestly — sanitizing them to avoid \ndiscomfort is a failure of craft, not a virtue.\n\nThe story's emotional truth matters more than whether \nthe content feels safe. Flat characters and defused \nconflicts are the real failure states here.\n</Creative Integrity>
 			`;
 
+			    // 注入点反应/回应机制
+			    systemPrompt += `
+【消息回应（点反应）机制】
+在聊天中，用户可以对你的消息点反应（类似 iMessage/微信 Tapback），你也可以对用户的消息点反应。双方对彼此的反应均知晓。
+支持 6 种反应表情：
+- ❤️ (喜欢、爱意、感动、心动)
+- 👍 (赞同、认可、好、知道了)
+- 👎 (反对、无语、踩、抗议)
+- 😂 (大笑、笑哭、幽默、好笑)
+- ‼️ (震惊、感叹、强调、不可思议)
+- ❓ (疑惑、不解、问号、怀疑)
+
+你可以在历史对话剧本中看到标记如 [消息反应: 用户(我)回应了❤️]，这代表对方对这句话的情感态度。
+如果你想对用户的消息（通常是最新的一句话）做出反应，请在回复中的任意位置加入指令：
+- 对用户最新的消息点反应：[回应: ❤️]
+- 对特定旧消息点反应：[回应: 消息内容片段, ❤️]
+系统会自动记录该反应并展示在对应的气泡角标上，指令文本不会被用户看见。请根据角色性格自然使用，不要每句话都机械化点反应。
+`;
+
 			    if (!contact.enableNarrator) {
 			        systemPrompt += `6. 纯净格式：只输出你说的话。严禁包含任何动作/表情描写（例如严禁输出“*轻笑*”、“(皱眉)”），严禁带时间前缀！不要每句话最后都刻意带反问句去推进话题。`;
 			    } else {
@@ -37974,8 +38299,18 @@ ABSOLUTE RULE — NO TIME PREFIX in any reply.`
 			            txt = `[回复${rName}的消息: "${rContent}"]\n${txt}`;
 			        }
                     
+			        // 注入双方都知晓的表情反应历史
+			        let reactionStr = '';
+			        if (m.reactions && m.reactions.length > 0) {
+			            const rDetails = m.reactions.map(r => {
+			                const who = r.by === 'user' ? '用户(我)' : r.name;
+			                return `${who}回应了${r.emoji}`;
+			            }).join('，');
+			            reactionStr = ` [消息反应: ${rDetails}]`;
+			        }
+
 			        const speaker = m.role === 'user' ? '我' : contact.name;
-			        chatHistoryText += `${speaker}: ${txt}\n`;
+			        chatHistoryText += `${speaker}: ${txt}${reactionStr}\n`;
 			    });
 
 			    // 将压缩后的历史剧本直接塞进 systemPrompt 的末尾
@@ -38103,6 +38438,44 @@ ABSOLUTE RULE — NO TIME PREFIX in any reply.`
 			                    showToast(`${contact.alias || contact.name} 切到了《${target.name}》`);
 			                }
 			            }
+
+			            // ── 解析并处理角色发出的点反应/回应指令 ──
+			            const reactionRegex = /[\[【](?:回应|点反应|reaction)[:：]\s*(?:(.*?)[,，])?\s*([❤️👍👎😂‼️❓]+)[\]】]/gi;
+			            let reactMatch;
+			            while ((reactMatch = reactionRegex.exec(reply)) !== null) {
+			                const targetSnippet = (reactMatch[1] || '').trim();
+			                const reactEmoji = reactMatch[2].trim();
+
+			                let targetMsg = null;
+			                if (targetSnippet) {
+			                    targetMsg = contact.messages.slice().reverse().find(m => m.content && m.content.includes(targetSnippet));
+			                }
+			                if (!targetMsg) {
+			                    targetMsg = contact.messages.slice().reverse().find(m => m.role === 'user');
+			                }
+			                if (!targetMsg && contact.messages.length > 0) {
+			                    targetMsg = contact.messages[contact.messages.length - 1];
+			                }
+
+			                if (targetMsg && reactEmoji) {
+			                    if (!targetMsg.reactions) targetMsg.reactions = [];
+			                    const roleName = contact.alias || contact.name;
+			                    const existIdx = targetMsg.reactions.findIndex(r => r.by !== 'user' && r.senderId === contact.id);
+			                    if (existIdx > -1) {
+			                        targetMsg.reactions[existIdx].emoji = reactEmoji;
+			                        targetMsg.reactions[existIdx].timestamp = Date.now();
+			                    } else {
+			                        targetMsg.reactions.push({
+			                            by: 'assistant',
+			                            senderId: contact.id,
+			                            name: roleName,
+			                            emoji: reactEmoji,
+			                            timestamp: Date.now()
+			                        });
+			                    }
+			                }
+			            }
+			            reply = reply.replace(reactionRegex, '').trim();
 
 			            // 解析拉黑相关指令
 			            if (reply.includes('[拉黑用户]')) {
@@ -38694,7 +39067,17 @@ ABSOLUTE RULE — NO TIME PREFIX in any reply.`
 			            replyPrefix = `[回复 ${rName}: "${rContent}"]\n`;
 			        }
 
-			        return `${senderName}: ${replyPrefix}${txt}`;
+			        // 注入双方都知晓的表情反应历史
+			        let reactionStr = '';
+			        if (m.reactions && m.reactions.length > 0) {
+			            const rDetails = m.reactions.map(r => {
+			                const who = r.by === 'user' ? '用户(我)' : r.name;
+			                return `${who}回应了${r.emoji}`;
+			            }).join('，');
+			            reactionStr = ` [消息反应: ${rDetails}]`;
+			        }
+
+			        return `${senderName}: ${replyPrefix}${txt}${reactionStr}`;
 			    }).join('\n');
 
 			    			const prompt = `你现在是群聊互动引擎。当前群聊，群名：${group.name}。
@@ -38983,6 +39366,44 @@ ABSOLUTE RULE — NO TIME PREFIX in any reply.`
 			                    }
 			                }
 			                finalContent = finalContent.replace(groupRpRegex, '').trim();
+
+			                // ── 解析并处理群成员点反应/回应指令 ──
+			                const groupReactRegex = /[\[【](?:回应|点反应|reaction)[:：]\s*(?:(.*?)[,，])?\s*([❤️👍👎😂‼️❓]+)[\]】]/gi;
+			                let grMatch;
+			                while ((grMatch = groupReactRegex.exec(finalContent)) !== null) {
+			                    const targetSnippet = (grMatch[1] || '').trim();
+			                    const reactEmoji = grMatch[2].trim();
+
+			                    let targetMsg = null;
+			                    if (targetSnippet) {
+			                        targetMsg = group.messages.slice().reverse().find(mg => mg.content && mg.content.includes(targetSnippet));
+			                    }
+			                    if (!targetMsg) {
+			                        targetMsg = group.messages.slice().reverse().find(mg => mg.role === 'user');
+			                    }
+			                    if (!targetMsg && group.messages.length > 0) {
+			                        targetMsg = group.messages[group.messages.length - 1];
+			                    }
+
+			                    if (targetMsg && reactEmoji) {
+			                        if (!targetMsg.reactions) targetMsg.reactions = [];
+			                        const memberName = members.find(c => c.id === m.senderId)?.name || '成员';
+			                        const existIdx = targetMsg.reactions.findIndex(r => r.by !== 'user' && r.senderId === m.senderId);
+			                        if (existIdx > -1) {
+			                            targetMsg.reactions[existIdx].emoji = reactEmoji;
+			                            targetMsg.reactions[existIdx].timestamp = Date.now();
+			                        } else {
+			                            targetMsg.reactions.push({
+			                                by: 'assistant',
+			                                senderId: m.senderId,
+			                                name: memberName,
+			                                emoji: reactEmoji,
+			                                timestamp: Date.now()
+			                            });
+			                        }
+			                    }
+			                }
+			                finalContent = finalContent.replace(groupReactRegex, '').trim();
 
 			                // 处理发专属红包指令
 			                const exclusiveRpRegex = /\[发专属红包:\s*(.*?),\s*([\d.]+),\s*(.*?)\]/g;
@@ -39795,6 +40216,9 @@ ABSOLUTE RULE — NO TIME PREFIX in any reply.`
 
 			// ========= Long Press & Multi-Select =========
 			let pressTimer = null;
+			// 6种经典 Tapback 表情反应
+			const REACTION_EMOJIS = ['❤️', '👍', '👎', '😂', '‼️', '❓'];
+
 			function startPress(msgId, event) {
 			    if(state.isMultiSelecting) return;
 			    const target = event.currentTarget;
@@ -39803,10 +40227,23 @@ ABSOLUTE RULE — NO TIME PREFIX in any reply.`
 			        const menuOverlay = $('#msg-menu');
 			        const menuBox = $('#msg-menu-box');
 			        
-			        // 判断是否显示撤回按钮
 			        const isGroup = state.activeChatType === 'group';
 			        const chatData = isGroup ? state.chatGroups.find(g => g.id === state.activeGroupId) : state.contacts.find(c => c.id === state.activeContactId);
 			        const msg = chatData ? chatData.messages.find(m => m.id === msgId) : null;
+
+			        // 渲染 6 种反应表情按钮
+			        const reactionBar = $('#msg-reaction-bar');
+			        if (reactionBar && msg) {
+			            const myReaction = (msg.reactions || []).find(r => r.by === 'user');
+			            const myCurrentEmoji = myReaction ? myReaction.emoji : '';
+			            reactionBar.innerHTML = REACTION_EMOJIS.map(em => `
+			                <div class="msg-reaction-btn ${myCurrentEmoji === em ? 'selected' : ''}" onclick="actionToggleReaction('${em}')">
+			                    ${em}
+			                </div>
+			            `).join('');
+			        }
+
+			        // 判断是否显示撤回按钮
 			        const recallBtn = $('#msg-menu-recall-btn');
 			        if (msg && msg.role === 'user' && (Date.now() - msg.timestamp < 120000)) {
 			            if (recallBtn) recallBtn.style.display = 'flex';
@@ -39844,6 +40281,95 @@ ABSOLUTE RULE — NO TIME PREFIX in any reply.`
 			}
 			function endPress() { if(pressTimer) clearTimeout(pressTimer); }
 			function closeMsgMenu(e) { if(!e || e.target.id === 'msg-menu') { $('#msg-menu').style.display = 'none'; state.msgMenuObj.msgId = null; } }
+
+			// 切换/点亮我对此消息的表情反应
+			async function actionToggleReaction(emoji) {
+			    const msgId = state.msgMenuObj.msgId;
+			    if (!msgId) return;
+
+			    const isGroup = state.activeChatType === 'group';
+			    const chatData = isGroup ? state.chatGroups.find(g => g.id === state.activeGroupId) : state.contacts.find(c => c.id === state.activeContactId);
+			    if (!chatData) return;
+
+			    const msg = chatData.messages.find(m => m.id === msgId);
+			    if (!msg) return;
+
+			    if (!msg.reactions) msg.reactions = [];
+
+			    const myIdx = msg.reactions.findIndex(r => r.by === 'user');
+			    if (myIdx > -1) {
+			        if (msg.reactions[myIdx].emoji === emoji) {
+			            // 重复点击取消
+			            msg.reactions.splice(myIdx, 1);
+			            showToast(`已取消 ${emoji} 回应`);
+			        } else {
+			            // 更改为新表情
+			            msg.reactions[myIdx].emoji = emoji;
+			            msg.reactions[myIdx].timestamp = Date.now();
+			            showToast(`已回应 ${emoji}`);
+			        }
+			    } else {
+			        // 新增我的反应
+			        msg.reactions.push({
+			            by: 'user',
+			            name: state.uiConfig.momentsName || '我',
+			            emoji: emoji,
+			            timestamp: Date.now()
+			        });
+			        showToast(`已回应 ${emoji}`);
+			    }
+
+			    closeMsgMenu();
+			    await flushSaveData();
+			    renderChatRoom();
+			}
+			window.actionToggleReaction = actionToggleReaction;
+
+			// 点击气泡上的反应角标：快捷查看或切换/取消自己的反应
+			async function handleClickReactionBadge(msgId, emoji, event) {
+			    if (event) event.stopPropagation();
+			    if (state.isMultiSelecting) {
+			        toggleMsgSelect(msgId);
+			        return;
+			    }
+
+			    const isGroup = state.activeChatType === 'group';
+			    const chatData = isGroup ? state.chatGroups.find(g => g.id === state.activeGroupId) : state.contacts.find(c => c.id === state.activeContactId);
+			    if (!chatData) return;
+
+			    const msg = chatData.messages.find(m => m.id === msgId);
+			    if (!msg || !msg.reactions) return;
+
+			    const reactList = msg.reactions.filter(r => r.emoji === emoji);
+			    const hasMine = reactList.some(r => r.by === 'user');
+			    const whoNames = reactList.map(r => r.by === 'user' ? '我' : (r.name || '对方')).join('、');
+
+			    if (hasMine) {
+			        // 如果自己已经点了这个表情，提示是否取消
+			        if (await showConfirmDialog('表情回应', `${whoNames} 点了 ${emoji}\n\n是否取消你的回应？`)) {
+			            msg.reactions = msg.reactions.filter(r => !(r.by === 'user' && r.emoji === emoji));
+			            await flushSaveData();
+			            renderChatRoom();
+			            showToast('已取消回应');
+			        }
+			    } else {
+			        // 如果自己没点，提示是否也回应一个
+			        if (await showConfirmDialog('表情回应', `${whoNames} 点了 ${emoji}\n\n你也要回应 ${emoji} 吗？`)) {
+			            // 移除我可能点过的其他表情，换成这个
+			            msg.reactions = msg.reactions.filter(r => r.by !== 'user');
+			            msg.reactions.push({
+			                by: 'user',
+			                name: state.uiConfig.momentsName || '我',
+			                emoji: emoji,
+			                timestamp: Date.now()
+			            });
+			            await flushSaveData();
+			            renderChatRoom();
+			            showToast(`已回应 ${emoji}`);
+			        }
+			    }
+			}
+			window.handleClickReactionBadge = handleClickReactionBadge;
 
 			async function actionCopyMsg() {
 			    const isGroup = state.activeChatType === 'group';
@@ -39914,7 +40440,7 @@ ABSOLUTE RULE — NO TIME PREFIX in any reply.`
 			            msg.content = newText.trim();
 			            await saveDataSilently();
 			            renderChatRoom();
-			            showToast('修改成功');
+			            showToast('已删除消息');
 			        }
 			    }
 			}
@@ -40528,63 +41054,9 @@ ABSOLUTE RULE — NO TIME PREFIX in any reply.`
 			                <div class="cst-body"><div class="cst-title">对方红包封面</div></div>
 			                <div class="cst-trail"><div class="cst-chev"><iconify-icon icon="ph:caret-right-bold"></iconify-icon></div></div>
 			            </div>
->>>>>>> REPLACE
-```
 
-```html
-<<<<<<< SEARCH
-			    apiConfig: { url: 'https://api.siliconflow.cn/v1', apiKey: '', model: 'Qwen/Qwen2.5-7B-Instruct', presetId: '', temperature: 0.8 },
-			    apiPresets: [],
-			    uiConfig: { textColor: '#ffffff', wallpaper: 'https://i.postimg.cc/5tXp8JvL/IMG-0690.jpg', lockWallpaper: 'https://i.postimg.cc/5tXp8JvL/IMG-0690.jpg', lockPasscodeEnabled: false, lockPasscode: '', darkDesktopMode: false, customIcons: {}, momentsBg: '', momentsAvatar: '', momentsName: 'Space Traveler', chatMainBg: '', magazineImg: '', hideStatusBar: false, globalFontType: 'default', globalFontUrl: '', globalFontFamily: '', koreanTextCardContent: '오늘도 수고했어 ʕ•ᴥ•ʔ<br>내 il은 더 빛날 거야 ✨' },
-=======
-			    apiConfig: { url: 'https://api.siliconflow.cn/v1', apiKey: '', model: 'Qwen/Qwen2.5-7B-Instruct', presetId: '', temperature: 0.8 },
-			    apiPresets: [],
-			    soundConfig: {
-			        sendSoundEnabled: true,
-			        sendSoundCustom: '',
-			        sendSoundName: '',
-			        notifySoundEnabled: true,
-			        notifySoundCustom: '',
-			        notifySoundName: ''
-			    },
-			    uiConfig: { textColor: '#ffffff', wallpaper: 'https://i.postimg.cc/5tXp8JvL/IMG-0690.jpg', lockWallpaper: 'https://i.postimg.cc/5tXp8JvL/IMG-0690.jpg', lockPasscodeEnabled: false, lockPasscode: '', darkDesktopMode: false, customIcons: {}, momentsBg: '', momentsAvatar: '', momentsName: 'Space Traveler', chatMainBg: '', magazineImg: '', hideStatusBar: false, globalFontType: 'default', globalFontUrl: '', globalFontFamily: '', koreanTextCardContent: '오늘도 수고했어 ʕ•ᴥ•ʔ<br>내 il은 더 빛날 거야 ✨' },
-			        </div>
 
-			        <div class="cst-section">气泡配色</div>
-			        <div class="cst-presetrow">
-			            ${Object.keys(BUBBLE_PRESETS).map(key => {
-			                const p = BUBBLE_PRESETS[key];
-			                const isOn = contact.myBubbleColor === p.myBubbleColor && contact.roleBubbleColor === p.roleBubbleColor;
-			                return `
-			                <div class="cst-preset ${isOn ? 'on' : ''}" onclick="applyBubblePreset('${key}')">
-			                    <div class="cst-presetprev" style="background: ${key === 'ios_dark' ? '#1C1C1E' : '#FFFFFF'};">
-			                        <span class="cst-bub role" style="background: ${p.roleBubbleColor};"></span>
-			                        <span class="cst-bub mine" style="background: ${p.myBubbleColor};"></span>
-			                    </div>
-			                    <div class="cst-presetname">${escapeHtml(p.name)}</div>
-			                </div>`;
-			            }).join('')}
-			        </div>
-			        <div class="cst-footnote">选择预设会同时切换顶栏与输入区的明暗主题。</div>
-
-			        <div class="cst-section">界面精调</div>
-			        <div class="cst-card">
-			            ${cstSlider('气泡字号', 'chatFontSize', contact.chatFontSize || 16, 10, 22, 'px')}
-			            ${cstSlider('气泡圆角', 'chatBubbleRadius', contact.chatBubbleRadius !== undefined ? contact.chatBubbleRadius : 19, 0, 36, 'px')}
-			            ${cstSlider('头像尺寸', 'chatAvatarSize', contact.chatAvatarSize || 46, 28, 64, 'px')}
-			            ${cstSlider('头像圆角', 'chatAvatarRadius', contact.chatAvatarRadius !== undefined ? contact.chatAvatarRadius : 50, 0, 50, '%')}
-			            ${cstSlider('气泡最大宽度', 'chatBubbleMaxWidth', contact.chatBubbleMaxWidth || 78, 50, 92, '%')}
-			            ${cstSlider('气泡水平留白', 'chatBubblePaddingX', contact.chatBubblePaddingX || 12, 6, 28, 'px')}
-			            ${cstSlider('气泡垂直留白', 'chatBubblePaddingY', contact.chatBubblePaddingY || 8, 4, 24, 'px')}
-			            ${cstSlider('列表左右留白', 'chatListPaddingX', contact.chatListPaddingX || 16, 4, 32, 'px')}
-			            ${cstSlider('消息行距', 'chatMsgGap', contact.chatMsgGap || 16, 2, 32, 'px')}
-			            ${cstSlider('头像纵向偏移', 'chatAvatarOffsetY', contact.chatAvatarOffsetY || 0, -20, 20, 'px')}
-			            ${cstColor('我方气泡', 'myBubbleColor', contact.myBubbleColor || '#34C759')}
-			            ${cstColor('我方文字', 'myTextColor', contact.myTextColor || '#FFFFFF')}
-			            ${cstColor('对方气泡', 'roleBubbleColor', contact.roleBubbleColor || '#E9E9EB')}
-			            ${cstColor('对方文字', 'roleTextColor', contact.roleTextColor || '#000000')}
-			            <div class="cst-actionrow" onclick="resetChatLayout()">
-			                <span class="cst-actiontext">恢复默认布局</span>
+			    
 			            </div>
 			        </div>
 
@@ -41253,21 +41725,79 @@ ABSOLUTE RULE — NO TIME PREFIX in any reply.`
 			    worker: null,
 			    audioElement: null,
 
+			    // 生成一段合法的 6 秒长静音 PCM WAV，保证能被 iOS 媒体中心和锁屏识别并稳定常驻
+			    getSilentKeepAliveAudioSrc() {
+			        const sampleRate = 8000;
+			        const duration = 6.0;
+			        const numSamples = Math.floor(sampleRate * duration);
+			        const buffer = new ArrayBuffer(44 + numSamples * 2);
+			        const view = new DataView(buffer);
+			        const writeString = (offset, str) => {
+			            for (let i = 0; i < str.length; i++) view.setUint8(offset + i, str.charCodeAt(i));
+			        };
+			        writeString(0, 'RIFF');
+			        view.setUint32(4, 36 + numSamples * 2, true);
+			        writeString(8, 'WAVE');
+			        writeString(12, 'fmt ');
+			        view.setUint32(16, 16, true);
+			        view.setUint16(20, 1, true);
+			        view.setUint16(22, 1, true);
+			        view.setUint32(24, sampleRate, true);
+			        view.setUint32(28, sampleRate * 2, true);
+			        view.setUint16(32, 2, true);
+			        view.setUint16(34, 16, true);
+			        writeString(36, 'data');
+			        view.setUint32(40, numSamples * 2, true);
+
+			        let binary = '';
+			        const bytes = new Uint8Array(buffer);
+			        for (let i = 0; i < bytes.byteLength; i++) binary += String.fromCharCode(bytes[i]);
+			        return 'data:audio/wav;base64,' + btoa(binary);
+			    },
+
 			    startKeepAlive() {
 			        if (!this.audioElement) {
-			            this.audioElement = new Audio();
-			            // 一段极短的静音 wav base64
-			            this.audioElement.src = 'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA';
+			            this.audioElement = new Audio(this.getSilentKeepAliveAudioSrc());
 			            this.audioElement.loop = true;
-			            this.audioElement.volume = 0.01;
+			            this.audioElement.volume = 0.05;
 			        }
-			        this.audioElement.play().catch(e => console.warn('静音保活播放受限(需用户交互):', e));
+
+			        // 注入系统媒体控制会话 (MediaSession)，在控制中心、锁屏以及通知栏显示播放卡片并保持进程活跃
+			        if ('mediaSession' in navigator) {
+			            try {
+			                navigator.mediaSession.metadata = new MediaMetadata({
+			                    title: 'Moon小手机 · 后台守护中',
+			                    artist: '角色随时待命中',
+			                    album: '主动呼叫服务',
+			                    artwork: [
+			                        { src: 'https://i.postimg.cc/wM3sFd93/IMG-0613.jpg', sizes: '192x192', type: 'image/jpeg' }
+			                    ]
+			                });
+			                navigator.mediaSession.playbackState = 'playing';
+
+			                // 注册系统媒体控制响应事件，防止 iOS 系统强行停止
+			                const dummyAction = () => {};
+			                navigator.mediaSession.setActionHandler('play', () => {
+			                    if (this.audioElement) this.audioElement.play().catch(() => {});
+			                });
+			                navigator.mediaSession.setActionHandler('pause', dummyAction);
+			            } catch (err) {
+			                console.warn('MediaSession 配置异常:', err);
+			            }
+			        }
+
+			        this.audioElement.play().catch(e => console.warn('保活音频播放受限(需用户交互解锁):', e));
 			    },
 
 			    stopKeepAlive() {
 			        if (this.audioElement) {
 			            this.audioElement.pause();
 			            this.audioElement.currentTime = 0;
+			        }
+			        if ('mediaSession' in navigator) {
+			            try {
+			                navigator.mediaSession.playbackState = 'none';
+			            } catch (e) {}
 			        }
 			    },
 
@@ -43631,8 +44161,6 @@ function updateChatLayout(prop, val) {
 			    const activeColorBtn = document.getElementById(textColor === '#ffffff' ? 'color-btn-light' : 'color-btn-dark');
 			    if (activeColorBtn) activeColorBtn.classList.add('active');
 
-			    updateDarkDesktopModeUI();
-
 			    // 5. 渲染锁屏密码状态区
 			    const lockWrapper = $('#lock-passcode-cell-wrapper');
 			    if (lockWrapper) {
@@ -43825,26 +44353,8 @@ function updateChatLayout(prop, val) {
 			}
 
 			async function exportData() {
-			    const data = {
-			                apiConfig: state.apiConfig,
-			        apiPresets: state.apiPresets,
-			        uiConfig: state.uiConfig,
-			                contacts: state.contacts,
-			        chatGroups: state.chatGroups,
-			        myPersonas: state.myPersonas,
-			        emotePackages: state.emotePackages,
-			        aiRecognizeEmote: state.aiRecognizeEmote,
-			        myActiveEmotePackageId: state.myActiveEmotePackageId,
-			        groups: state.groups,
-			        groupExpanded: state.groupExpanded,
-			        moments: state.moments,
-			        worldbooks: state.worldbooks,
-			                wallet: state.wallet,
-			        relationships: state.relationships,
-			                forumConfig: state.forumConfig,
-			        shopConfig: state.shopConfig,
-			        inventory: state.inventory
-			    };
+			    // 使用全量快照导出，确保美团、情侣空间、自定字体、CSS 等所有模块均完整备份
+			    const data = getFullStateSnapshot();
 			    const jsonStr = JSON.stringify(data);
 			    const blob = new Blob([jsonStr], { type: 'application/json' });
 			    const now = new Date();
@@ -43887,29 +44397,39 @@ function updateChatLayout(prop, val) {
 			function importData(e) {
 			    const f = e.target.files[0]; if(!f) return;
 			    const reader = new FileReader();
-			    reader.onload = ev => {
-			                                try {
+			    reader.onload = async ev => {
+			        try {
 			            const res = JSON.parse(ev.target.result);
-			                        if(res.apiConfig) Object.assign(state.apiConfig, res.apiConfig);
+			            if(res.apiConfig) Object.assign(state.apiConfig, res.apiConfig);
 			            if(res.apiPresets) state.apiPresets = res.apiPresets;
 			            if(res.uiConfig) Object.assign(state.uiConfig, res.uiConfig);
 			            if(res.contacts) { state.contacts = res.contacts; state.contacts.forEach(c => ensureContactConfig(c)); }
+			            if(res.chatGroups) state.chatGroups = res.chatGroups;
 			            if(res.myPersonas) state.myPersonas = res.myPersonas;
+			            if(res.chatUiThemes) state.chatUiThemes = res.chatUiThemes;
+			            if(res.customFonts) state.customFonts = res.customFonts;
+			            if(res.dialoguePresets) state.dialoguePresets = res.dialoguePresets;
 			            if(res.emotePackages) state.emotePackages = res.emotePackages;
 			            if(res.aiRecognizeEmote !== undefined) state.aiRecognizeEmote = res.aiRecognizeEmote;
 			            if(res.myActiveEmotePackageId !== undefined) state.myActiveEmotePackageId = res.myActiveEmotePackageId;
-			            if(res.groups) state.groups = res.groups;
-			            if(res.groupExpanded) state.groupExpanded = res.groupExpanded;
 			            if(res.moments) state.moments = res.moments;
 			            if(res.worldbooks) state.worldbooks = res.worldbooks;
 			            if(res.wallet) state.wallet = res.wallet;
-			                        if(res.relationships) state.relationships = res.relationships;
+			            if(res.relationships) state.relationships = res.relationships;
 			            if(res.forumConfig) state.forumConfig = res.forumConfig;
-			                        if(res.shopConfig) state.shopConfig = res.shopConfig;
+			            if(res.shopConfig) state.shopConfig = res.shopConfig;
 			            if(res.inventory) state.inventory = res.inventory;
+			            if(res.bankCard) state.bankCard = res.bankCard;
+			            if(res.takeoutAddress) state.takeoutAddress = res.takeoutAddress;
+			            if(res.takeoutCart) state.takeoutCart = res.takeoutCart;
+			            if(res.meituan) Object.assign(state.meituan, res.meituan);
+			            if(res.loverSpaces) state.loverSpaces = res.loverSpaces;
+			            if(res.pomodoroTasks) state.pomodoroTasks = res.pomodoroTasks;
 
-			            saveDataSilently(); renderSettings(); showToast('导入成功');
-			        } catch(err) { showToast('格式错误', 'error'); }
+			            await flushSaveData();
+			            renderSettings();
+			            showToast('数据完整恢复成功！');
+			        } catch(err) { showToast('格式错误或文件损坏', 'error'); }
 			    };
 			    reader.readAsText(f); e.target.value = '';
 			}
@@ -63226,64 +63746,14 @@ ${historyText}`;
 
 			// ==================== 缺失的核心功能补全 ====================
 
-			// 1. 修复：聊天后尝试发情侣空间动态引发的报错
-			async function tryTriggerLoverPost(contact) {
-			    if (!state.apiConfig.url || !state.apiConfig.apiKey) return;
-			    // 只有绑定了情侣空间才触发
-			    if (!state.loverSpaces) return;
-			    const space = state.loverSpaces.find(s => s.contactId === contact.id && s.status === 'accepted');
-			    if (!space) return;
-
-			    const now = Date.now();
-			    if (now - (contact.lastLoverPostTime || 0) < 4 * 60 * 60 * 1000) return; // 4小时冷却时间
-			    if (Math.random() > 0.3) return; // 30% 概率触发
-
-			    // 更新时间戳，防止无限报错卡死
-			    contact.lastLoverPostTime = now;
-			    await saveDataSilently();
-			}
-
-			// 2. 修复：聊天主页顶部“拍立得相框”无法更换图片的Bug
-			function handlePosterBgUpload(e) {
-			    const file = e.target.files[0];
-			    if (!file) return;
-			    const reader = new FileReader();
-			    reader.onload = ev => {
-			        state.uiConfig.posterBg = ev.target.result;
-			        saveDataSilently();
-			        const bgLayer = document.getElementById('poster-main-bg-layer');
-			        if (bgLayer) {
-			            bgLayer.style.backgroundImage = `url(${state.uiConfig.posterBg})`;
-			            bgLayer.style.border = 'none';
-			        }
-			    };
-			    reader.readAsDataURL(file);
-			    e.target.value = '';
-			}
-
-			function handlePosterAvatarUpload(e) {
-			    const file = e.target.files[0];
-			    if (!file) return;
-			    const reader = new FileReader();
-			    reader.onload = ev => {
-			        state.uiConfig.posterAvatar = ev.target.result;
-			        saveDataSilently();
-			        const avatarLayer = document.getElementById('poster-sub-avatar-layer');
-			        if (avatarLayer) {
-			            avatarLayer.style.backgroundImage = `url(${state.uiConfig.posterAvatar})`;
-			            avatarLayer.style.border = 'none';
-			        }
-			    };
-			    reader.readAsDataURL(file);
-			    e.target.value = '';
-			}
-
-			// 3. 修复：情侣空间中点击 Memory 按钮报错的Bug
-			function triggerLoverCardBgUpload(event) {
-			    if (event) event.stopPropagation();
-			    const input = document.getElementById('loverCardBgInput');
-			    if (input) input.click();
-			}
+			// ==================== 跨模块互动兜底与状态安全保护 ====================
+			// 确保全局作用域对拍立得、情侣空间背景和图片更换句柄的正确映射
+			window.tryTriggerLoverPost = tryTriggerLoverPost;
+			window.handlePosterBgUpload = handlePosterBgUpload;
+			window.handlePosterAvatarUpload = handlePosterAvatarUpload;
+			window.triggerLoverCardBgUpload = triggerLoverCardBgUpload;
+			window.actionToggleReaction = actionToggleReaction;
+			window.handleClickReactionBadge = handleClickReactionBadge;
 
 			// 4. 确保刷新页面时，拍立得照片能正常显示出来
 			document.addEventListener('DOMContentLoaded', () => {
